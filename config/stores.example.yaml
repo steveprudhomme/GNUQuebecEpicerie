@@ -10,9 +10,9 @@ stores:
     timezone: America/Toronto
     locale: fr-CA
     enabled: false
-    source_store_id: null
-    source_url: https://www.superc.ca/trouver-une-epicerie
-    notes: "Magasin choisi. Activer après vérification du sélecteur de magasin du collecteur."
+    source_store_id: "447"
+    source_url: https://www.superc.ca/trouver-magasin
+    notes: "Identifiant du lecteur confirmé le 2026-09-20 : 447. Collecteur à implémenter; voir docs/superc-source-analysis.md."
   - retailer_id: iga
     store_id: iga-laval-cartier-ouest-307
     name: "IGA extra des-Rapides"

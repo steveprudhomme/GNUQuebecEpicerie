@@ -101,3 +101,14 @@ Le code est distribué sous licence **GNU General Public License v3.0 or later (
 Le [contrat V1](docs/v1-contract.md) fixe les promotions, les magasins et les archives.
 Le registre de référence est [config/stores.yaml](config/stores.yaml).
 Les sept [exemples fictifs](examples/flyer.v1.json) sont validés en CI.
+
+## Analyse locale des sources
+
+L'[analyse Super C](docs/superc-source-analysis.md) confirme la source structurée
+et l'identifiant du magasin de référence. Le diagnostic peut être relancé sur le PC :
+
+```powershell
+python -m gnuquebecepicerie.analysis.superc --date 2026-09-20
+```
+
+Ses réponses restent sous `local/`, hors Git. Il ne normalise ni ne publie encore les offres.

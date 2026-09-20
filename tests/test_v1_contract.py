@@ -80,6 +80,7 @@ def test_invalid_store_registry(case):
         registry["stores"].append(copy.deepcopy(registry["stores"][0]))
     elif case == "unverified":
         registry["stores"][0]["enabled"] = True
+        registry["stores"][0]["source_store_id"] = None
     else:
         registry["stores"][0]["retailer_id"] = "iga"
     with pytest.raises(ValueError):

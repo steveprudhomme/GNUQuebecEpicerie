@@ -92,6 +92,11 @@ Les identifiants internes sont stables, indépendants des plateformes des enseig
 `enabled: false` interdit l'activation avant cette vérification; cela ne remet pas
 en question le choix du magasin. Ne jamais remplacer silencieusement un magasin.
 
+Mise à jour du 20 septembre 2026 : l'identifiant du lecteur Super C est confirmé
+à `447` (distinct de `653` dans le sélecteur du site). Voir
+[l'analyse locale](superc-source-analysis.md). Super C reste désactivé tant que
+la normalisation et les contrôles de collecte ne sont pas implémentés; IGA reste à analyser.
+
 - Super C : 1000, boulevard des Laurentides, Laval, QC H7G 2W1.
   Source : [localisateur officiel](https://www.superc.ca/trouver-une-epicerie).
 - IGA : 307, boulevard Cartier Ouest, Laval, QC H7N 2J1.
