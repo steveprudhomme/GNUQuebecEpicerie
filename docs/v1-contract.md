@@ -94,8 +94,8 @@ en question le choix du magasin. Ne jamais remplacer silencieusement un magasin.
 
 - Super C : 1000, boulevard des Laurentides, Laval, QC H7G 2W1.
   Source : [localisateur officiel](https://www.superc.ca/trouver-une-epicerie).
-- IGA : 4411, boulevard de la Concorde Est, Laval, QC H7C 1M4.
-  Source : [fiche officielle IGA](https://emplois.iga.net/emplois/detail/132970).
+- IGA : 307, boulevard Cartier Ouest, Laval, QC H7N 2J1.
+  Source : [fiche officielle IGA](https://emplois.iga.net/emplois/detail/133653).
 
 Adresses consultées le 20 septembre 2026. Les sources attestent les adresses,
 pas les identifiants techniques de collecte.

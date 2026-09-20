@@ -69,7 +69,7 @@ def test_store_registry(name):
     registry = load_yaml(ROOT / "config" / name)
     validate_json(registry, ROOT / "schema/stores.schema.json")
     assert {s["store_id"] for s in registry["stores"]} == {
-        "superc-laval-des-laurentides-1000", "iga-laval-concorde-est-4411"
+        "superc-laval-des-laurentides-1000", "iga-laval-cartier-ouest-307"
     }
 
 

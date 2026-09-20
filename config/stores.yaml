@@ -14,15 +14,15 @@ stores:
     source_url: https://www.superc.ca/trouver-une-epicerie
     notes: "Magasin choisi. Activer après vérification du sélecteur de magasin du collecteur."
   - retailer_id: iga
-    store_id: iga-laval-concorde-est-4411
-    name: "IGA Concorde — Sobeys Capital inc. (Laval)"
-    address: "4411, boulevard de la Concorde Est"
+    store_id: iga-laval-cartier-ouest-307
+    name: "IGA extra des-Rapides"
+    address: "307, boulevard Cartier Ouest"
     city: Laval
     province: QC
-    postal_code: H7C 1M4
+    postal_code: H7N 2J1
     timezone: America/Toronto
     locale: fr-CA
     enabled: false
     source_store_id: null
-    source_url: https://emplois.iga.net/emplois/detail/132970
+    source_url: https://emplois.iga.net/emplois/detail/133653
     notes: "Adresse attestée par IGA. Identifiant de la plateforme de circulaires à vérifier."
