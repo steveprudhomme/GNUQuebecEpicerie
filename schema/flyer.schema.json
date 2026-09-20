@@ -16,22 +16,57 @@
     "offers"
   ],
   "properties": {
-    "schema_version": {"type": "string", "const": "1.0"},
-    "flyer_id": {"type": "string", "minLength": 1},
-    "retailer_id": {"type": "string", "enum": ["superc", "iga"]},
-    "store_id": {"type": "string", "minLength": 1},
-    "published_at": {"type": ["string", "null"], "format": "date-time"},
-    "valid_from": {"type": "string", "format": "date"},
-    "valid_to": {"type": "string", "format": "date"},
-    "retrieved_at": {"type": "string", "format": "date-time"},
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "flyer_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "retailer_id": {
+      "type": "string",
+      "enum": [
+        "superc",
+        "iga"
+      ]
+    },
+    "store_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "published_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "valid_from": {
+      "type": "string",
+      "format": "date"
+    },
+    "valid_to": {
+      "type": "string",
+      "format": "date"
+    },
+    "retrieved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
     "source_urls": {
       "type": "array",
       "minItems": 1,
-      "items": {"type": "string", "format": "uri"}
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
     },
     "offers": {
       "type": "array",
-      "items": {"$ref": "offer.schema.json"}
+      "items": {
+        "$ref": "offer.schema.json"
+      }
     }
   }
 }

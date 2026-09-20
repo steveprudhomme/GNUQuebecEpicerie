@@ -1,12 +1,12 @@
 schema_version: "1.0"
 collectors:
   superc:
-    enabled: true
+    enabled: false
     request_timeout_seconds: 30
     min_delay_seconds: 2
     user_agent: "GNUQuebecEpicerie/0.1 (+https://github.com/steveprudhomme/GNUQuebecEpicerie)"
   iga:
-    enabled: true
+    enabled: false
     request_timeout_seconds: 30
     min_delay_seconds: 2
     user_agent: "GNUQuebecEpicerie/0.1 (+https://github.com/steveprudhomme/GNUQuebecEpicerie)"

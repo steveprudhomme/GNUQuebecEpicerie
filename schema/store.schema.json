@@ -4,15 +4,72 @@
   "title": "GNUQuebecEpicerie Store",
   "type": "object",
   "additionalProperties": false,
-  "required": ["retailer_id", "store_id", "name", "timezone"],
+  "required": [
+    "retailer_id",
+    "store_id",
+    "name",
+    "address",
+    "city",
+    "province",
+    "postal_code",
+    "timezone",
+    "locale",
+    "enabled",
+    "source_url",
+    "source_store_id"
+  ],
   "properties": {
-    "retailer_id": {"type": "string", "minLength": 1},
-    "store_id": {"type": "string", "minLength": 1},
-    "name": {"type": "string", "minLength": 1},
-    "address": {"type": ["string", "null"]},
-    "city": {"type": ["string", "null"]},
-    "province": {"type": "string", "default": "QC"},
-    "postal_code": {"type": ["string", "null"]},
-    "timezone": {"type": "string", "default": "America/Toronto"}
+    "retailer_id": {
+      "enum": [
+        "superc",
+        "iga"
+      ]
+    },
+    "store_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "address": {
+      "type": "string",
+      "minLength": 1
+    },
+    "city": {
+      "type": "string",
+      "minLength": 1
+    },
+    "province": {
+      "const": "QC"
+    },
+    "postal_code": {
+      "type": "string",
+      "pattern": "^[A-Z][0-9][A-Z] [0-9][A-Z][0-9]$"
+    },
+    "timezone": {
+      "const": "America/Toronto"
+    },
+    "locale": {
+      "const": "fr-CA"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "source_store_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "notes": {
+      "type": "string"
+    }
   }
 }

@@ -4,31 +4,89 @@
   "title": "GNUQuebecEpicerie Offer",
   "type": "object",
   "additionalProperties": false,
-  "required": ["offer_id", "product", "promotion", "source"],
+  "required": [
+    "offer_id",
+    "product",
+    "promotion",
+    "source"
+  ],
   "properties": {
-    "offer_id": {"type": "string", "minLength": 1},
+    "offer_id": {
+      "type": "string",
+      "minLength": 1
+    },
     "product": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["raw_name", "name"],
+      "required": [
+        "raw_name",
+        "name"
+      ],
       "properties": {
-        "raw_name": {"type": "string", "minLength": 1},
-        "name": {"type": "string", "minLength": 1},
-        "brand": {"type": ["string", "null"]},
-        "variant": {"type": ["string", "null"]},
-        "sku": {"type": ["string", "null"]},
-        "upc": {"type": ["string", "null"]},
-        "category": {"type": ["string", "null"]},
+        "raw_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "brand": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "variant": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sku": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "upc": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "category": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "quantity": {
           "anyOf": [
-            {"type": "null"},
+            {
+              "type": "null"
+            },
             {
               "type": "object",
               "additionalProperties": false,
-              "required": ["value", "unit"],
+              "required": [
+                "value",
+                "unit"
+              ],
               "properties": {
-                "value": {"type": "number", "exclusiveMinimum": 0},
-                "unit": {"type": "string", "minLength": 1}
+                "value": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "unit": {
+                  "enum": [
+                    "g",
+                    "kg",
+                    "ml",
+                    "l",
+                    "unit"
+                  ]
+                }
               }
             }
           ]
@@ -38,46 +96,285 @@
     "promotion": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["currency"],
+      "required": [
+        "currency",
+        "price_basis"
+      ],
       "properties": {
-        "sale_price": {"type": ["number", "null"], "exclusiveMinimum": 0},
-        "regular_price": {"type": ["number", "null"], "exclusiveMinimum": 0},
-        "currency": {"type": "string", "const": "CAD"},
-        "multi_buy_quantity": {"type": ["integer", "null"], "minimum": 2},
-        "multi_buy_price": {"type": ["number", "null"], "exclusiveMinimum": 0},
-        "loyalty_required": {"type": "boolean", "default": false},
-        "loyalty_program": {"type": ["string", "null"]},
-        "points": {"type": ["integer", "null"], "minimum": 0},
-        "limit_quantity": {"type": ["integer", "null"], "minimum": 1},
-        "price_after_limit": {"type": ["number", "null"], "exclusiveMinimum": 0},
+        "sale_price": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0
+        },
+        "regular_price": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0
+        },
+        "currency": {
+          "type": "string",
+          "const": "CAD"
+        },
+        "multi_buy_quantity": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 2
+        },
+        "multi_buy_price": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0
+        },
+        "loyalty_required": {
+          "type": "boolean",
+          "default": false
+        },
+        "loyalty_program": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "points": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "exclusiveMinimum": 0
+        },
+        "limit_quantity": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "price_after_limit": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0
+        },
         "unit_prices": {
           "type": "array",
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["value", "basis"],
+            "required": [
+              "value",
+              "basis"
+            ],
             "properties": {
-              "value": {"type": "number", "exclusiveMinimum": 0},
-              "basis": {"type": "string", "enum": ["100g", "kg", "100ml", "l", "unit"]}
+              "value": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "basis": {
+                "type": "string",
+                "enum": [
+                  "100g",
+                  "kg",
+                  "100ml",
+                  "l",
+                  "unit"
+                ]
+              }
             }
           },
           "default": []
         },
         "conditions": {
           "type": "array",
-          "items": {"type": "string"},
+          "items": {
+            "type": "string"
+          },
           "default": []
+        },
+        "price_basis": {
+          "enum": [
+            "package",
+            "unit",
+            "kg",
+            "lb",
+            "100g",
+            "l",
+            "100ml"
+          ]
+        },
+        "discount_percent": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0,
+          "maximum": 100
         }
-      }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "sale_price"
+          ],
+          "properties": {
+            "sale_price": {
+              "type": "number"
+            }
+          }
+        },
+        {
+          "required": [
+            "multi_buy_price"
+          ],
+          "properties": {
+            "multi_buy_price": {
+              "type": "number"
+            }
+          }
+        },
+        {
+          "required": [
+            "points"
+          ],
+          "properties": {
+            "points": {
+              "type": "number"
+            }
+          }
+        },
+        {
+          "required": [
+            "discount_percent"
+          ],
+          "properties": {
+            "discount_percent": {
+              "type": "number"
+            }
+          }
+        }
+      ],
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "multi_buy_price"
+            ],
+            "properties": {
+              "multi_buy_price": {
+                "type": "number"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "multi_buy_quantity"
+            ],
+            "properties": {
+              "multi_buy_quantity": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "multi_buy_quantity"
+            ],
+            "properties": {
+              "multi_buy_quantity": {
+                "type": "integer"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "multi_buy_price"
+            ],
+            "properties": {
+              "multi_buy_price": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "loyalty_required"
+            ],
+            "properties": {
+              "loyalty_required": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "loyalty_program"
+            ],
+            "properties": {
+              "loyalty_program": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "price_after_limit"
+            ],
+            "properties": {
+              "price_after_limit": {
+                "type": "number"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "limit_quantity"
+            ],
+            "properties": {
+              "limit_quantity": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      ]
     },
     "source": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["url", "retrieved_at"],
+      "required": [
+        "url",
+        "retrieved_at"
+      ],
       "properties": {
-        "url": {"type": "string", "format": "uri"},
-        "source_text": {"type": ["string", "null"]},
-        "retrieved_at": {"type": "string", "format": "date-time"}
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "source_text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date-time"
+        }
       }
     }
   }

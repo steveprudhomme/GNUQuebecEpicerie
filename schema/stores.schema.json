@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/steveprudhomme/GNUQuebecEpicerie/raw/main/schema/stores.schema.json",
+  "title": "GNUQuebecEpicerie Store Registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "stores"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "stores": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "store.schema.json"
+      }
+    }
+  }
+}

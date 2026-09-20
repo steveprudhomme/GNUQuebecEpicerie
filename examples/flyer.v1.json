@@ -1,0 +1,262 @@
+{
+  "schema_version": "1.0",
+  "flyer_id": "superc-laval-des-laurentides-1000:2026-09-24:41a9156e64fb9765b42c3222b12d6669319fd1c09bb596d26c248e0d26242559",
+  "retailer_id": "superc",
+  "store_id": "superc-laval-des-laurentides-1000",
+  "published_at": null,
+  "valid_from": "2026-09-24",
+  "valid_to": "2026-09-30",
+  "retrieved_at": "2026-09-20T18:00:00-04:00",
+  "source_urls": [
+    "https://example.com/flyer"
+  ],
+  "offers": [
+    {
+      "offer_id": "simple",
+      "product": {
+        "raw_name": "Produit fictif simple",
+        "name": "Produit fictif",
+        "brand": null,
+        "variant": null,
+        "sku": null,
+        "upc": null,
+        "category": null,
+        "quantity": null
+      },
+      "promotion": {
+        "sale_price": 4.99,
+        "price_basis": "package",
+        "discount_percent": null,
+        "regular_price": null,
+        "currency": "CAD",
+        "multi_buy_quantity": null,
+        "multi_buy_price": null,
+        "loyalty_required": false,
+        "loyalty_program": null,
+        "points": null,
+        "limit_quantity": null,
+        "price_after_limit": null,
+        "unit_prices": [],
+        "conditions": []
+      },
+      "source": {
+        "url": "https://example.com/flyer",
+        "source_text": "Exemple fictif : simple",
+        "retrieved_at": "2026-09-20T18:00:00-04:00"
+      }
+    },
+    {
+      "offer_id": "multi-buy",
+      "product": {
+        "raw_name": "Produit fictif multi-buy",
+        "name": "Produit fictif",
+        "brand": null,
+        "variant": null,
+        "sku": null,
+        "upc": null,
+        "category": null,
+        "quantity": null
+      },
+      "promotion": {
+        "sale_price": null,
+        "price_basis": "package",
+        "discount_percent": null,
+        "regular_price": null,
+        "currency": "CAD",
+        "multi_buy_quantity": 2,
+        "multi_buy_price": 5.0,
+        "loyalty_required": false,
+        "loyalty_program": null,
+        "points": null,
+        "limit_quantity": null,
+        "price_after_limit": null,
+        "unit_prices": [],
+        "conditions": [
+          "Acheter deux unités."
+        ]
+      },
+      "source": {
+        "url": "https://example.com/flyer",
+        "source_text": "Exemple fictif : multi-buy",
+        "retrieved_at": "2026-09-20T18:00:00-04:00"
+      }
+    },
+    {
+      "offer_id": "member",
+      "product": {
+        "raw_name": "Produit fictif member",
+        "name": "Produit fictif",
+        "brand": null,
+        "variant": null,
+        "sku": null,
+        "upc": null,
+        "category": null,
+        "quantity": null
+      },
+      "promotion": {
+        "sale_price": 3.99,
+        "price_basis": "package",
+        "discount_percent": null,
+        "regular_price": null,
+        "currency": "CAD",
+        "multi_buy_quantity": null,
+        "multi_buy_price": null,
+        "loyalty_required": true,
+        "loyalty_program": "Programme exemple",
+        "points": null,
+        "limit_quantity": null,
+        "price_after_limit": null,
+        "unit_prices": [],
+        "conditions": []
+      },
+      "source": {
+        "url": "https://example.com/flyer",
+        "source_text": "Exemple fictif : member",
+        "retrieved_at": "2026-09-20T18:00:00-04:00"
+      }
+    },
+    {
+      "offer_id": "points",
+      "product": {
+        "raw_name": "Produit fictif points",
+        "name": "Produit fictif",
+        "brand": null,
+        "variant": null,
+        "sku": null,
+        "upc": null,
+        "category": null,
+        "quantity": null
+      },
+      "promotion": {
+        "sale_price": null,
+        "price_basis": "package",
+        "discount_percent": null,
+        "regular_price": null,
+        "currency": "CAD",
+        "multi_buy_quantity": null,
+        "multi_buy_price": null,
+        "loyalty_required": false,
+        "loyalty_program": null,
+        "points": 500,
+        "limit_quantity": null,
+        "price_after_limit": null,
+        "unit_prices": [],
+        "conditions": [
+          "500 points à l’achat de deux unités."
+        ]
+      },
+      "source": {
+        "url": "https://example.com/flyer",
+        "source_text": "Exemple fictif : points",
+        "retrieved_at": "2026-09-20T18:00:00-04:00"
+      }
+    },
+    {
+      "offer_id": "percentage",
+      "product": {
+        "raw_name": "Produit fictif percentage",
+        "name": "Produit fictif",
+        "brand": null,
+        "variant": null,
+        "sku": null,
+        "upc": null,
+        "category": null,
+        "quantity": null
+      },
+      "promotion": {
+        "sale_price": null,
+        "price_basis": "package",
+        "discount_percent": 20.0,
+        "regular_price": null,
+        "currency": "CAD",
+        "multi_buy_quantity": null,
+        "multi_buy_price": null,
+        "loyalty_required": false,
+        "loyalty_program": null,
+        "points": null,
+        "limit_quantity": null,
+        "price_after_limit": null,
+        "unit_prices": [],
+        "conditions": []
+      },
+      "source": {
+        "url": "https://example.com/flyer",
+        "source_text": "Exemple fictif : percentage",
+        "retrieved_at": "2026-09-20T18:00:00-04:00"
+      }
+    },
+    {
+      "offer_id": "weighted",
+      "product": {
+        "raw_name": "Produit fictif weighted",
+        "name": "Produit fictif",
+        "brand": null,
+        "variant": null,
+        "sku": null,
+        "upc": null,
+        "category": null,
+        "quantity": null
+      },
+      "promotion": {
+        "sale_price": 5.99,
+        "price_basis": "lb",
+        "discount_percent": null,
+        "regular_price": null,
+        "currency": "CAD",
+        "multi_buy_quantity": null,
+        "multi_buy_price": null,
+        "loyalty_required": false,
+        "loyalty_program": null,
+        "points": null,
+        "limit_quantity": null,
+        "price_after_limit": null,
+        "unit_prices": [
+          {
+            "value": 13.20569,
+            "basis": "kg"
+          }
+        ],
+        "conditions": []
+      },
+      "source": {
+        "url": "https://example.com/flyer",
+        "source_text": "Exemple fictif : weighted",
+        "retrieved_at": "2026-09-20T18:00:00-04:00"
+      }
+    },
+    {
+      "offer_id": "limit",
+      "product": {
+        "raw_name": "Produit fictif limit",
+        "name": "Produit fictif",
+        "brand": null,
+        "variant": null,
+        "sku": null,
+        "upc": null,
+        "category": null,
+        "quantity": null
+      },
+      "promotion": {
+        "sale_price": 4.99,
+        "price_basis": "package",
+        "discount_percent": null,
+        "regular_price": null,
+        "currency": "CAD",
+        "multi_buy_quantity": null,
+        "multi_buy_price": null,
+        "loyalty_required": false,
+        "loyalty_program": null,
+        "points": null,
+        "limit_quantity": 4,
+        "price_after_limit": 6.99,
+        "unit_prices": [],
+        "conditions": []
+      },
+      "source": {
+        "url": "https://example.com/flyer",
+        "source_text": "Exemple fictif : limit",
+        "retrieved_at": "2026-09-20T18:00:00-04:00"
+      }
+    }
+  ]
+}

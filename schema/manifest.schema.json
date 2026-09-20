@@ -14,22 +14,64 @@
     "offers_count",
     "source_hash",
     "collector_version",
-    "source_urls"
+    "source_urls",
+    "flyer_id",
+    "content_hash"
   ],
   "properties": {
-    "schema_version": {"type": "string", "const": "1.0"},
-    "retailer_id": {"type": "string", "minLength": 1},
-    "store_id": {"type": "string", "minLength": 1},
-    "valid_from": {"type": "string", "format": "date"},
-    "valid_to": {"type": "string", "format": "date"},
-    "retrieved_at": {"type": "string", "format": "date-time"},
-    "offers_count": {"type": "integer", "minimum": 0},
-    "source_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
-    "collector_version": {"type": "string", "minLength": 1},
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "retailer_id": {
+      "enum": [
+        "superc",
+        "iga"
+      ]
+    },
+    "store_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "valid_from": {
+      "type": "string",
+      "format": "date"
+    },
+    "valid_to": {
+      "type": "string",
+      "format": "date"
+    },
+    "retrieved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "offers_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "source_hash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "collector_version": {
+      "type": "string",
+      "minLength": 1
+    },
     "source_urls": {
       "type": "array",
       "minItems": 1,
-      "items": {"type": "string", "format": "uri"}
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "flyer_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "content_hash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
     }
   }
 }

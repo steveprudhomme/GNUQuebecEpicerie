@@ -57,7 +57,7 @@ GNUQuebecEpicerie/
 Les données sont classées par année, enseigne et date de début de validité :
 
 ```text
-data/2026/superc/2026-09-24/
+data/2026/superc/superc-laval-des-laurentides-1000/2026-09-24/<révision>/
 ├── flyer.json
 └── manifest.json
 ```
@@ -81,7 +81,7 @@ gnuquebecepicerie --help
 
 ```powershell
 gnuquebecepicerie status
-gnuquebecepicerie validate data/2026/superc/2026-09-24/flyer.json
+gnuquebecepicerie validate examples/flyer.v1.json
 gnuquebecepicerie update superc
 gnuquebecepicerie update iga
 ```
@@ -95,3 +95,9 @@ Les collecteurs Super C et IGA sont des squelettes dans cette version initiale; 
 ## Licence
 
 Le code est distribué sous licence **GNU General Public License v3.0 or later (GPL-3.0-or-later)**. Les données provenant de sources tierces demeurent soumises aux droits, conditions d'utilisation et licences de leurs sources respectives.
+
+## Contrat V1
+
+Le [contrat V1](docs/v1-contract.md) fixe les promotions, les magasins et les archives.
+Le registre de référence est [config/stores.yaml](config/stores.yaml).
+Les sept [exemples fictifs](examples/flyer.v1.json) sont validés en CI.

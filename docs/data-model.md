@@ -31,7 +31,7 @@ Une offre conserve trois couches conceptuelles.
 
 ### Promotion
 
-- `sale_price`, `regular_price`;
+- `sale_price`, `regular_price`, `price_basis`, `discount_percent`;
 - `multi_buy_quantity`, `multi_buy_price`;
 - `loyalty_required`, `loyalty_program`;
 - `points`;
@@ -48,3 +48,5 @@ Une offre conserve trois couches conceptuelles.
 ## Identité des produits
 
 La première collecte ne doit pas tenter de fusionner agressivement les produits entre enseignes. Le rapprochement vers un futur `canonical_product_id` sera une étape distincte afin de préserver les observations originales.
+
+Les règles normatives, les unités et la compatibilité sont définies dans [le contrat V1](v1-contract.md).
