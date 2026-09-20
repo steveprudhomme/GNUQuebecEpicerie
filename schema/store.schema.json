@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/steveprudhomme/GNUQuebecEpicerie/raw/main/schema/store.schema.json",
+  "title": "GNUQuebecEpicerie Store",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["retailer_id", "store_id", "name", "timezone"],
+  "properties": {
+    "retailer_id": {"type": "string", "minLength": 1},
+    "store_id": {"type": "string", "minLength": 1},
+    "name": {"type": "string", "minLength": 1},
+    "address": {"type": ["string", "null"]},
+    "city": {"type": ["string", "null"]},
+    "province": {"type": "string", "default": "QC"},
+    "postal_code": {"type": ["string", "null"]},
+    "timezone": {"type": "string", "default": "America/Toronto"}
+  }
+}

@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Environnements
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Données locales dérivées
+local/
+*.sqlite
+*.sqlite3
+*.db
+
+# Journaux et caches
+logs/
+cache/
+*.log
+
+# Secrets / authentification
+*.pem
+*.key
+credentials.json
+secrets.json

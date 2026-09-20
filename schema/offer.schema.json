@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/steveprudhomme/GNUQuebecEpicerie/raw/main/schema/offer.schema.json",
+  "title": "GNUQuebecEpicerie Offer",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["offer_id", "product", "promotion", "source"],
+  "properties": {
+    "offer_id": {"type": "string", "minLength": 1},
+    "product": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["raw_name", "name"],
+      "properties": {
+        "raw_name": {"type": "string", "minLength": 1},
+        "name": {"type": "string", "minLength": 1},
+        "brand": {"type": ["string", "null"]},
+        "variant": {"type": ["string", "null"]},
+        "sku": {"type": ["string", "null"]},
+        "upc": {"type": ["string", "null"]},
+        "category": {"type": ["string", "null"]},
+        "quantity": {
+          "anyOf": [
+            {"type": "null"},
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["value", "unit"],
+              "properties": {
+                "value": {"type": "number", "exclusiveMinimum": 0},
+                "unit": {"type": "string", "minLength": 1}
+              }
+            }
+          ]
+        }
+      }
+    },
+    "promotion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["currency"],
+      "properties": {
+        "sale_price": {"type": ["number", "null"], "exclusiveMinimum": 0},
+        "regular_price": {"type": ["number", "null"], "exclusiveMinimum": 0},
+        "currency": {"type": "string", "const": "CAD"},
+        "multi_buy_quantity": {"type": ["integer", "null"], "minimum": 2},
+        "multi_buy_price": {"type": ["number", "null"], "exclusiveMinimum": 0},
+        "loyalty_required": {"type": "boolean", "default": false},
+        "loyalty_program": {"type": ["string", "null"]},
+        "points": {"type": ["integer", "null"], "minimum": 0},
+        "limit_quantity": {"type": ["integer", "null"], "minimum": 1},
+        "price_after_limit": {"type": ["number", "null"], "exclusiveMinimum": 0},
+        "unit_prices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["value", "basis"],
+            "properties": {
+              "value": {"type": "number", "exclusiveMinimum": 0},
+              "basis": {"type": "string", "enum": ["100g", "kg", "100ml", "l", "unit"]}
+            }
+          },
+          "default": []
+        },
+        "conditions": {
+          "type": "array",
+          "items": {"type": "string"},
+          "default": []
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url", "retrieved_at"],
+      "properties": {
+        "url": {"type": "string", "format": "uri"},
+        "source_text": {"type": ["string", "null"]},
+        "retrieved_at": {"type": "string", "format": "date-time"}
+      }
+    }
+  }
+}

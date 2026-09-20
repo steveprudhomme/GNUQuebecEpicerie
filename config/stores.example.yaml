@@ -1,0 +1,17 @@
+schema_version: "1.0"
+stores:
+  - retailer_id: superc
+    store_id: TO_DEFINE
+    name: "Super C - magasin de référence"
+    enabled: false
+    locale: fr-CA
+    timezone: America/Toronto
+    notes: "Renseigner l'identifiant et le magasin de référence avant la première collecte."
+
+  - retailer_id: iga
+    store_id: TO_DEFINE
+    name: "IGA - magasin de référence"
+    enabled: false
+    locale: fr-CA
+    timezone: America/Toronto
+    notes: "Renseigner l'identifiant et le magasin de référence avant la première collecte."
