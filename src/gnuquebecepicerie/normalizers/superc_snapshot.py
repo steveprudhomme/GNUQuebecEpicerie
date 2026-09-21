@@ -50,7 +50,7 @@ def normalize_snapshot(snapshot: Path, publication: str, schemas: Path) -> tuple
         raise ValueError("Registre de révision Super C invalide.")
     flyer, report = normalize_pages(
         metadata, json.loads(pages_bytes), datetime.fromisoformat(summary["observed_at"]),
-        known_issues=reviews["issues"],
+        known_issues=reviews["issues"], source_reviews=reviews.get("reviews", []),
     )
     report["review_registry_sha256"] = hashlib.sha256(review_path.read_bytes()).hexdigest()
     document = flyer.model_dump(mode="json")

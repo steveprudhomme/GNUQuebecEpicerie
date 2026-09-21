@@ -13,9 +13,10 @@ from typing import Any
 from bs4 import BeautifulSoup
 
 from gnuquebecepicerie.models import Flyer, Offer, Product, Promotion, Quantity, Source, UnitPrice
+from gnuquebecepicerie.normalizers.superc_reviews import matching_review, validate_reviews
 from gnuquebecepicerie.storage.json_store import content_revision
 
-NORMALIZER_VERSION = "superc-0.3.0"
+NORMALIZER_VERSION = "superc-0.4.0"
 INTERNAL_STORE = "superc-laval-des-laurentides-1000"
 SOURCE_STORE = "447"
 SOURCE_NAME = "LAVAL DES LAURENTIDES"
@@ -189,7 +190,9 @@ def promotion(record: dict, member: bool, conditions: list[str]) -> Promotion:
     )
 
 
-def normalize_record(record: dict, metadata: dict, retrieved_at: datetime) -> list[Offer]:
+def normalize_record(
+    record: dict, metadata: dict, retrieved_at: datetime, reviewed_decision: str | None = None
+) -> list[Offer]:
     # Un montant de rabais ne devient jamais un prix final par soustraction implicite.
     if any("rabais de" in clean(record.get(key)).lower() for key in (
         "salePricePrefixFr", "memberPricePrefixFr", "savingsPrefix"
@@ -207,9 +210,10 @@ def normalize_record(record: dict, metadata: dict, retrieved_at: datetime) -> li
         member_qty = integer(record.get("memberPriceQuantity")) or 1
         if public_unit != member_unit or public_qty != member_qty:
             raise ReviewRequired("member_discount_basis_requires_review")
-        if public - member != discount:
+        if public - member != discount and reviewed_decision != "accept_explicit_prices":
             raise ReviewRequired("member_discount_conflicts_with_prices")
-    if record.get("coupon") not in (None, False):
+    if (record.get("coupon") not in (None, False)
+            and reviewed_decision != "accept_coupon_flag"):
         if (record.get("coupon") is not True
                 or clean(record.get("memberPricePrefixFr")).lower() != "prix membre"
                 or first(record, "memberPriceFr", "memberPriceEn") in (None, "")):
@@ -272,7 +276,8 @@ def normalize_record(record: dict, metadata: dict, retrieved_at: datetime) -> li
 
 
 def normalize_pages(
-    metadata: dict, pages: list, retrieved_at: datetime, known_issues: tuple | list = ()
+    metadata: dict, pages: list, retrieved_at: datetime, known_issues: tuple | list = (),
+    source_reviews: list | None = None,
 ) -> tuple[Flyer, dict]:
     if metadata.get("storeName") != SOURCE_NAME:
         raise ValueError("Magasin inattendu : aucune normalisation.")
@@ -283,6 +288,8 @@ def normalize_pages(
         raise ValueError("Identifiant de circulaire invalide.")
     if not isinstance(pages, list) or not pages:
         raise ValueError("Pages absentes ou invalides.")
+    reviews = validate_reviews(source_reviews if source_reviews is not None else [])
+    applied_reviews = []
     records = entries(pages)
     offers: dict[str, Offer] = {}
     rejected, skipped = [], []
@@ -292,7 +299,9 @@ def normalize_pages(
         if action in {"URL", "Inblock"}:
             skipped.append({"index": index, "action": action})
             continue
-        source_review = None
+        source_review = matching_review(reviews, metadata, record, SOURCE_STORE)
+        if source_review:
+            applied_reviews.append({"index": index, **source_review})
         try:
             if action != "Product":
                 raise ReviewRequired("unknown_action_type")
@@ -303,7 +312,8 @@ def normalize_pages(
                         and issue["valid_to"] == metadata["endDate"][:10]):
                     source_review = issue
                     raise ReviewRequired(issue["reason"])
-            normalized = normalize_record(record, metadata, retrieved_at)
+            decision = source_review["decision"] if source_review else None
+            normalized = normalize_record(record, metadata, retrieved_at, decision)
             accepted += 1
             for offer in normalized:
                 if offer.offer_id in offers:
@@ -330,6 +340,7 @@ def normalize_pages(
         "duplicate_offers_removed": duplicates,
         "normalization_complete": bool(offers) and not rejected,
         "ready_for_archive": False,
+        "applied_source_reviews": applied_reviews,
         "warnings": ["Les dates structurées ne garantissent pas la validité commerciale affichée. "
                      "Une vérification visuelle est nécessaire avant archivage."],
         "rejection_reasons": dict(Counter(item["reason"] for item in rejected)),

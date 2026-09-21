@@ -17,7 +17,7 @@ Pour une nouvelle capture, commencer par le diagnostic décrit dans
 et l'identifiant de publication retourné.
 
 Le résultat se trouve sous le dossier de capture, dans
-`normalized/superc-0.3.0/<publication>/` :
+`normalized/superc-0.4.0/<publication>/` :
 
 - `flyer.json` : offres acceptées, conformes au schéma V1;
 - `manifest.json` : période, magasin, compte des offres et empreintes;
@@ -208,3 +208,59 @@ puis traduites explicitement dans le code ou le registre et testées.
 
 Cette étape n'a pas effectué de nouvelle vérification visuelle exhaustive.
 L'écart de dates reste en quarantaine; la publication automatique reste désactivée.
+
+
+## Révision des 22 entrées — normaliseur 0.4.0
+
+Le 21 septembre, les images des résultats du lecteur officiel 83817 ont été
+comparées aux entrées locales. Les recherches étaient Hygrade, bière, Bretagne,
+Bâton Rouge, Mikes, St-Méthode et vin rouge. L'observation antérieure de la longe
+sur la page 1 est conservée. Les 22 entrées possèdent maintenant une observation
+et une décision dans `config/source-reviews/superc.json`.
+
+Dix entrées rejoignent le brouillon : Hygrade (prix public et 20 points), les
+quatre variantes du lot Corona/Stella/Heineken, les trois variantes du lot
+Michelob/Brasseur de Montréal/Unibroue, la pizza Mikes et le pâté La Belle Bretagne.
+Les images de ces neuf entrées avec indicateur de coupon ne montrent pas de coupon
+à activer; cette observation est limitée aux entrées examinées.
+
+Pour le pâté, l'image confirme 3,49 $ public, 2,99 $ membre et 3,99 $ régulier.
+Le contrôle 0.3.0 était trop strict : le rabais de 1 $ est compatible avec
+le prix régulier moins le prix membre. Les deux prix explicites sont acceptés
+pour cette entrée exacte, sans modifier `rabaisMM` ni généraliser sa sémantique.
+
+Douze entrées restent bloquées :
+
+- 2 pains : rabais de 2 $ à l'achat de 2 pains, sans prix final.
+- 5 variantes de bière : rabais de 15 $ sur le panier à l'achat de 2 caisses;
+  les conditions indiquées par deux astérisques restent à obtenir.
+- 2 variantes Bud Light/Coors Light : prix 69 $ visible, mais les 300 points
+  du JSON ne sont pas confirmés dans le résultat de recherche.
+- 1 vinier : rabais public de 3 $ et membre de 6 $, pas des prix finaux.
+- 1 soupe Bâton Rouge : image à 11,99 $ public et 10,99 $ membre;
+  le JSON place 10,99 dans le prix public et omet le prix membre. Aucune
+  correction silencieuse ni calcul d'un prix à 9,99 $.
+- 1 longe de porc : jeudi et vendredi sur l'image contre semaine entière en JSON.
+
+Les rabais sans prix final demeurent incompatibles avec le schéma V1 actuel.
+Leur examen est documenté, mais leur conversion n'est pas considérée complète.
+
+### Portée des décisions
+
+Chaque décision correspond au magasin, à la publication, à la période, au SKU
+et à l'empreinte SHA-256 de **l'entrée source complète**. Si un champ change,
+l'exception ne s'applique plus. Les seules exceptions possibles concernent
+l'indicateur de coupon ou le contrôle arithmétique des prix explicites. Les
+contrôles de dates, de bases et de montants restent actifs. Le registre est validé
+avant conversion; les décisions mal formées ou en double arrêtent le traitement.
+Le rapport conserve les observations appliquées et l'empreinte du registre.
+
+Bilan sur la même capture : **307 entrées acceptées, 334 offres, 12 entrées
+bloquées, 12 blocs non commerciaux, 2 doublons supprimés**. Les dix entrées
+récupérées produisent douze offres après séparation public/membre/points.
+Les données source ne sont pas modifiées; les brouillons 0.3.0 sont conservés.
+
+Les autres offres n'ont pas fait l'objet d'un examen visuel exhaustif.
+`ready_for_archive` reste faux et le collecteur automatique reste désactivé.
+La prochaine étape est de définir comment représenter les rabais conditionnels
+et les périodes par offre, et d'obtenir les conditions manquantes des récompenses.

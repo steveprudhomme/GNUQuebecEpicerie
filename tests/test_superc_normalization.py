@@ -331,3 +331,93 @@ def test_review_list_preserves_conditions_and_warns_about_dates(tmp_path, monkey
     assert "2026-09-23" in text
     assert "pas une validation visuelle" in text
     assert not report["ready_for_archive"]
+
+
+
+def visual_review(raw, decision="accept_coupon_flag"):
+    from gnuquebecepicerie.normalizers.superc_reviews import record_digest
+    return {
+        "publication": "123", "source_store_id": "447", "sku": raw["sku"],
+        "valid_from": "2026-09-17", "valid_to": "2026-09-23",
+        "observed_at": "2026-09-21", "decision": decision,
+        "record_sha256": record_digest(raw), "evidence": "Observation fictive de test.",
+        "source_url": "https://circulaire.superc.ca/flyer/123?storeId=447&language=fr",
+    }
+
+
+def test_reviewed_coupon_keeps_raw_flag_and_logs_decision():
+    raw = record(coupon=True, pts=20)
+    review = visual_review(raw)
+    flyer, report = normalize_pages(META, [{"products": [raw]}], NOW,
+                                    source_reviews=[review])
+    assert len(flyer.offers) == 2
+    assert json.loads(flyer.offers[0].source.source_text)["coupon"] is True
+    assert report["applied_source_reviews"] == [{"index": 0, **review}]
+    assert not report["ready_for_archive"]
+
+
+@pytest.mark.parametrize("change", [
+    {"salePriceFr": "9.99"}, {"sku": "other"}, {"pts": 300},
+    {"validTo": "2026-09-18T04:00:00Z"}, {"newCondition": "nouvelle condition"},
+])
+def test_changed_source_invalidates_visual_permission(change):
+    raw = record(coupon=True)
+    flyer, report = normalize_pages(META, [{"products": [{**raw, **change}]}], NOW,
+                                    source_reviews=[visual_review(raw)])
+    assert not flyer.offers
+    assert not report["applied_source_reviews"]
+
+
+def test_review_cannot_transfer_to_another_publication_or_store():
+    raw = record(coupon=True)
+    for changes in (
+        {"publication": "999", "source_url":
+         "https://circulaire.superc.ca/flyer/999?storeId=447&language=fr"},
+        {"source_store_id": "448", "source_url":
+         "https://circulaire.superc.ca/flyer/123?storeId=448&language=fr"},
+        {"valid_to": "2026-09-24"},
+    ):
+        flyer, report = normalize_pages(META, [{"products": [raw]}], NOW,
+                                        source_reviews=[{**visual_review(raw), **changes}])
+        assert not flyer.offers
+        assert not report["applied_source_reviews"]
+
+
+def test_reviewed_explicit_prices_do_not_rewrite_discount_or_bypass_coupon():
+    raw = record(memberPriceFr="2.99", salePriceFr="3.49", regularPrice="3.99",
+                 rabaisMM="1.00", memberPricePrefixFr="prix membre", coupon=True)
+    flyer, _ = normalize_pages(META, [{"products": [raw]}], NOW,
+                              source_reviews=[visual_review(raw, "accept_explicit_prices")])
+    assert sorted(o.promotion.sale_price for o in flyer.offers) == [2.99, 3.49]
+    assert json.loads(flyer.offers[0].source.source_text)["rabaisMM"] == "1.00"
+    raw["memberPricePrefixFr"] = ""
+    flyer, report = normalize_pages(META, [{"products": [raw]}], NOW,
+                                    source_reviews=[visual_review(raw, "accept_explicit_prices")])
+    assert not flyer.offers
+    assert report["rejection_reasons"] == {"coupon_requires_review": 1}
+
+
+def test_visual_coupon_permission_does_not_override_date_guard():
+    raw = record(coupon=True, validTo="2026-09-18T04:00:00Z")
+    flyer, report = normalize_pages(META, [{"products": [raw]}], NOW,
+                                    source_reviews=[visual_review(raw)])
+    assert not flyer.offers
+    assert report["rejection_reasons"] == {"offer_period_differs": 1}
+
+
+@pytest.mark.parametrize("change", [
+    {"decision": "accept_everything"}, {"record_sha256": "bad"},
+    {"evidence": " "}, {"observed_at": "yesterday"},
+])
+def test_invalid_visual_registry_stops_batch(change):
+    raw = record(coupon=True)
+    with pytest.raises(ValueError):
+        normalize_pages(META, [{"products": [raw]}], NOW,
+                        source_reviews=[{**visual_review(raw), **change}])
+
+
+def test_duplicate_visual_decisions_stop_batch():
+    raw = record(coupon=True)
+    review = visual_review(raw)
+    with pytest.raises(ValueError, match="double"):
+        normalize_pages(META, [{"products": [raw]}], NOW, source_reviews=[review, review])
