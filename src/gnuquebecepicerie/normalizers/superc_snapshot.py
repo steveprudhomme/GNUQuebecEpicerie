@@ -81,4 +81,52 @@ def normalize_snapshot(snapshot: Path, publication: str, schemas: Path) -> tuple
     write_json_atomic(output / "manifest.json", manifest)
     write_json_atomic(output / "report.json", report)
     (output / "source-input.bin").write_bytes(framed)
+    (output / "review.txt").write_text(review_text(report, publication), encoding="utf-8")
     return output, report
+
+
+REVIEW_REASONS = {
+    "discount_amount_requires_review": "Rabais annoncé : prix final non établi.",
+    "member_discount_without_final_price": "Rabais membre : prix final membre absent.",
+    "member_discount_conflicts_with_prices": "Rabais membre incompatible avec les deux prix.",
+    "member_discount_basis_requires_review": "Bases ou quantités des prix non comparables.",
+    "coupon_requires_review": "Conditions du coupon à vérifier.",
+    "missing_price_or_supported_reward": "Prix promotionnel ou récompense absent.",
+    "visual_period_conflicts_with_json": "Dates de l'image incompatibles avec le JSON.",
+    "offer_period_differs": "Période du produit différente de celle de la circulaire.",
+}
+
+
+def review_text(report: dict, publication: str) -> str:
+    """Liste locale de vérification; aucune décision de validation n'est déduite."""
+    lines = [
+        f"Révision Super C — publication {publication}",
+        f"{report['rejected_entries']} entrées bloquées; "
+        f"{report['offers_count']} offres en brouillon.",
+        "Les dates affichées dans le JSON ne sont pas une validation visuelle.",
+        "Les offres acceptées doivent également être vérifiées avant archivage.",
+        "Modifier cette liste ne débloque aucune offre.",
+        f"Source : https://circulaire.superc.ca/flyer/{publication}?storeId=447&language=fr",
+        "",
+    ]
+    fields = (
+        "productFr", "bodyFr", "salePricePrefixFr", "salePriceFr", "priceQuantity",
+        "promoUnitFr", "memberPricePrefixFr", "memberPriceFr", "memberPriceQuantity",
+        "memberPriceUnit", "rabaisMM", "savingsPrefix", "savingsFr", "savingsSuffix",
+        "coupon", "pts", "validFrom", "validTo", "validFromROW", "validToROW",
+    )
+    for entry in report["rejected"]:
+        record = entry["record"]
+        lines.append(f"[ ] Entrée {entry['index']} — SKU {record.get('sku', '?')}")
+        reason = entry["reason"]
+        lines.append(f"    Motif : {REVIEW_REASONS.get(reason, reason)} ({reason})")
+        if entry.get("source_review"):
+            evidence = json.dumps(entry["source_review"], ensure_ascii=False, sort_keys=True)
+            lines.append(f"    Observation enregistrée : {evidence}")
+        for field in fields:
+            value = record.get(field)
+            if value is not None and value != "":
+                # JSON sur une ligne conserve les données et neutralise les sauts de ligne source.
+                lines.append(f"    {field} : {json.dumps(value, ensure_ascii=False)}")
+        lines.append("")
+    return "\n".join(lines) + "\n"

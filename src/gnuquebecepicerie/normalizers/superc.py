@@ -15,7 +15,7 @@ from bs4 import BeautifulSoup
 from gnuquebecepicerie.models import Flyer, Offer, Product, Promotion, Quantity, Source, UnitPrice
 from gnuquebecepicerie.storage.json_store import content_revision
 
-NORMALIZER_VERSION = "superc-0.2.0"
+NORMALIZER_VERSION = "superc-0.3.0"
 INTERNAL_STORE = "superc-laval-des-laurentides-1000"
 SOURCE_STORE = "447"
 SOURCE_NAME = "LAVAL DES LAURENTIDES"
@@ -26,7 +26,8 @@ RAW_FIELDS = (
     "memberPriceFr", "memberPriceEn", "memberPriceQuantity", "memberPriceUnit",
     "memberPriceSign", "memberPricePrefixFr", "memberPriceSuffixFr", "memberSave",
     "memberSavePrefix", "memberSaveSuffixFr", "pts", "coupon",
-    "loyalty", "loyaltyPrefix", "loyaltySuffixFr", "savingsFr", "limitQty",
+    "loyalty", "loyaltyPrefix", "loyaltySuffixFr", "savingsFr", "savingsPrefix",
+    "savingsSuffix", "rabaisMM", "limitQty",
     "afterLimitPrice", "rowPrice", "rowPriceQty", "rowPriceUnit", "tx",
     "validFrom", "validTo", "validFromROW", "validToROW", "attr1", "attr2", "attr3",
 )
@@ -189,6 +190,25 @@ def promotion(record: dict, member: bool, conditions: list[str]) -> Promotion:
 
 
 def normalize_record(record: dict, metadata: dict, retrieved_at: datetime) -> list[Offer]:
+    # Un montant de rabais ne devient jamais un prix final par soustraction implicite.
+    if any("rabais de" in clean(record.get(key)).lower() for key in (
+        "salePricePrefixFr", "memberPricePrefixFr", "savingsPrefix"
+    )):
+        raise ReviewRequired("discount_amount_requires_review")
+    if record.get("rabaisMM") not in (None, "", 0, "0", "0.00"):
+        public = number(first(record, "salePriceFr", "salePrice"))
+        member = number(first(record, "memberPriceFr", "memberPriceEn"))
+        discount = number(record["rabaisMM"])
+        if public is None or member is None:
+            raise ReviewRequired("member_discount_without_final_price")
+        public_unit = basis(record.get("promoUnitFr"))
+        member_unit = basis(record.get("memberPriceUnit") or record.get("promoUnitFr"))
+        public_qty = integer(record.get("priceQuantity")) or 1
+        member_qty = integer(record.get("memberPriceQuantity")) or 1
+        if public_unit != member_unit or public_qty != member_qty:
+            raise ReviewRequired("member_discount_basis_requires_review")
+        if public - member != discount:
+            raise ReviewRequired("member_discount_conflicts_with_prices")
     if record.get("coupon") not in (None, False):
         if (record.get("coupon") is not True
                 or clean(record.get("memberPricePrefixFr")).lower() != "prix membre"
@@ -219,7 +239,8 @@ def normalize_record(record: dict, metadata: dict, retrieved_at: datetime) -> li
     source = Source(url=url, retrieved_at=retrieved_at,
                     source_text=json.dumps(raw, ensure_ascii=False, sort_keys=True))
     conditions = [f"{key}: {clean(record[key])}" for key in (
-        "bodyFr", "alternatePriceFr", "savingsFr", "salePricePrefixFr", "memberPricePrefixFr",
+        "bodyFr", "alternatePriceFr", "savingsFr", "savingsPrefix", "savingsSuffix",
+        "salePricePrefixFr", "memberPricePrefixFr",
         "memberPriceSuffixFr", "memberPriceUnit", "promoUnitFr", "loyaltyPrefix",
         "loyaltySuffixFr", "attr1", "attr2", "attr3", "tx"
     ) if record.get(key)]
@@ -271,6 +292,7 @@ def normalize_pages(
         if action in {"URL", "Inblock"}:
             skipped.append({"index": index, "action": action})
             continue
+        source_review = None
         try:
             if action != "Product":
                 raise ReviewRequired("unknown_action_type")
@@ -279,6 +301,7 @@ def normalize_pages(
                         and issue["sku"] == record.get("sku")
                         and issue["valid_from"] == metadata["startDate"][:10]
                         and issue["valid_to"] == metadata["endDate"][:10]):
+                    source_review = issue
                     raise ReviewRequired(issue["reason"])
             normalized = normalize_record(record, metadata, retrieved_at)
             accepted += 1
@@ -287,7 +310,10 @@ def normalize_pages(
                     duplicates += 1
                 offers[offer.offer_id] = offer
         except (ReviewRequired, ValueError) as exc:
-            rejected.append({"index": index, "reason": str(exc), "record": record})
+            rejection = {"index": index, "reason": str(exc), "record": record}
+            if source_review is not None:
+                rejection["source_review"] = source_review
+            rejected.append(rejection)
     flyer = Flyer(
         flyer_id="pending", retailer_id="superc", store_id=INTERNAL_STORE,
         valid_from=business_date(metadata["startDate"]),

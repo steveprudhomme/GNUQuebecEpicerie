@@ -107,7 +107,7 @@ def test_limit_and_after_limit_price():
     ({"salePriceFr": None}, "missing_price_or_supported_reward"),
     ({"priceQuantity": "2.5"}, "noninteger_quantity"),
     ({"promoUnitFr": "prix variable"}, "ambiguous_price_basis"),
-    ({"salePricePrefixFr": "rabais de"}, "ambiguous_price_prefix"),
+    ({"salePricePrefixFr": "rabais de"}, "discount_amount_requires_review"),
     ({"rowPrice": "3.00"}, "unsupported_rowPrice"),
     ({"validToROW": "2026-09-21T04:00:00Z"}, "offer_period_differs"),
     ({"validFrom": "not-a-date"}, "invalid_date"),
@@ -268,6 +268,7 @@ def test_visual_review_quarantines_only_matching_publication_store_and_period():
     flyer, report = normalize_pages(META, pages, NOW, [issue])
     assert not flyer.offers
     assert report["rejection_reasons"] == {"visual_period_conflicts_with_json": 1}
+    assert report["rejected"][0]["source_review"] == issue
     for field, value in [("publication", "456"), ("source_store_id", "465"),
                          ("valid_from", "2026-09-24"), ("sku", "other")]:
         flyer, _ = normalize_pages(META, pages, NOW, [{**issue, field: value}])
@@ -281,3 +282,52 @@ def test_missing_review_registry_blocks_snapshot(tmp_path, monkeypatch):
     with pytest.raises(FileNotFoundError):
         normalize_snapshot(snapshot, "123", schemas)
     assert not (snapshot / "normalized").exists()
+
+
+@pytest.mark.parametrize("changes,reason", [
+    ({"salePriceFr": "3", "salePricePrefixFr": "prix réduit rabais de"},
+     "discount_amount_requires_review"),
+    ({"salePriceFr": None, "savingsPrefix": "rabais de", "savingsFr": "2$",
+      "savingsSuffix": "à l’achat de 2 pains", "coupon": True},
+     "discount_amount_requires_review"),
+    ({"rabaisMM": "1.00"}, "member_discount_without_final_price"),
+    ({"rabaisMM": "1.00", "memberPriceFr": "4.49"},
+     "member_discount_conflicts_with_prices"),
+    ({"rabaisMM": "1.00", "memberPriceFr": "3.99", "memberPriceUnit": "/lb"},
+     "member_discount_basis_requires_review"),
+    ({"rabaisMM": "1.00", "memberPriceFr": "3.99", "memberPriceQuantity": "2"},
+     "member_discount_basis_requires_review"),
+])
+def test_discount_ambiguities_block_whole_entry(changes, reason):
+    flyer, report = normalize(record(**changes))
+    assert not flyer.offers
+    assert report["rejection_reasons"] == {reason: 1}
+
+
+def test_consistent_member_discount_preserves_both_explicit_prices():
+    flyer, report = normalize(record(rabaisMM="1.00", memberPriceFr="3.99"))
+    assert not report["rejected"]
+    assert sorted(o.promotion.sale_price for o in flyer.offers) == [3.99, 4.99]
+    assert all(json.loads(o.source.source_text)["rabaisMM"] == "1.00" for o in flyer.offers)
+
+
+def test_savings_conditions_preserved_without_changing_final_price():
+    flyer, _ = normalize(record(savingsPrefix="économie :", savingsFr="2$",
+                                savingsSuffix="à l’achat de 2 produits"))
+    offer = flyer.offers[0]
+    assert offer.promotion.sale_price == 4.99
+    assert "savingsSuffix: à l’achat de 2 produits" in offer.promotion.conditions
+    assert json.loads(offer.source.source_text)["savingsPrefix"] == "économie :"
+
+
+def test_review_list_preserves_conditions_and_warns_about_dates(tmp_path, monkeypatch):
+    snapshot = snapshot_fixture(tmp_path, monkeypatch, record(
+        savingsPrefix="rabais de", savingsFr="2$", savingsSuffix="à l’achat de 2 pains"
+    ))
+    output, report = normalize_snapshot(snapshot, "123", SCHEMAS)
+    text = (output / "review.txt").read_text(encoding="utf-8")
+    assert "à l’achat de 2 pains" in text
+    assert "SKU 000123" in text
+    assert "2026-09-23" in text
+    assert "pas une validation visuelle" in text
+    assert not report["ready_for_archive"]

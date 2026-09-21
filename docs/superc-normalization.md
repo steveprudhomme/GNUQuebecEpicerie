@@ -17,11 +17,12 @@ Pour une nouvelle capture, commencer par le diagnostic décrit dans
 et l'identifiant de publication retourné.
 
 Le résultat se trouve sous le dossier de capture, dans
-`normalized/superc-0.2.0/<publication>/` :
+`normalized/superc-0.3.0/<publication>/` :
 
 - `flyer.json` : offres acceptées, conformes au schéma V1;
 - `manifest.json` : période, magasin, compte des offres et empreintes;
 - `report.json` : décompte des entrées, rejets motivés et enregistrements originaux;
+- `review.txt` : liste lisible des entrées bloquées, conditions source et observations de dates;
 - `source-input.bin` : octets d'entrée encadrés selon le contrat V1, permettant de
   reproduire l'empreinte du manifeste.
 
@@ -163,3 +164,47 @@ résultats 0.2.0 sont générés dans un dossier distinct.
 La suite exige une source fiable pour les conditions et dates absentes du JSON,
 ainsi qu'un traitement explicite des rabais sans prix final. La désactivation de
 la publication automatique est conservée jusqu'à résolution de ces points.
+
+
+## Conditions et contrôle des rabais — normaliseur 0.3.0
+
+L'analyse hors ligne conserve maintenant `savingsPrefix`, `savingsSuffix` et
+`rabaisMM` dans la provenance. Les préfixes et suffixes d'économie sont également
+conservés dans les conditions, notamment les quantités minimales d'achat.
+Le schéma V1 est inchangé; l'ajout de provenance modifie les identifiants de contenu.
+Les anciens brouillons restent dans leurs dossiers de version.
+
+Les libellés « rabais de » sont classés avant l'indicateur de coupon : un rabais
+annoncé n'est jamais converti en prix final. Le prix membre manquant n'est pas
+calculé depuis le prix public. Lorsque `rabaisMM` est renseigné, les deux prix
+explicites doivent avoir la même base et quantité, et leur différence doit être
+égale au rabais annoncé. Sinon, l'entrée entière est mise en révision.
+Ce contrôle est conservateur : il signale une incohérence, sans décider quel champ
+source est erroné ni prétendre établir la signification universelle du champ.
+
+Sur la capture 83817, le pâté La Belle Bretagne présente 3,49 $ au public, 2,99 $
+au membre et `rabaisMM: 1.00`. Ses deux offres sont donc retirées du brouillon,
+puisque l'écart est de 0,50 $. La soupe Bâton Rouge ne possède pas de prix membre
+final explicite; aucun prix à 9,99 $ n'est déduit du rabais affiché dans le JSON.
+
+Bilan : **297 entrées acceptées, 322 offres, 22 entrées à revoir**, 12 blocs
+non commerciaux et 2 doublons supprimés. Les motifs sont désormais :
+
+| Motif principal | Entrées |
+| --- | ---: |
+| Conditions du coupon à vérifier | 11 |
+| Rabais annoncé sans prix final établi | 3 |
+| Prix membre final absent | 1 |
+| Rabais membre incompatible avec les deux prix | 1 |
+| Prix ou récompense absent | 5 |
+| Dates de l'image incompatibles avec le JSON | 1 |
+
+`review.txt` est généré automatiquement à côté du rapport JSON. Il présente le SKU,
+les conditions, les dates source et l'observation du registre lorsqu'elle existe.
+Il permet une vérification produit par produit dans le lecteur officiel; il ne
+constitue pas une validation des offres acceptées. Modifier ce fichier ne débloque
+aucune entrée. Les décisions doivent être étayées par une observation de source,
+puis traduites explicitement dans le code ou le registre et testées.
+
+Cette étape n'a pas effectué de nouvelle vérification visuelle exhaustive.
+L'écart de dates reste en quarantaine; la publication automatique reste désactivée.
