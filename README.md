@@ -112,3 +112,16 @@ python -m gnuquebecepicerie.analysis.superc --date 2026-09-20
 ```
 
 Ses réponses restent sous `local/`, hors Git. Il ne normalise ni ne publie encore les offres.
+
+## Normalisation hors ligne
+
+La [normalisation Super C](docs/superc-normalization.md) convertit une capture vérifiée
+en brouillon V1 et signale les entrées ambiguës :
+
+```powershell
+python -m gnuquebecepicerie normalize-superc local/source-analysis/20260920T215125838198Z --publication 83817
+```
+
+Adapter le dossier et la publication au diagnostic local. Les résultats restent sous
+`local/`; le code de sortie 2 indique des rejets à examiner. Aucune archive ni publication
+Git n'est créée automatiquement par cette commande.

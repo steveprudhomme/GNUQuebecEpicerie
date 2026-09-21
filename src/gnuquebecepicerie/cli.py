@@ -8,9 +8,31 @@ import typer
 
 from gnuquebecepicerie import __version__
 from gnuquebecepicerie.collectors import IGACollector, SuperCCollector
+from gnuquebecepicerie.normalizers.superc_snapshot import normalize_snapshot
 from gnuquebecepicerie.validators.schema import validate_json
 
 app = typer.Typer(help="Collecte et archive les promotions d'épiceries québécoises.")
+
+
+@app.command("normalize-superc")
+def normalize_superc(
+    snapshot: Annotated[Path, typer.Argument(exists=True, file_okay=False)],
+    publication: Annotated[str, typer.Option(help="Identifiant de publication du diagnostic")],
+    schemas: Annotated[Path, typer.Option()] = Path("schema"),
+) -> None:
+    """Normalise une capture locale; signale les rejets et ne publie aucune archive."""
+    try:
+        output, report = normalize_snapshot(snapshot, publication, schemas)
+    except (ValueError, KeyError, OSError) as exc:
+        typer.echo(f"Normalisation arrêtée : {exc}", err=True)
+        raise typer.Exit(code=2) from exc
+    typer.echo(f"Brouillon local : {output}")
+    typer.echo(
+        f"{report['offers_count']} offres; {report['rejected_entries']} entrées à revoir; "
+        f"{report['skipped_entries']} blocs non commerciaux ignorés."
+    )
+    if report["rejected_entries"]:
+        raise typer.Exit(code=2)
 
 
 @app.command()

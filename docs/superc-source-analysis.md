@@ -122,3 +122,5 @@ prix membre, lots et poids; effectuer ensuite une collecte locale complète avec
 rapport des rejets et vérification manuelle. L'activation et la publication de données
 réelles exigent des contrôles de complétude, de magasin et de période. Ce commit publie
 le rapport, le diagnostic et les tests, pas un collecteur de promotions terminé.
+
+Étape suivante réalisée : [normaliseur hors ligne et bilan des rejets](superc-normalization.md).
