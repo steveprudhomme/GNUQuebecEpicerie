@@ -8,7 +8,7 @@ import pytest
 from typer.testing import CliRunner
 
 from gnuquebecepicerie.cli import app
-from gnuquebecepicerie.normalizers.superc import normalize_pages
+from gnuquebecepicerie.normalizers.superc import NORMALIZER_VERSION, normalize_pages
 from gnuquebecepicerie.normalizers.superc_snapshot import normalize_snapshot
 from gnuquebecepicerie.validators.schema import validate_json
 
@@ -100,13 +100,13 @@ def test_limit_and_after_limit_price():
 
 @pytest.mark.parametrize("changes,reason", [
     ({"coupon": True}, "coupon_requires_review"),
-    ({"priceSign": "¢"}, "ambiguous_currency_sign"),
+    ({"priceSign": "¢", "salePriceFr": "99"}, "ambiguous_currency_sign"),
     ({"salePriceFr": "de 2 à 4"}, "ambiguous_number"),
     ({"salePriceFr": "NaN"}, "ambiguous_number"),
     ({"salePriceFr": "0"}, "nonpositive_number"),
     ({"salePriceFr": None}, "missing_price_or_supported_reward"),
     ({"priceQuantity": "2.5"}, "noninteger_quantity"),
-    ({"promoUnitFr": "environ 11 lb"}, "ambiguous_price_basis"),
+    ({"promoUnitFr": "prix variable"}, "ambiguous_price_basis"),
     ({"salePricePrefixFr": "rabais de"}, "ambiguous_price_prefix"),
     ({"rowPrice": "3.00"}, "unsupported_rowPrice"),
     ({"validToROW": "2026-09-21T04:00:00Z"}, "offer_period_differs"),
@@ -214,4 +214,70 @@ def test_cli_reports_partial_result_with_nonzero_status(tmp_path, monkeypatch):
                                     "--publication", "123", "--schemas", str(SCHEMAS)])
     assert result.exit_code == 2
     assert "1 entrées à revoir" in result.output
-    assert (snapshot / "normalized/superc-0.1.0/123/report.json").exists()
+    assert (snapshot / "normalized" / NORMALIZER_VERSION / "123/report.json").exists()
+
+
+@pytest.mark.parametrize("price", ["0.99", "0,88"])
+def test_cents_symbol_does_not_divide_dollar_value_by_one_hundred(price):
+    flyer, report = normalize(record(salePriceFr=price, salePrice=price, priceSign="¢"))
+    assert not report["rejected"]
+    assert flyer.offers[0].promotion.sale_price == float(price.replace(",", "."))
+
+
+def test_conflicting_french_and_generic_cents_values_rejected():
+    _, report = normalize(record(salePriceFr="0.99", salePrice="99", priceSign="¢"))
+    assert report["rejection_reasons"] == {"conflicting_currency_values": 1}
+
+
+def test_member_price_with_coupon_flag_requires_explicit_member_label():
+    flyer, report = normalize(record(coupon=True, memberPriceFr="0.99",
+                                     memberPriceSign="¢", memberPricePrefixFr="prix membre"))
+    assert not report["rejected"]
+    assert len(flyer.offers) == 2
+    member = next(o for o in flyer.offers if o.promotion.loyalty_required)
+    assert member.promotion.sale_price == 0.99
+    assert member.promotion.loyalty_program == "moi"
+    assert json.loads(member.source.source_text)["coupon"] is True
+    _, rejected = normalize(record(coupon=True, memberPriceFr="0.99"))
+    assert rejected["rejection_reasons"] == {"coupon_requires_review": 1}
+
+
+def test_member_discount_is_not_treated_as_final_price():
+    _, report = normalize(record(memberPriceFr="3.99", memberSave="2$"))
+    assert report["rejection_reasons"] == {"member_discount_amount_requires_review": 1}
+
+
+@pytest.mark.parametrize("unit", ["environ 11 lb", "½ caisse"])
+def test_package_descriptions_keep_format_without_inventing_unit_price(unit):
+    flyer, report = normalize(record(promoUnitFr=unit, bodyFr="format annoncé"))
+    assert not report["rejected"]
+    offer = flyer.offers[0]
+    assert offer.promotion.price_basis == "package"
+    assert offer.product.quantity is None
+    assert offer.promotion.unit_prices == []
+    assert f"promoUnitFr: {unit}" in offer.promotion.conditions
+
+
+def test_visual_review_quarantines_only_matching_publication_store_and_period():
+    issue = {
+        "publication": "123", "source_store_id": "447", "sku": "000123",
+        "valid_from": "2026-09-17", "valid_to": "2026-09-23",
+        "reason": "visual_period_conflicts_with_json",
+    }
+    pages = [{"products": [record()]}]
+    flyer, report = normalize_pages(META, pages, NOW, [issue])
+    assert not flyer.offers
+    assert report["rejection_reasons"] == {"visual_period_conflicts_with_json": 1}
+    for field, value in [("publication", "456"), ("source_store_id", "465"),
+                         ("valid_from", "2026-09-24"), ("sku", "other")]:
+        flyer, _ = normalize_pages(META, pages, NOW, [{**issue, field: value}])
+        assert len(flyer.offers) == 1
+
+
+def test_missing_review_registry_blocks_snapshot(tmp_path, monkeypatch):
+    snapshot = snapshot_fixture(tmp_path, monkeypatch)
+    schemas = tmp_path / "schema"
+    schemas.mkdir()
+    with pytest.raises(FileNotFoundError):
+        normalize_snapshot(snapshot, "123", schemas)
+    assert not (snapshot / "normalized").exists()

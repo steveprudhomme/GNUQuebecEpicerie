@@ -44,9 +44,15 @@ def normalize_snapshot(snapshot: Path, publication: str, schemas: Path) -> tuple
     pages_bytes = (snapshot / f"pages-{publication}.json").read_bytes()
     if hashlib.sha256(pages_bytes).hexdigest() != expected[0]["sha256"]:
         raise ValueError("Empreinte des pages différente du diagnostic.")
+    review_path = schemas.resolve().parent / "config/source-reviews/superc.json"
+    reviews = json.loads(review_path.read_text(encoding="utf-8"))
+    if reviews.get("version") != 1 or not isinstance(reviews.get("issues"), list):
+        raise ValueError("Registre de révision Super C invalide.")
     flyer, report = normalize_pages(
-        metadata, json.loads(pages_bytes), datetime.fromisoformat(summary["observed_at"])
+        metadata, json.loads(pages_bytes), datetime.fromisoformat(summary["observed_at"]),
+        known_issues=reviews["issues"],
     )
+    report["review_registry_sha256"] = hashlib.sha256(review_path.read_bytes()).hexdigest()
     document = flyer.model_dump(mode="json")
     revision = content_revision(document)
     # Ordre lexical des URL : /flyers/... puis /pages/..., encadrement V1 des octets bruts.

@@ -15,7 +15,7 @@ from bs4 import BeautifulSoup
 from gnuquebecepicerie.models import Flyer, Offer, Product, Promotion, Quantity, Source, UnitPrice
 from gnuquebecepicerie.storage.json_store import content_revision
 
-NORMALIZER_VERSION = "superc-0.1.0"
+NORMALIZER_VERSION = "superc-0.2.0"
 INTERNAL_STORE = "superc-laval-des-laurentides-1000"
 SOURCE_STORE = "447"
 SOURCE_NAME = "LAVAL DES LAURENTIDES"
@@ -24,7 +24,8 @@ RAW_FIELDS = (
     "salePriceFr", "salePrice", "regularPriceFr", "regularPrice", "priceQuantity",
     "priceSign", "salePricePrefixFr", "promoUnitFr", "alternatePriceFr", "contents",
     "memberPriceFr", "memberPriceEn", "memberPriceQuantity", "memberPriceUnit",
-    "memberPriceSign", "memberPricePrefixFr", "memberPriceSuffixFr", "pts", "coupon",
+    "memberPriceSign", "memberPricePrefixFr", "memberPriceSuffixFr", "memberSave",
+    "memberSavePrefix", "memberSaveSuffixFr", "pts", "coupon",
     "loyalty", "loyaltyPrefix", "loyaltySuffixFr", "savingsFr", "limitQty",
     "afterLimitPrice", "rowPrice", "rowPriceQty", "rowPriceUnit", "tx",
     "validFrom", "validTo", "validFromROW", "validToROW", "attr1", "attr2", "attr3",
@@ -71,7 +72,11 @@ def first(record: dict, primary: str, fallback: str) -> Any:
 
 def basis(value: Any) -> str:
     unit = clean(value).lower().replace(" ", "")
+    # Description d'un format approximatif, et non tarif à la livre.
+    if re.fullmatch(r"environ\d+(?:[.,]\d+)?lb", unit):
+        return "package"
     units = {"": "package", "caisse": "package", "àcaisse": "package",
+             "½caisse": "package",
              "/lb": "lb", "/kg": "kg", "/100g": "100g", "/l": "l",
              "/100ml": "100ml", "/un.": "unit", "/un": "unit"}
     if unit not in units:
@@ -132,7 +137,7 @@ def product(record: dict) -> Product:
 def promotion(record: dict, member: bool, conditions: list[str]) -> Promotion:
     prefix = "member" if member else "sale"
     sign = clean(record.get("memberPriceSign" if member else "priceSign"))
-    if sign not in {"", "$"}:
+    if sign not in {"", "$", "¢"}:
         raise ReviewRequired("ambiguous_currency_sign")
     unit_field = record.get("memberPriceUnit") if member else record.get("promoUnitFr")
     if member and not unit_field:
@@ -146,6 +151,14 @@ def promotion(record: dict, member: bool, conditions: list[str]) -> Promotion:
     price = number(first(record, prefix + "PriceFr", "memberPriceEn" if member else "salePrice"))
     if price is None:
         raise ReviewRequired("missing_price")
+    # Le lecteur formate 0.99 en 0,99 $ même quand priceSign vaut ¢.
+    # Une future convention encodant 99 plutôt que 0.99 doit être revue.
+    if sign == "¢":
+        if price >= 1:
+            raise ReviewRequired("ambiguous_currency_sign")
+        other = record.get("memberPriceEn" if member else "salePrice")
+        if other not in (None, "") and number(other) != price:
+            raise ReviewRequired("conflicting_currency_values")
     if quantity and unit not in {"package", "unit"}:
         raise ReviewRequired("weighted_multi_buy")
     regular = None
@@ -177,7 +190,12 @@ def promotion(record: dict, member: bool, conditions: list[str]) -> Promotion:
 
 def normalize_record(record: dict, metadata: dict, retrieved_at: datetime) -> list[Offer]:
     if record.get("coupon") not in (None, False):
-        raise ReviewRequired("coupon_requires_review")
+        if (record.get("coupon") is not True
+                or clean(record.get("memberPricePrefixFr")).lower() != "prix membre"
+                or first(record, "memberPriceFr", "memberPriceEn") in (None, "")):
+            raise ReviewRequired("coupon_requires_review")
+    if record.get("memberSave") not in (None, ""):
+        raise ReviewRequired("member_discount_amount_requires_review")
     for key in ("rowPrice", "rowPriceQty", "rowPriceUnit", "loyalty"):
         if record.get(key) not in (None, ""):
             raise ReviewRequired("unsupported_" + key)
@@ -202,7 +220,8 @@ def normalize_record(record: dict, metadata: dict, retrieved_at: datetime) -> li
                     source_text=json.dumps(raw, ensure_ascii=False, sort_keys=True))
     conditions = [f"{key}: {clean(record[key])}" for key in (
         "bodyFr", "alternatePriceFr", "savingsFr", "salePricePrefixFr", "memberPricePrefixFr",
-        "memberPriceSuffixFr", "loyaltyPrefix", "loyaltySuffixFr", "attr1", "attr2", "attr3", "tx"
+        "memberPriceSuffixFr", "memberPriceUnit", "promoUnitFr", "loyaltyPrefix",
+        "loyaltySuffixFr", "attr1", "attr2", "attr3", "tx"
     ) if record.get(key)]
     item = product(record)
     promotions = []
@@ -231,7 +250,9 @@ def normalize_record(record: dict, metadata: dict, retrieved_at: datetime) -> li
     return offers
 
 
-def normalize_pages(metadata: dict, pages: list, retrieved_at: datetime) -> tuple[Flyer, dict]:
+def normalize_pages(
+    metadata: dict, pages: list, retrieved_at: datetime, known_issues: tuple | list = ()
+) -> tuple[Flyer, dict]:
     if metadata.get("storeName") != SOURCE_NAME:
         raise ValueError("Magasin inattendu : aucune normalisation.")
     if metadata.get("language") != "bil":
@@ -253,6 +274,12 @@ def normalize_pages(metadata: dict, pages: list, retrieved_at: datetime) -> tupl
         try:
             if action != "Product":
                 raise ReviewRequired("unknown_action_type")
+            for issue in known_issues:
+                if (issue["publication"] == title and issue["source_store_id"] == SOURCE_STORE
+                        and issue["sku"] == record.get("sku")
+                        and issue["valid_from"] == metadata["startDate"][:10]
+                        and issue["valid_to"] == metadata["endDate"][:10]):
+                    raise ReviewRequired(issue["reason"])
             normalized = normalize_record(record, metadata, retrieved_at)
             accepted += 1
             for offer in normalized:
@@ -277,6 +304,8 @@ def normalize_pages(metadata: dict, pages: list, retrieved_at: datetime) -> tupl
         "duplicate_offers_removed": duplicates,
         "normalization_complete": bool(offers) and not rejected,
         "ready_for_archive": False,
+        "warnings": ["Les dates structurées ne garantissent pas la validité commerciale affichée. "
+                     "Une vérification visuelle est nécessaire avant archivage."],
         "rejection_reasons": dict(Counter(item["reason"] for item in rejected)),
         "skipped": skipped, "rejected": rejected,
     }

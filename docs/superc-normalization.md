@@ -17,7 +17,7 @@ Pour une nouvelle capture, commencer par le diagnostic décrit dans
 et l'identifiant de publication retourné.
 
 Le résultat se trouve sous le dossier de capture, dans
-`normalized/superc-0.1.0/<publication>/` :
+`normalized/superc-0.2.0/<publication>/` :
 
 - `flyer.json` : offres acceptées, conformes au schéma V1;
 - `manifest.json` : période, magasin, compte des offres et empreintes;
@@ -54,7 +54,7 @@ La conversion d'une entrée est atomique : si une variante membre est ambiguë,
 l'entrée entière est signalée, même si son prix public paraît interprétable.
 Les blocs `URL` et `Inblock` sont recensés séparément, sans être considérés comme des produits.
 
-## Vérification sur la capture du 20 septembre 2026
+## Premier bilan (normaliseur 0.1.0)
 
 Circulaire 83817, du 17 au 23 septembre, magasin Laval Des Laurentides :
 
@@ -91,7 +91,75 @@ limites, dates, encodage UTF-8, doublons, changements de prix, stabilité des
 identifiants, capture modifiée et résultat incomplet de la CLI. Les tests fonctionnent
 hors ligne, sans dépendre des offres courantes.
 
-La prochaine étape est de confirmer les conventions des coupons et des cents,
-puis de décider du traitement des promotions sans prix final. Le normaliseur devra
-ensuite être relié à la collecte réseau avec contrôle de volume historique et
-publication d'archives complètes seulement.
+Les améliorations et les limites découvertes lors de la vérification visuelle sont
+détaillées ci-dessous. La collecte réseau avec publication automatique reste désactivée.
+
+## Vérification visuelle du 21 septembre — normaliseur 0.2.0
+
+Le lecteur officiel a été consulté dans le navigateur local à l'adresse
+`https://circulaire.superc.ca/flyer/83817?storeId=447&language=fr`, avec les images
+de circulaire et les résultats de recherche. Les observations ne proviennent pas
+d'une interprétation des seuls textes alternatifs : ceux-ci affichent parfois
+`0,99¢`, alors que l'image indique 99 ¢.
+
+Conclusions appliquées :
+
+- `priceSign: ¢` avec `salePriceFr: 0.99` représente **0,99 CAD**, pas 0,0099 CAD.
+  Le code du lecteur formate lui aussi cette valeur décimale en dollars. Les cas
+  à 1 ou plus avec ce symbole et les valeurs françaises/génériques contradictoires
+  restent rejetés. La même règle s'applique au champ de prix membre.
+- Le prix membre à 99 ¢ du jus de tomate est explicitement affiché avec son prix
+  public à 1,25 $. L'indicateur `coupon: true` ne suffit donc pas à identifier un
+  coupon à activer. Le normaliseur accepte maintenant les entrées ayant un prix
+  membre numérique et le libellé explicite `prix membre`; il conserve les deux prix
+  séparément et préserve l'indicateur original. Les autres cas ne sont pas extrapolés.
+- Le melon entier à 5,99 $ est vendu au format approximatif d'environ 11 lb,
+  et non à 5,99 $/lb. Aucune masse exacte ni conversion unitaire n'est inventée.
+- Les figues à 9,99 $ sont vendues par demi-caisse : `package` désigne ici ce format,
+  préservé dans les conditions et le texte source; aucun poids n'est déduit.
+
+### Contradiction de période découverte
+
+Sur la première page, l'image de l'offre de longe de porc (SKU 15122301) affiche
+une validité limitée au jeudi et au vendredi. Ses champs JSON `validFrom` et `validTo`
+couvrent pourtant les sept jours. Les champs `ROW`, les tags et les métadonnées
+du bloc ne fournissent pas la correction. Cette offre est maintenant mise en
+quarantaine par `config/source-reviews/superc.json`.
+
+Le registre est limité à la publication, au magasin, au SKU et à la période concernés.
+Une nouvelle publication n'hérite pas automatiquement de cette observation.
+La conversion d'une capture exige le registre; s'il manque, elle s'arrête. Son empreinte
+est enregistrée dans le rapport local pour tracer les décisions appliquées.
+Ces observations de contenu public sont versionnées; aucune clé ni image tierce
+n'est incluse dans le registre.
+
+Cet écart démontre qu'une validation JSON seule ne garantit pas la justesse commerciale
+des dates. Les brouillons restent non publiables automatiquement, y compris lorsque
+leur conversion syntaxique n'a aucun rejet. Les autres offres n'ont pas été vérifiées
+visuellement de manière exhaustive.
+
+### Nouveau bilan sur la même capture
+
+| Résultat | Nombre |
+| --- | ---: |
+| Entrées source | 331 |
+| Entrées produit acceptées | 298 |
+| Blocs non commerciaux écartés | 12 |
+| Entrées à revoir | 21 |
+| Offres après séparation public/membre/points et déduplication | 324 |
+| Doublons d'offres supprimés | 2 |
+
+Les 21 entrées restantes comprennent 15 indicateurs de coupon non élucidés,
+5 entrées sans prix ni récompense structurée, et la contradiction de période ci-dessus.
+Le nombre d'offres ne doit pas être comparé directement au nombre d'entrées : un
+produit peut générer plusieurs offres de conditions différentes.
+
+Les tests couvrent désormais la convention des cents, les divergences de montant,
+les prix membres associés à l'indicateur de coupon, les formats de vente vérifiés,
+les rabais membres qui ne sont pas un prix final et le périmètre exact du registre
+de quarantaine. Les résultats 0.1.0 restent dans leur ancien dossier local; les
+résultats 0.2.0 sont générés dans un dossier distinct.
+
+La suite exige une source fiable pour les conditions et dates absentes du JSON,
+ainsi qu'un traitement explicite des rabais sans prix final. La désactivation de
+la publication automatique est conservée jusqu'à résolution de ces points.
