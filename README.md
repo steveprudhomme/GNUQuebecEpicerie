@@ -90,7 +90,12 @@ Les collecteurs Super C et IGA sont des squelettes dans cette version initiale; 
 
 ## État du projet
 
-**Phase 0 — fondations.** Le dépôt définit le modèle de données, la configuration, l'interface des collecteurs, la validation et la structure d'archivage.
+Les fondations V1 et la normalisation locale Super C sont en place. Les offres
+restent en brouillon jusqu'à validation commerciale; les collecteurs complets
+et la publication automatique restent à réaliser.
+
+La [feuille de route](ROADMAP.md) détaille les prochaines étapes et leurs critères
+de validation, en commençant par le schéma V1.1.
 
 ## Licence
 
