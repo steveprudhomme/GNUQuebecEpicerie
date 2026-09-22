@@ -95,7 +95,8 @@ restent en brouillon jusqu'à validation commerciale; les collecteurs complets
 et la publication automatique restent à réaliser.
 
 La [feuille de route](ROADMAP.md) détaille les prochaines étapes et leurs critères
-de validation, en commençant par le schéma V1.1.
+de validation. Le [contrat V1.1](docs/v1.1-contract.md) et ses tests sont disponibles;
+son intégration au normaliseur reste à réaliser.
 
 ## Licence
 

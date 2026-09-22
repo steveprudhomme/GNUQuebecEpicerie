@@ -16,23 +16,27 @@ brouillons restent sous `local/`, hors Git.
 - [x] Documenter les décisions sur les 22 entrées examinées de la circulaire 83817.
 
 Le normaliseur 0.4.0 produit **334 offres en brouillon**; **12 entrées restent
-bloquées**. La suite comporte **96 tests réussis** à cette date. Ces résultats
+bloquées**. La validation V1.1 complète les 96 tests de la normalisation et du contrat V1. Ces résultats
 ne constituent pas une validation commerciale exhaustive. L'archivage automatique
 reste désactivé et les collecteurs réseau complets restent à implémenter.
 
-## 1. Préparer le schéma V1.1 — priorité immédiate
+## 1. Préparer le schéma V1.1 — contrat et tests réalisés
 
-- [ ] Définir les rabais conditionnels : montant ou pourcentage, quantité minimale,
+- [x] Définir les rabais conditionnels : montant ou pourcentage, quantité minimale,
   portée du rabais et conditions d'admissibilité.
-- [ ] Représenter séparément les rabais sur panier et les prix de vente des produits.
-- [ ] Ajouter les dates de validité propres à chaque promotion, distinctes de celles
+- [x] Représenter séparément les rabais sur panier et les prix de vente des produits.
+- [x] Ajouter les dates de validité propres à chaque promotion, distinctes de celles
   de la circulaire.
-- [ ] Préserver la distinction entre prix public, prix membre et récompense en points;
+- [x] Préserver la distinction entre prix public, prix membre et récompense en points;
   ne jamais convertir un rabais en prix final sans preuve suffisante.
-- [ ] Documenter le contrat V1.1 et ajouter les schémas, modèles, exemples fictifs
+- [x] Documenter le contrat V1.1 et ajouter les schémas, modèles, exemples fictifs
   et tests correspondants avant d'adapter le normaliseur.
-- [ ] Maintenir la lecture et la validation des archives V1; versionner explicitement
+- [x] Maintenir la lecture et la validation des archives V1; versionner explicitement
   les nouveaux documents sans réécrire les archives existantes.
+
+Le [contrat V1.1](docs/v1.1-contract.md), les schémas distincts, les exemples et
+la lecture versionnée sont disponibles. Le normaliseur reste en V1; son adaptation
+et la résolution des entrées bloquées constituent la prochaine priorité.
 
 Critère de fin : les nouveaux types de promotions sont représentables sans
 ambiguïté et les tests de compatibilité V1/V1.1 passent.

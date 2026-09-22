@@ -8,6 +8,7 @@ from jsonschema import Draft202012Validator, FormatChecker
 from referencing import Registry, Resource
 
 from gnuquebecepicerie.models import Flyer, Offer
+from gnuquebecepicerie.models_v11 import FlyerV11, OfferV11
 
 
 def validate_json(document: dict[str, Any], schema_path: Path) -> None:
@@ -28,6 +29,10 @@ def validate_json(document: dict[str, Any], schema_path: Path) -> None:
         Flyer.model_validate(document)
     elif schema_path.name == "offer.schema.json":
         Offer.model_validate(document)
+    elif schema_path.name == "flyer.v1.1.schema.json":
+        FlyerV11.model_validate(document)
+    elif schema_path.name == "offer.v1.1.schema.json":
+        OfferV11.model_validate(document)
     elif schema_path.name == "stores.schema.json":
         stores = document["stores"]
         if len({store["store_id"] for store in stores}) != len(stores):

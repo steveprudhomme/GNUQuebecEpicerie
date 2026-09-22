@@ -1,0 +1,951 @@
+{
+  "$defs": {
+    "ConditionalDiscount": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "conditional_discount",
+          "title": "Kind",
+          "type": "string"
+        },
+        "amount": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Amount"
+        },
+        "percent": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "maximum": 100,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Percent"
+        },
+        "currency": {
+          "const": "CAD",
+          "default": "CAD",
+          "title": "Currency",
+          "type": "string"
+        },
+        "scope": {
+          "enum": [
+            "product",
+            "basket"
+          ],
+          "title": "Scope",
+          "type": "string"
+        },
+        "application": {
+          "enum": [
+            "per_item",
+            "per_qualifying_group",
+            "per_transaction"
+          ],
+          "title": "Application",
+          "type": "string"
+        },
+        "reference_basis": {
+          "enum": [
+            "regular_price",
+            "current_price",
+            "basket_subtotal",
+            "unspecified"
+          ],
+          "title": "Reference Basis",
+          "type": "string"
+        },
+        "eligibility": {
+          "$ref": "#/$defs/Eligibility"
+        },
+        "loyalty_required": {
+          "default": false,
+          "title": "Loyalty Required",
+          "type": "boolean"
+        },
+        "loyalty_program": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Loyalty Program"
+        },
+        "conditions": {
+          "items": {
+            "type": "string",
+            "pattern": "\\S"
+          },
+          "minItems": 1,
+          "title": "Conditions",
+          "type": "array"
+        },
+        "conditions_complete": {
+          "default": false,
+          "title": "Conditions Complete",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "kind",
+        "scope",
+        "application",
+        "reference_basis",
+        "eligibility",
+        "conditions"
+      ],
+      "title": "ConditionalDiscount",
+      "type": "object",
+      "oneOf": [
+        {
+          "required": [
+            "amount"
+          ],
+          "properties": {
+            "amount": {
+              "type": "number"
+            }
+          },
+          "not": {
+            "required": [
+              "percent"
+            ],
+            "properties": {
+              "percent": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        {
+          "required": [
+            "percent"
+          ],
+          "properties": {
+            "percent": {
+              "type": "number"
+            }
+          },
+          "not": {
+            "required": [
+              "amount"
+            ],
+            "properties": {
+              "amount": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "loyalty_required": {
+                "const": true
+              }
+            },
+            "required": [
+              "loyalty_required"
+            ]
+          },
+          "then": {
+            "required": [
+              "loyalty_program"
+            ],
+            "properties": {
+              "loyalty_program": {
+                "type": "string",
+                "pattern": "\\S"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "scope": {
+                "const": "basket"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "application": {
+                "const": "per_transaction"
+              },
+              "reference_basis": {
+                "enum": [
+                  "basket_subtotal",
+                  "unspecified"
+                ]
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "application": {
+                "enum": [
+                  "per_item",
+                  "per_qualifying_group"
+                ]
+              },
+              "reference_basis": {
+                "enum": [
+                  "regular_price",
+                  "current_price",
+                  "unspecified"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "application": {
+                "const": "per_qualifying_group"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "eligibility": {
+                "required": [
+                  "minimum_quantity"
+                ],
+                "properties": {
+                  "minimum_quantity": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "Eligibility": {
+      "additionalProperties": false,
+      "properties": {
+        "qualifying_products": {
+          "items": {
+            "type": "string",
+            "pattern": "\\S"
+          },
+          "minItems": 1,
+          "title": "Qualifying Products",
+          "type": "array"
+        },
+        "minimum_quantity": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minimum Quantity"
+        },
+        "minimum_spend": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minimum Spend"
+        },
+        "minimum_spend_scope": {
+          "anyOf": [
+            {
+              "enum": [
+                "qualifying_products",
+                "basket"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minimum Spend Scope"
+        }
+      },
+      "required": [
+        "qualifying_products"
+      ],
+      "title": "Eligibility",
+      "type": "object",
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "minimum_spend"
+            ],
+            "properties": {
+              "minimum_spend": {
+                "type": "number"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "minimum_spend_scope"
+            ],
+            "properties": {
+              "minimum_spend_scope": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "minimum_spend_scope"
+            ],
+            "properties": {
+              "minimum_spend_scope": {
+                "type": "string"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "minimum_spend"
+            ],
+            "properties": {
+              "minimum_spend": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "OfferV11": {
+      "additionalProperties": false,
+      "properties": {
+        "offer_id": {
+          "minLength": 1,
+          "title": "Offer Id",
+          "type": "string"
+        },
+        "product": {
+          "$ref": "#/$defs/Product"
+        },
+        "promotion": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Promotion"
+            },
+            {
+              "$ref": "#/$defs/ConditionalDiscount"
+            }
+          ],
+          "title": "Promotion"
+        },
+        "source": {
+          "$ref": "#/$defs/Source"
+        },
+        "validity": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/OfferValidity"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "offer_id",
+        "product",
+        "promotion",
+        "source"
+      ],
+      "title": "OfferV11",
+      "type": "object"
+    },
+    "OfferValidity": {
+      "additionalProperties": false,
+      "properties": {
+        "valid_from": {
+          "format": "date",
+          "title": "Valid From",
+          "type": "string"
+        },
+        "valid_to": {
+          "format": "date",
+          "title": "Valid To",
+          "type": "string"
+        }
+      },
+      "required": [
+        "valid_from",
+        "valid_to"
+      ],
+      "title": "OfferValidity",
+      "type": "object"
+    },
+    "Product": {
+      "additionalProperties": false,
+      "properties": {
+        "raw_name": {
+          "minLength": 1,
+          "title": "Raw Name",
+          "type": "string"
+        },
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "brand": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Brand"
+        },
+        "variant": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Variant"
+        },
+        "sku": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sku"
+        },
+        "upc": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Upc"
+        },
+        "category": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Category"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Quantity"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "raw_name",
+        "name"
+      ],
+      "title": "Product",
+      "type": "object"
+    },
+    "Promotion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "currency",
+        "price_basis"
+      ],
+      "properties": {
+        "sale_price": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0
+        },
+        "regular_price": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0
+        },
+        "currency": {
+          "type": "string",
+          "const": "CAD"
+        },
+        "multi_buy_quantity": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 2
+        },
+        "multi_buy_price": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0
+        },
+        "loyalty_required": {
+          "type": "boolean",
+          "default": false
+        },
+        "loyalty_program": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "points": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "exclusiveMinimum": 0
+        },
+        "limit_quantity": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "price_after_limit": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0
+        },
+        "unit_prices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "value",
+              "basis"
+            ],
+            "properties": {
+              "value": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "basis": {
+                "type": "string",
+                "enum": [
+                  "100g",
+                  "kg",
+                  "100ml",
+                  "l",
+                  "unit"
+                ]
+              }
+            }
+          },
+          "default": []
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "price_basis": {
+          "enum": [
+            "package",
+            "unit",
+            "kg",
+            "lb",
+            "100g",
+            "l",
+            "100ml"
+          ]
+        },
+        "discount_percent": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0,
+          "maximum": 100
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "sale_price"
+          ],
+          "properties": {
+            "sale_price": {
+              "type": "number"
+            }
+          }
+        },
+        {
+          "required": [
+            "multi_buy_price"
+          ],
+          "properties": {
+            "multi_buy_price": {
+              "type": "number"
+            }
+          }
+        },
+        {
+          "required": [
+            "points"
+          ],
+          "properties": {
+            "points": {
+              "type": "number"
+            }
+          }
+        },
+        {
+          "required": [
+            "discount_percent"
+          ],
+          "properties": {
+            "discount_percent": {
+              "type": "number"
+            }
+          }
+        }
+      ],
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "multi_buy_price"
+            ],
+            "properties": {
+              "multi_buy_price": {
+                "type": "number"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "multi_buy_quantity"
+            ],
+            "properties": {
+              "multi_buy_quantity": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "multi_buy_quantity"
+            ],
+            "properties": {
+              "multi_buy_quantity": {
+                "type": "integer"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "multi_buy_price"
+            ],
+            "properties": {
+              "multi_buy_price": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "loyalty_required"
+            ],
+            "properties": {
+              "loyalty_required": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "loyalty_program"
+            ],
+            "properties": {
+              "loyalty_program": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "price_after_limit"
+            ],
+            "properties": {
+              "price_after_limit": {
+                "type": "number"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "limit_quantity"
+            ],
+            "properties": {
+              "limit_quantity": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "Quantity": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "exclusiveMinimum": 0,
+          "title": "Value",
+          "type": "number"
+        },
+        "unit": {
+          "enum": [
+            "g",
+            "kg",
+            "ml",
+            "l",
+            "unit"
+          ],
+          "title": "Unit",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "title": "Quantity",
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Url",
+          "type": "string"
+        },
+        "source_text": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Text"
+        },
+        "retrieved_at": {
+          "format": "date-time",
+          "title": "Retrieved At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "retrieved_at"
+      ],
+      "title": "Source",
+      "type": "object"
+    },
+    "UnitPrice": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "exclusiveMinimum": 0,
+          "title": "Value",
+          "type": "number"
+        },
+        "basis": {
+          "enum": [
+            "100g",
+            "kg",
+            "100ml",
+            "l",
+            "unit"
+          ],
+          "title": "Basis",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "basis"
+      ],
+      "title": "UnitPrice",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.1",
+      "default": "1.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "flyer_id": {
+      "minLength": 1,
+      "title": "Flyer Id",
+      "type": "string"
+    },
+    "retailer_id": {
+      "enum": [
+        "superc",
+        "iga"
+      ],
+      "title": "Retailer Id",
+      "type": "string"
+    },
+    "store_id": {
+      "minLength": 1,
+      "title": "Store Id",
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "published_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Published At"
+    },
+    "valid_from": {
+      "format": "date",
+      "title": "Valid From",
+      "type": "string"
+    },
+    "valid_to": {
+      "format": "date",
+      "title": "Valid To",
+      "type": "string"
+    },
+    "retrieved_at": {
+      "format": "date-time",
+      "title": "Retrieved At",
+      "type": "string"
+    },
+    "source_urls": {
+      "items": {
+        "format": "uri",
+        "maxLength": 2083,
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Source Urls",
+      "type": "array"
+    },
+    "offers": {
+      "items": {
+        "$ref": "#/$defs/OfferV11"
+      },
+      "title": "Offers",
+      "type": "array"
+    }
+  },
+  "required": [
+    "flyer_id",
+    "retailer_id",
+    "store_id",
+    "valid_from",
+    "valid_to",
+    "retrieved_at",
+    "source_urls",
+    "schema_version",
+    "offers"
+  ],
+  "title": "FlyerV11",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/steveprudhomme/GNUQuebecEpicerie/raw/main/schema/flyer.v1.1.schema.json"
+}

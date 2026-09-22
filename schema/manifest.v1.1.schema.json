@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/steveprudhomme/GNUQuebecEpicerie/raw/main/schema/manifest.v1.1.schema.json",
+  "title": "GNUQuebecEpicerie Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "retailer_id",
+    "store_id",
+    "valid_from",
+    "valid_to",
+    "retrieved_at",
+    "offers_count",
+    "source_hash",
+    "collector_version",
+    "source_urls",
+    "flyer_id",
+    "content_hash"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.1"
+    },
+    "retailer_id": {
+      "enum": [
+        "superc",
+        "iga"
+      ]
+    },
+    "store_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "valid_from": {
+      "type": "string",
+      "format": "date"
+    },
+    "valid_to": {
+      "type": "string",
+      "format": "date"
+    },
+    "retrieved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "offers_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "source_hash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "collector_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_urls": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "flyer_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "content_hash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    }
+  }
+}
