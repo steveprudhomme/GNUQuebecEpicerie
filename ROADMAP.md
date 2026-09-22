@@ -1,6 +1,6 @@
 # Feuille de route
 
-Mise à jour : 21 septembre 2026.
+Mise à jour : 22 septembre 2026.
 
 Le traitement s'exécute sur le PC local. GitHub reçoit le code, la documentation
 et, une fois validées, les archives de données. Les captures brutes et les
@@ -15,8 +15,8 @@ brouillons restent sous `local/`, hors Git.
 - [x] Normaliser les captures Super C hors ligne avec rejets motivés et traçabilité.
 - [x] Documenter les décisions sur les 22 entrées examinées de la circulaire 83817.
 
-Le normaliseur 0.4.0 produit **334 offres en brouillon**; **12 entrées restent
-bloquées**. La validation V1.1 complète les 96 tests de la normalisation et du contrat V1. Ces résultats
+Le normaliseur 0.5.0 produit **346 offres en brouillon V1.1**; **2 entrées restent
+rejetées et 8 entrées converties gardent des conditions incomplètes**. La validation V1.1 complète les 96 tests de la normalisation et du contrat V1. Ces résultats
 ne constituent pas une validation commerciale exhaustive. L'archivage automatique
 reste désactivé et les collecteurs réseau complets restent à implémenter.
 
@@ -35,24 +35,24 @@ reste désactivé et les collecteurs réseau complets restent à implémenter.
   les nouveaux documents sans réécrire les archives existantes.
 
 Le [contrat V1.1](docs/v1.1-contract.md), les schémas distincts, les exemples et
-la lecture versionnée sont disponibles. Le normaliseur reste en V1; son adaptation
-et la résolution des entrées bloquées constituent la prochaine priorité.
+la lecture versionnée sont disponibles. Le normaliseur est adapté au V1.1;
+les conditions et récompenses manquantes constituent la prochaine priorité.
 
 Critère de fin : les nouveaux types de promotions sont représentables sans
 ambiguïté et les tests de compatibilité V1/V1.1 passent.
 
 ## 2. Traiter les 12 entrées encore bloquées
 
-- [ ] Représenter le rabais de 2 $ à l'achat de 2 pains (2 entrées).
+- [x] Représenter le rabais de 2 $ à l'achat de 2 pains (2 entrées).
 - [ ] Obtenir les conditions signalées par les astérisques du rabais de 15 $ sur
   le panier à l'achat de 2 caisses de bière, puis le représenter (5 entrées).
 - [ ] Confirmer les 300 points des caisses Bud Light/Coors Light et leurs conditions
   dans une source officielle (2 entrées).
-- [ ] Représenter les rabais public de 3 $ et membre de 6 $ du vinier sans les
+- [x] Représenter les rabais public de 3 $ et membre de 6 $ du vinier sans les
   confondre avec des prix finaux (1 entrée).
-- [ ] Traiter explicitement la contradiction public/membre de la soupe Bâton Rouge :
+- [x] Traiter explicitement la contradiction public/membre de la soupe Bâton Rouge :
   image à 11,99 $ public et 10,99 $ membre, contrairement aux champs JSON (1 entrée).
-- [ ] Représenter la validité jeudi et vendredi de la longe de porc, au lieu de la
+- [x] Représenter la validité jeudi et vendredi de la longe de porc, au lieu de la
   semaine entière annoncée dans le JSON (1 entrée).
 - [ ] Associer chaque résolution à sa preuve, sa portée et ses tests; conserver
   en quarantaine les cas qui ne peuvent pas être résolus.
@@ -61,7 +61,7 @@ Critère de fin : chaque entrée est soit convertie avec preuve et conditions
 complètes, soit explicitement exclue avec un motif documenté. Un schéma plus riche
 ne remplace pas une information source manquante.
 
-## 3. Valider les 334 offres en brouillon avant archivage
+## 3. Valider les 346 offres en brouillon avant archivage
 
 - [ ] Vérifier les prix, formats, quantités, conditions membre, points et limites
   par rapport aux sources officielles.

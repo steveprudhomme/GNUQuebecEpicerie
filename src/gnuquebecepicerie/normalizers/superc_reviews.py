@@ -7,6 +7,9 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
+from gnuquebecepicerie.models import Promotion
+from gnuquebecepicerie.models_v11 import ConditionalDiscount, OfferValidity
+
 
 class SourceReview(BaseModel):
     model_config = ConfigDict(extra="forbid", strict=True)
@@ -18,7 +21,11 @@ class SourceReview(BaseModel):
     observed_at: str
     source_url: str
     record_sha256: str = Field(pattern=r"^[a-f0-9]{64}$")
-    decision: Literal["accept_coupon_flag", "accept_explicit_prices", "keep_rejected"]
+    decision: Literal[
+        "accept_coupon_flag", "accept_explicit_prices", "keep_rejected", "normalize_v11"
+    ]
+    promotions: list[Promotion | ConditionalDiscount] | None = None
+    validity: OfferValidity | None = None
     evidence: str = Field(min_length=1)
 
     @model_validator(mode="after")
@@ -30,6 +37,17 @@ class SourceReview(BaseModel):
                     f"?storeId={self.source_store_id}&language=fr")
         if self.source_url != expected or not self.evidence.strip():
             raise ValueError("Source ou preuve de révision invalide")
+        if self.decision == "normalize_v11":
+            if not self.promotions and self.validity is None:
+                raise ValueError("Une révision V1.1 exige des promotions ou une période.")
+            if self.promotions == []:
+                raise ValueError("Promotions révisées vides.")
+            if self.validity and not (date.fromisoformat(self.valid_from)
+                    <= self.validity.valid_from <= self.validity.valid_to
+                    <= date.fromisoformat(self.valid_to)):
+                raise ValueError("Période révisée hors circulaire.")
+        elif self.promotions is not None or self.validity is not None:
+            raise ValueError("Correction structurée sans décision V1.1.")
         return self
 
 
@@ -57,5 +75,5 @@ def matching_review(reviews, metadata, record, store):
                 and review.valid_from == metadata["startDate"][:10]
                 and review.valid_to == metadata["endDate"][:10]
                 and review.record_sha256 == record_digest(record)):
-            return review.model_dump()
+            return review.model_dump(mode="json", exclude_none=True)
     return None

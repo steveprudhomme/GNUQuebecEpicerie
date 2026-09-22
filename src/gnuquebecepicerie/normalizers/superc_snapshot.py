@@ -1,4 +1,4 @@
-"""Conversion hors ligne d'un diagnostic vérifié en brouillon local V1."""
+"""Conversion hors ligne d'un diagnostic vérifié en brouillon local V1.1."""
 
 from __future__ import annotations
 
@@ -58,7 +58,7 @@ def normalize_snapshot(snapshot: Path, publication: str, schemas: Path) -> tuple
     # Ordre lexical des URL : /flyers/... puis /pages/..., encadrement V1 des octets bruts.
     framed = b"".join(len(raw).to_bytes(8, "big") + raw for raw in (metadata_bytes, pages_bytes))
     manifest = {
-        "schema_version": "1.0", "flyer_id": flyer.flyer_id, "retailer_id": "superc",
+        "schema_version": "1.1", "flyer_id": flyer.flyer_id, "retailer_id": "superc",
         "store_id": INTERNAL_STORE, "valid_from": flyer.valid_from.isoformat(),
         "valid_to": flyer.valid_to.isoformat(), "retrieved_at": flyer.retrieved_at.isoformat(),
         "offers_count": len(flyer.offers),
@@ -71,8 +71,8 @@ def normalize_snapshot(snapshot: Path, publication: str, schemas: Path) -> tuple
         ],
     }
     document["source_urls"] = manifest["source_urls"]
-    validate_json(document, schemas / "flyer.schema.json")
-    validate_json(manifest, schemas / "manifest.schema.json")
+    validate_json(document, schemas / "flyer.v1.1.schema.json")
+    validate_json(manifest, schemas / "manifest.v1.1.schema.json")
     # Même sans rejet, les seuils historiques et la validation manuelle restent à réaliser.
     report["ready_for_archive"] = False
     report["status"] = "local_draft_requires_review"
@@ -129,4 +129,7 @@ def review_text(report: dict, publication: str) -> str:
                 # JSON sur une ligne conserve les données et neutralise les sauts de ligne source.
                 lines.append(f"    {field} : {json.dumps(value, ensure_ascii=False)}")
         lines.append("")
+    for entry in report.get("incomplete", []):
+        lines.append(f"[ ] Conditions incomplètes — entrée {entry['index']}, SKU {entry['sku']}")
+        lines.append(json.dumps(entry["source_review"], ensure_ascii=False, sort_keys=True))
     return "\n".join(lines) + "\n"

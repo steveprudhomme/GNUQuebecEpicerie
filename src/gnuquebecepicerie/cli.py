@@ -31,7 +31,8 @@ def normalize_superc(
         f"{report['offers_count']} offres; {report['rejected_entries']} entrées à revoir; "
         f"{report['skipped_entries']} blocs non commerciaux ignorés."
     )
-    if report["rejected_entries"]:
+    typer.echo(f"{report['incomplete_entries']} entrées aux conditions incomplètes.")
+    if report["rejected_entries"] or report["incomplete_entries"]:
         raise typer.Exit(code=2)
 
 

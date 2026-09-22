@@ -1,7 +1,7 @@
 # Normalisation locale Super C
 
 La commande `normalize-superc` convertit hors ligne une capture du diagnostic
-en brouillon JSON V1. Elle n'effectue aucune requête réseau, aucun commit et aucun
+en brouillon JSON V1.1. Elle n'effectue aucune requête réseau, aucun commit et aucun
 push. Elle ne remplace pas encore la commande `update superc`.
 
 ## Utilisation
@@ -17,9 +17,9 @@ Pour une nouvelle capture, commencer par le diagnostic décrit dans
 et l'identifiant de publication retourné.
 
 Le résultat se trouve sous le dossier de capture, dans
-`normalized/superc-0.4.0/<publication>/` :
+`normalized/superc-0.5.0/<publication>/` :
 
-- `flyer.json` : offres acceptées, conformes au schéma V1;
+- `flyer.json` : offres converties, conformes au schéma V1.1;
 - `manifest.json` : période, magasin, compte des offres et empreintes;
 - `report.json` : décompte des entrées, rejets motivés et enregistrements originaux;
 - `review.txt` : liste lisible des entrées bloquées, conditions source et observations de dates;
@@ -264,3 +264,46 @@ Les autres offres n'ont pas fait l'objet d'un examen visuel exhaustif.
 `ready_for_archive` reste faux et le collecteur automatique reste désactivé.
 La prochaine étape est de définir comment représenter les rabais conditionnels
 et les périodes par offre, et d'obtenir les conditions manquantes des récompenses.
+
+
+## Intégration V1.1 — normaliseur 0.5.0 (22 septembre)
+
+La commande existante produit maintenant une circulaire et un manifeste `1.1`,
+validés par leurs schémas distincts. Les dossiers 0.4.0 et les données V1 restent
+intacts. Les identifiants sont recalculés sur le contenu 1.1, y compris `validity`.
+
+Les décisions `normalize_v11` du registre portent des promotions structurées ou
+une période explicite, en plus des observations du 21 septembre. Elles ne sont
+appliquées qu'au magasin, à la publication, à la période, au SKU et à l'empreinte
+complète déjà vérifiés. Les champs source originaux restent dans `source_text`;
+les corrections et leur justification restent dans le registre et le rapport.
+Une correction de période ne neutralise que l'anomalie connue de période, pas
+une autre quarantaine. Les données des nouvelles circulaires ne bénéficient
+pas automatiquement de ces exceptions.
+
+Résultats sur la capture 83817 : **317 entrées converties, 346 offres, 2 entrées
+rejetées, 8 entrées converties aux conditions incomplètes**, 12 blocs non commerciaux
+et 2 doublons exacts. Le nombre d'offres comprend neuf rabais conditionnels;
+il ne représente pas 346 prix de vente comparables.
+
+- Deux entrées de pains deviennent des rabais de 2 $ sur un groupe de deux pains.
+- Cinq variantes de bière deviennent des rabais de 15 $ sur le panier, déclenchés
+  par l'achat de deux caisses. Il s'agit d'une même mécanique promotionnelle sur
+  plusieurs produits admissibles : ne pas additionner les rabais entre variantes.
+- Le vinier donne deux offres distinctes : rabais public 3 $ et membre 6 $.
+- La longe conserve son prix source, avec une validité du 17 au 18 septembre.
+- Les soupes reçoivent les prix explicitement observés : 11,99 $ public et 10,99 $
+  membre. Le JSON original erroné n'est ni modifié ni utilisé pour calculer un prix.
+- Les deux entrées aux 300 points non confirmés restent entièrement rejetées.
+
+Les huit entrées de rabais ont `conditions_complete: false` : leur mécanique est
+représentée, mais les conditions complètes et limites ne sont pas certifiées.
+Aucun prix final, cumul, répétition illimitée ou prix unitaire n'en est déduit.
+`incomplete_entries` et `incomplete` les recensent séparément des rejets.
+`review.txt` les inclut également. La CLI renvoie **2** s'il existe des rejets
+**ou** des conditions incomplètes, même sans rejet syntaxique.
+
+`normalization_complete` reste faux pour cette capture et `ready_for_archive`
+reste toujours faux. Les autres offres exigent encore une validation commerciale.
+L'étape suivante reste la recherche des conditions et récompenses manquantes;
+aucune archive réelle ni activation automatique n'est ajoutée par cette version.

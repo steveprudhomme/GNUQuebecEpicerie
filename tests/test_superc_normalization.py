@@ -10,6 +10,7 @@ from typer.testing import CliRunner
 from gnuquebecepicerie.cli import app
 from gnuquebecepicerie.normalizers.superc import NORMALIZER_VERSION, normalize_pages
 from gnuquebecepicerie.normalizers.superc_snapshot import normalize_snapshot
+from gnuquebecepicerie.storage.json_store import content_revision
 from gnuquebecepicerie.validators.schema import validate_json
 
 SCHEMAS = Path(__file__).resolve().parents[1] / "schema"
@@ -47,7 +48,7 @@ def test_simple_price_keeps_original_text_and_date_without_timezone_shift():
     assert str(flyer.valid_from) == "2026-09-17"
     assert report["normalization_complete"]
     assert not report["ready_for_archive"]
-    validate_json(flyer.model_dump(mode="json"), SCHEMAS / "flyer.schema.json")
+    validate_json(flyer.model_dump(mode="json"), SCHEMAS / "flyer.v1.1.schema.json")
 
 
 def test_member_and_public_prices_are_distinct_offers():
@@ -421,3 +422,83 @@ def test_duplicate_visual_decisions_stop_batch():
     review = visual_review(raw)
     with pytest.raises(ValueError, match="double"):
         normalize_pages(META, [{"products": [raw]}], NOW, source_reviews=[review, review])
+
+
+
+def test_v11_reviewed_period_overrides_only_known_period_issue():
+    raw = record()
+    review = {**visual_review(raw, "normalize_v11"),
+              "validity": {"valid_from": "2026-09-17", "valid_to": "2026-09-18"}}
+    issue = {key: review[key] for key in (
+        "publication", "source_store_id", "sku", "valid_from", "valid_to")}
+    issue["reason"] = "visual_period_conflicts_with_json"
+    flyer, report = normalize_pages(META, [{"products": [raw]}], NOW, [issue], [review])
+    assert flyer.schema_version == "1.1"
+    assert str(flyer.offers[0].validity.valid_to) == "2026-09-18"
+    assert json.loads(flyer.offers[0].source.source_text)["validTo"] == raw["validTo"]
+    assert not report["rejected"]
+    issue["reason"] = "another_issue"
+    flyer, report = normalize_pages(META, [{"products": [raw]}], NOW, [issue], [review])
+    assert not flyer.offers
+
+
+def discount_review(raw):
+    return {**visual_review(raw, "normalize_v11"), "promotions": [{
+        "kind": "conditional_discount", "amount": 15, "scope": "basket",
+        "application": "per_transaction", "reference_basis": "unspecified",
+        "eligibility": {"qualifying_products": ["Caisses fictives"], "minimum_quantity": 2},
+        "conditions": ["Conditions des astérisques à confirmer"],
+        "conditions_complete": False,
+    }]}
+
+
+def test_incomplete_discount_is_not_price_or_complete_batch():
+    raw = record(salePriceFr=None)
+    flyer, report = normalize_pages(META, [{"products": [raw]}], NOW,
+                                    source_reviews=[discount_review(raw)])
+    promo = flyer.offers[0].promotion.model_dump()
+    assert promo["amount"] == 15 and "sale_price" not in promo
+    assert report["accepted_entries"] == 1
+    assert report["rejected_entries"] == 0
+    assert report["incomplete_entries"] == 1
+    assert not report["normalization_complete"] and not report["ready_for_archive"]
+    validate_json(flyer.model_dump(mode="json"), SCHEMAS / "flyer.v1.1.schema.json")
+    altered = {**raw, "bodyFr": "Nouvelle condition"}
+    flyer, report = normalize_pages(META, [{"products": [altered]}], NOW,
+                                    source_reviews=[discount_review(raw)])
+    assert not flyer.offers and report["rejected_entries"] == 1
+
+
+def test_reviewed_prices_preserve_source_and_do_not_invent_rewards():
+    raw = record(salePriceFr="10.99", memberPriceFr=None, rabaisMM="1.00", coupon=True)
+    review = {**visual_review(raw, "normalize_v11"), "promotions": [
+        {"sale_price": 11.99},
+        {"sale_price": 10.99, "loyalty_required": True, "loyalty_program": "moi"},
+    ]}
+    flyer, report = normalize_pages(META, [{"products": [raw]}], NOW, source_reviews=[review])
+    assert len(flyer.offers) == 2
+    assert sorted(o.promotion.sale_price for o in flyer.offers) == [10.99, 11.99]
+    assert all(json.loads(o.source.source_text)["salePriceFr"] == "10.99" for o in flyer.offers)
+    assert all(o.promotion.points is None for o in flyer.offers)
+    assert report["applied_source_reviews"][0]["promotions"]
+
+
+def test_cli_incomplete_discount_alone_returns_nonzero(tmp_path, monkeypatch):
+    import shutil
+    raw = record(salePriceFr=None)
+    snapshot = snapshot_fixture(tmp_path, monkeypatch, raw)
+    shutil.copytree(SCHEMAS, tmp_path / "schema")
+    registry = tmp_path / "config/source-reviews/superc.json"
+    registry.parent.mkdir(parents=True)
+    registry.write_text(json.dumps({"version": 1, "issues": [],
+                                    "reviews": [discount_review(raw)]}), encoding="utf-8")
+    result = CliRunner().invoke(app, ["normalize-superc", str(snapshot),
+                                    "--publication", "123", "--schemas", str(tmp_path / "schema")])
+    assert result.exit_code == 2
+    assert "1 entrées aux conditions incomplètes" in result.output
+    output = snapshot / "normalized" / NORMALIZER_VERSION / "123"
+    flyer = json.loads((output / "flyer.json").read_text(encoding="utf-8"))
+    manifest = json.loads((output / "manifest.json").read_text(encoding="utf-8"))
+    assert flyer["schema_version"] == manifest["schema_version"] == "1.1"
+    assert manifest["content_hash"] == "sha256:" + content_revision(flyer)
+    assert "Conditions incomplètes" in (output / "review.txt").read_text(encoding="utf-8")

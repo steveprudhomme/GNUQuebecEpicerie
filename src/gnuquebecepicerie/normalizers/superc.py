@@ -1,4 +1,4 @@
-"""Normalisation prudente des réponses du lecteur Super C vers le contrat V1."""
+"""Normalisation prudente des réponses du lecteur Super C vers le contrat V1.1."""
 
 from __future__ import annotations
 
@@ -12,11 +12,12 @@ from typing import Any
 
 from bs4 import BeautifulSoup
 
-from gnuquebecepicerie.models import Flyer, Offer, Product, Promotion, Quantity, Source, UnitPrice
+from gnuquebecepicerie.models import Offer, Product, Promotion, Quantity, Source, UnitPrice
+from gnuquebecepicerie.models_v11 import FlyerV11, OfferV11
 from gnuquebecepicerie.normalizers.superc_reviews import matching_review, validate_reviews
 from gnuquebecepicerie.storage.json_store import content_revision
 
-NORMALIZER_VERSION = "superc-0.4.0"
+NORMALIZER_VERSION = "superc-0.5.0"
 INTERNAL_STORE = "superc-laval-des-laurentides-1000"
 SOURCE_STORE = "447"
 SOURCE_NAME = "LAVAL DES LAURENTIDES"
@@ -278,7 +279,7 @@ def normalize_record(
 def normalize_pages(
     metadata: dict, pages: list, retrieved_at: datetime, known_issues: tuple | list = (),
     source_reviews: list | None = None,
-) -> tuple[Flyer, dict]:
+) -> tuple[FlyerV11, dict]:
     if metadata.get("storeName") != SOURCE_NAME:
         raise ValueError("Magasin inattendu : aucune normalisation.")
     if metadata.get("language") != "bil":
@@ -291,7 +292,8 @@ def normalize_pages(
     reviews = validate_reviews(source_reviews if source_reviews is not None else [])
     applied_reviews = []
     records = entries(pages)
-    offers: dict[str, Offer] = {}
+    offers: dict[str, OfferV11] = {}
+    incomplete = []
     rejected, skipped = [], []
     accepted = duplicates = 0
     for index, record in enumerate(records):
@@ -310,10 +312,22 @@ def normalize_pages(
                         and issue["sku"] == record.get("sku")
                         and issue["valid_from"] == metadata["startDate"][:10]
                         and issue["valid_to"] == metadata["endDate"][:10]):
-                    source_review = issue
-                    raise ReviewRequired(issue["reason"])
+                    if not (source_review and source_review["decision"] == "normalize_v11"
+                            and source_review.get("validity")
+                            and issue["reason"] == "visual_period_conflicts_with_json"):
+                        source_review = issue
+                        raise ReviewRequired(issue["reason"])
             decision = source_review["decision"] if source_review else None
-            normalized = normalize_record(record, metadata, retrieved_at, decision)
+            if decision == "normalize_v11":
+                normalized = reviewed_offers(record, metadata, retrieved_at, source_review)
+            else:
+                normalized = [as_v11(o) for o in
+                              normalize_record(record, metadata, retrieved_at, decision)]
+            if any(getattr(o.promotion, "conditions_complete", True) is False
+                   for o in normalized):
+                incomplete.append({"index": index, "sku": record.get("sku"),
+                                   "reason": "incomplete_discount_conditions",
+                                   "source_review": source_review})
             accepted += 1
             for offer in normalized:
                 if offer.offer_id in offers:
@@ -324,7 +338,7 @@ def normalize_pages(
             if source_review is not None:
                 rejection["source_review"] = source_review
             rejected.append(rejection)
-    flyer = Flyer(
+    flyer = FlyerV11(
         flyer_id="pending", retailer_id="superc", store_id=INTERNAL_STORE,
         valid_from=business_date(metadata["startDate"]),
         valid_to=business_date(metadata["endDate"]), retrieved_at=retrieved_at,
@@ -338,7 +352,9 @@ def normalize_pages(
         "accepted_entries": accepted, "skipped_entries": len(skipped),
         "rejected_entries": len(rejected), "offers_count": len(offers),
         "duplicate_offers_removed": duplicates,
-        "normalization_complete": bool(offers) and not rejected,
+        "normalization_complete": bool(offers) and not rejected and not incomplete,
+        "incomplete_entries": len(incomplete), "incomplete": incomplete,
+        "schema_version": "1.1",
         "ready_for_archive": False,
         "applied_source_reviews": applied_reviews,
         "warnings": ["Les dates structurées ne garantissent pas la validité commerciale affichée. "
@@ -347,3 +363,40 @@ def normalize_pages(
         "skipped": skipped, "rejected": rejected,
     }
     return flyer, report
+
+
+
+def as_v11(offer: Offer) -> OfferV11:
+    return identify_v11(OfferV11.model_validate(offer.model_dump(mode="json")))
+
+
+def identify_v11(offer: OfferV11) -> OfferV11:
+    content = offer.model_dump(mode="json")
+    del content["offer_id"]
+    del content["source"]["retrieved_at"]
+    canonical = json.dumps(content, ensure_ascii=False, sort_keys=True,
+                           separators=(",", ":"), allow_nan=False)
+    offer.offer_id = hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+    return offer
+
+
+def reviewed_offers(record, metadata, retrieved_at, review) -> list[OfferV11]:
+    # Corrections uniquement après correspondance de l'empreinte de l'entrée entière.
+    if review.get("promotions") is None:
+        converted = normalize_record(record, metadata, retrieved_at)
+        candidates = [o.model_dump(mode="json") for o in converted]
+    else:
+        source = {
+            "url": review["source_url"], "retrieved_at": retrieved_at,
+            "source_text": json.dumps(
+                {key: record[key] for key in RAW_FIELDS if key in record},
+                ensure_ascii=False, sort_keys=True),
+        }
+        candidates = [{"offer_id": "pending", "product": product(record),
+                       "promotion": promo, "source": source} for promo in review["promotions"]]
+    result = []
+    for candidate in candidates:
+        candidate["validity"] = review.get("validity")
+        offer = OfferV11.model_validate(candidate)
+        result.append(identify_v11(offer))
+    return result

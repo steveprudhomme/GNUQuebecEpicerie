@@ -23,8 +23,12 @@
       "observed_at": "2026-09-21",
       "source_url": "https://circulaire.superc.ca/flyer/83817?storeId=447&language=fr",
       "record_sha256": "19c9d4837d18ec07091526203919e895f60e3a9e7e460798535083bfa042ade8",
-      "decision": "keep_rejected",
-      "evidence": "Observation de page 1 déjà enregistrée : validité jeudi et vendredi, incompatible avec la semaine JSON. Maintien de la quarantaine V1."
+      "decision": "normalize_v11",
+      "evidence": "Observation de page 1 déjà enregistrée : validité jeudi et vendredi, incompatible avec la semaine JSON. Maintien de la quarantaine V1.",
+      "validity": {
+        "valid_from": "2026-09-17",
+        "valid_to": "2026-09-18"
+      }
     },
     {
       "publication": "83817",
@@ -35,8 +39,27 @@
       "observed_at": "2026-09-21",
       "source_url": "https://circulaire.superc.ca/flyer/83817?storeId=447&language=fr",
       "record_sha256": "e680bd87c571af272c22f7ffed3539ef3dd99e0b6ab82f9ad60ae32b2f1f8e70",
-      "decision": "keep_rejected",
-      "evidence": "Recherche St-Méthode : image annonçant 2 $ de rabais à l’achat de 2 pains, sans prix final. Rabais conditionnel non représentable en V1."
+      "decision": "normalize_v11",
+      "evidence": "Recherche St-Méthode : image annonçant 2 $ de rabais à l’achat de 2 pains, sans prix final. Rabais conditionnel non représentable en V1.",
+      "promotions": [
+        {
+          "kind": "conditional_discount",
+          "amount": 2,
+          "scope": "product",
+          "application": "per_qualifying_group",
+          "reference_basis": "unspecified",
+          "eligibility": {
+            "qualifying_products": [
+              "Pains La Récolte de St-Méthode annoncés"
+            ],
+            "minimum_quantity": 2
+          },
+          "conditions": [
+            "Recherche St-Méthode : image annonçant 2 $ de rabais à l’achat de 2 pains, sans prix final. Rabais conditionnel non représentable en V1."
+          ],
+          "conditions_complete": false
+        }
+      ]
     },
     {
       "publication": "83817",
@@ -47,8 +70,27 @@
       "observed_at": "2026-09-21",
       "source_url": "https://circulaire.superc.ca/flyer/83817?storeId=447&language=fr",
       "record_sha256": "06caf832acc9445448a286aa6a8142642a2b59fa292d577b47d3ab2928cecdf2",
-      "decision": "keep_rejected",
-      "evidence": "Recherche St-Méthode : image annonçant 2 $ de rabais à l’achat de 2 pains, sans prix final. Rabais conditionnel non représentable en V1."
+      "decision": "normalize_v11",
+      "evidence": "Recherche St-Méthode : image annonçant 2 $ de rabais à l’achat de 2 pains, sans prix final. Rabais conditionnel non représentable en V1.",
+      "promotions": [
+        {
+          "kind": "conditional_discount",
+          "amount": 2,
+          "scope": "product",
+          "application": "per_qualifying_group",
+          "reference_basis": "unspecified",
+          "eligibility": {
+            "qualifying_products": [
+              "Pains La Récolte de St-Méthode annoncés"
+            ],
+            "minimum_quantity": 2
+          },
+          "conditions": [
+            "Recherche St-Méthode : image annonçant 2 $ de rabais à l’achat de 2 pains, sans prix final. Rabais conditionnel non représentable en V1."
+          ],
+          "conditions_complete": false
+        }
+      ]
     },
     {
       "publication": "83817",
@@ -71,8 +113,27 @@
       "observed_at": "2026-09-21",
       "source_url": "https://circulaire.superc.ca/flyer/83817?storeId=447&language=fr",
       "record_sha256": "1a4874c6963f30cc657cffea9f0ddf9c28c4c7e200494216f5169c119a521dc2",
-      "decision": "keep_rejected",
-      "evidence": "Recherche bière : image annonçant 15 $ de rabais sur le panier d’épicerie à l’achat de 2 caisses, avec deux astérisques; prix régulier de 39,99 à 41,99. Ce n’est pas un prix final par caisse. Conditions des astérisques encore à obtenir."
+      "decision": "normalize_v11",
+      "evidence": "Recherche bière : image annonçant 15 $ de rabais sur le panier d’épicerie à l’achat de 2 caisses, avec deux astérisques; prix régulier de 39,99 à 41,99. Ce n’est pas un prix final par caisse. Conditions des astérisques encore à obtenir.",
+      "promotions": [
+        {
+          "kind": "conditional_discount",
+          "amount": 15,
+          "scope": "basket",
+          "application": "per_transaction",
+          "reference_basis": "unspecified",
+          "eligibility": {
+            "qualifying_products": [
+              "Caisses Labatt, Molson, Sleeman annoncées"
+            ],
+            "minimum_quantity": 2
+          },
+          "conditions": [
+            "Recherche bière : image annonçant 15 $ de rabais sur le panier d’épicerie à l’achat de 2 caisses, avec deux astérisques; prix régulier de 39,99 à 41,99. Ce n’est pas un prix final par caisse. Conditions des astérisques encore à obtenir."
+          ],
+          "conditions_complete": false
+        }
+      ]
     },
     {
       "publication": "83817",
@@ -83,8 +144,27 @@
       "observed_at": "2026-09-21",
       "source_url": "https://circulaire.superc.ca/flyer/83817?storeId=447&language=fr",
       "record_sha256": "2bbde590bf73047a341ddc31812e47a30810e6a389dd45eaf00e42d2ecd10674",
-      "decision": "keep_rejected",
-      "evidence": "Recherche bière : image annonçant 15 $ de rabais sur le panier d’épicerie à l’achat de 2 caisses, avec deux astérisques; prix régulier de 39,99 à 41,99. Ce n’est pas un prix final par caisse. Conditions des astérisques encore à obtenir."
+      "decision": "normalize_v11",
+      "evidence": "Recherche bière : image annonçant 15 $ de rabais sur le panier d’épicerie à l’achat de 2 caisses, avec deux astérisques; prix régulier de 39,99 à 41,99. Ce n’est pas un prix final par caisse. Conditions des astérisques encore à obtenir.",
+      "promotions": [
+        {
+          "kind": "conditional_discount",
+          "amount": 15,
+          "scope": "basket",
+          "application": "per_transaction",
+          "reference_basis": "unspecified",
+          "eligibility": {
+            "qualifying_products": [
+              "Caisses Labatt, Molson, Sleeman annoncées"
+            ],
+            "minimum_quantity": 2
+          },
+          "conditions": [
+            "Recherche bière : image annonçant 15 $ de rabais sur le panier d’épicerie à l’achat de 2 caisses, avec deux astérisques; prix régulier de 39,99 à 41,99. Ce n’est pas un prix final par caisse. Conditions des astérisques encore à obtenir."
+          ],
+          "conditions_complete": false
+        }
+      ]
     },
     {
       "publication": "83817",
@@ -95,8 +175,27 @@
       "observed_at": "2026-09-21",
       "source_url": "https://circulaire.superc.ca/flyer/83817?storeId=447&language=fr",
       "record_sha256": "90ce441a24af3bef9843950c5b7a73755da701f0b79198981adc069a2273baa6",
-      "decision": "keep_rejected",
-      "evidence": "Recherche bière : image annonçant 15 $ de rabais sur le panier d’épicerie à l’achat de 2 caisses, avec deux astérisques; prix régulier de 39,99 à 41,99. Ce n’est pas un prix final par caisse. Conditions des astérisques encore à obtenir."
+      "decision": "normalize_v11",
+      "evidence": "Recherche bière : image annonçant 15 $ de rabais sur le panier d’épicerie à l’achat de 2 caisses, avec deux astérisques; prix régulier de 39,99 à 41,99. Ce n’est pas un prix final par caisse. Conditions des astérisques encore à obtenir.",
+      "promotions": [
+        {
+          "kind": "conditional_discount",
+          "amount": 15,
+          "scope": "basket",
+          "application": "per_transaction",
+          "reference_basis": "unspecified",
+          "eligibility": {
+            "qualifying_products": [
+              "Caisses Labatt, Molson, Sleeman annoncées"
+            ],
+            "minimum_quantity": 2
+          },
+          "conditions": [
+            "Recherche bière : image annonçant 15 $ de rabais sur le panier d’épicerie à l’achat de 2 caisses, avec deux astérisques; prix régulier de 39,99 à 41,99. Ce n’est pas un prix final par caisse. Conditions des astérisques encore à obtenir."
+          ],
+          "conditions_complete": false
+        }
+      ]
     },
     {
       "publication": "83817",
@@ -107,8 +206,27 @@
       "observed_at": "2026-09-21",
       "source_url": "https://circulaire.superc.ca/flyer/83817?storeId=447&language=fr",
       "record_sha256": "26aff627da828e6c1e7d7d053fb11b4905c270ea5f963cd9f1e23a79490d80ce",
-      "decision": "keep_rejected",
-      "evidence": "Recherche bière : image annonçant 15 $ de rabais sur le panier d’épicerie à l’achat de 2 caisses, avec deux astérisques; prix régulier de 39,99 à 41,99. Ce n’est pas un prix final par caisse. Conditions des astérisques encore à obtenir."
+      "decision": "normalize_v11",
+      "evidence": "Recherche bière : image annonçant 15 $ de rabais sur le panier d’épicerie à l’achat de 2 caisses, avec deux astérisques; prix régulier de 39,99 à 41,99. Ce n’est pas un prix final par caisse. Conditions des astérisques encore à obtenir.",
+      "promotions": [
+        {
+          "kind": "conditional_discount",
+          "amount": 15,
+          "scope": "basket",
+          "application": "per_transaction",
+          "reference_basis": "unspecified",
+          "eligibility": {
+            "qualifying_products": [
+              "Caisses Labatt, Molson, Sleeman annoncées"
+            ],
+            "minimum_quantity": 2
+          },
+          "conditions": [
+            "Recherche bière : image annonçant 15 $ de rabais sur le panier d’épicerie à l’achat de 2 caisses, avec deux astérisques; prix régulier de 39,99 à 41,99. Ce n’est pas un prix final par caisse. Conditions des astérisques encore à obtenir."
+          ],
+          "conditions_complete": false
+        }
+      ]
     },
     {
       "publication": "83817",
@@ -119,8 +237,27 @@
       "observed_at": "2026-09-21",
       "source_url": "https://circulaire.superc.ca/flyer/83817?storeId=447&language=fr",
       "record_sha256": "5c3803859e8c929133e4ffb38feadbadbe940f88186bd1a4197f01495997a64e",
-      "decision": "keep_rejected",
-      "evidence": "Recherche bière : image annonçant 15 $ de rabais sur le panier d’épicerie à l’achat de 2 caisses, avec deux astérisques; prix régulier de 39,99 à 41,99. Ce n’est pas un prix final par caisse. Conditions des astérisques encore à obtenir."
+      "decision": "normalize_v11",
+      "evidence": "Recherche bière : image annonçant 15 $ de rabais sur le panier d’épicerie à l’achat de 2 caisses, avec deux astérisques; prix régulier de 39,99 à 41,99. Ce n’est pas un prix final par caisse. Conditions des astérisques encore à obtenir.",
+      "promotions": [
+        {
+          "kind": "conditional_discount",
+          "amount": 15,
+          "scope": "basket",
+          "application": "per_transaction",
+          "reference_basis": "unspecified",
+          "eligibility": {
+            "qualifying_products": [
+              "Caisses Labatt, Molson, Sleeman annoncées"
+            ],
+            "minimum_quantity": 2
+          },
+          "conditions": [
+            "Recherche bière : image annonçant 15 $ de rabais sur le panier d’épicerie à l’achat de 2 caisses, avec deux astérisques; prix régulier de 39,99 à 41,99. Ce n’est pas un prix final par caisse. Conditions des astérisques encore à obtenir."
+          ],
+          "conditions_complete": false
+        }
+      ]
     },
     {
       "publication": "83817",
@@ -251,8 +388,44 @@
       "observed_at": "2026-09-21",
       "source_url": "https://circulaire.superc.ca/flyer/83817?storeId=447&language=fr",
       "record_sha256": "bed5b95882ba12c712ac443c2b5fb4d688bc69d2b218782a418abee9ff5d5c9e",
-      "decision": "keep_rejected",
-      "evidence": "Recherche vin rouge : image vinier 4 L annonçant un rabais membre de 6 $ et un rabais public de 3 $, prix régulier de 43,99 à 50,99. Les nombres 6 et 3 ne sont pas des prix finaux."
+      "decision": "normalize_v11",
+      "evidence": "Recherche vin rouge : image vinier 4 L annonçant un rabais membre de 6 $ et un rabais public de 3 $, prix régulier de 43,99 à 50,99. Les nombres 6 et 3 ne sont pas des prix finaux.",
+      "promotions": [
+        {
+          "kind": "conditional_discount",
+          "amount": 3,
+          "scope": "product",
+          "application": "per_item",
+          "reference_basis": "unspecified",
+          "eligibility": {
+            "qualifying_products": [
+              "Vinier 4 L annoncé"
+            ]
+          },
+          "conditions": [
+            "Recherche vin rouge : image vinier 4 L annonçant un rabais membre de 6 $ et un rabais public de 3 $, prix régulier de 43,99 à 50,99. Les nombres 6 et 3 ne sont pas des prix finaux."
+          ],
+          "conditions_complete": false
+        },
+        {
+          "kind": "conditional_discount",
+          "amount": 6,
+          "scope": "product",
+          "application": "per_item",
+          "reference_basis": "unspecified",
+          "eligibility": {
+            "qualifying_products": [
+              "Vinier 4 L annoncé"
+            ]
+          },
+          "conditions": [
+            "Recherche vin rouge : image vinier 4 L annonçant un rabais membre de 6 $ et un rabais public de 3 $, prix régulier de 43,99 à 50,99. Les nombres 6 et 3 ne sont pas des prix finaux."
+          ],
+          "conditions_complete": false,
+          "loyalty_required": true,
+          "loyalty_program": "moi"
+        }
+      ]
     },
     {
       "publication": "83817",
@@ -263,8 +436,26 @@
       "observed_at": "2026-09-21",
       "source_url": "https://circulaire.superc.ca/flyer/83817?storeId=447&language=fr",
       "record_sha256": "7094d7d5836a516aa90c8f4a5fabb0d817668401ed8fb24ef0a3cc73231370af",
-      "decision": "keep_rejected",
-      "evidence": "Recherche Bâton Rouge : image soupe affichant 10,99 $ membre et 11,99 $ public, régulier 12,99 $. Le JSON place 10,99 dans le prix public et omet le prix membre. Maintien du rejet; aucune soustraction ni correction silencieuse."
+      "decision": "normalize_v11",
+      "evidence": "Recherche Bâton Rouge : image soupe affichant 10,99 $ membre et 11,99 $ public, régulier 12,99 $. Le JSON place 10,99 dans le prix public et omet le prix membre. Maintien du rejet; aucune soustraction ni correction silencieuse.",
+      "promotions": [
+        {
+          "sale_price": 11.99,
+          "regular_price": 12.99,
+          "conditions": [
+            "Prix public confirmé sur l’image; JSON original conservé."
+          ]
+        },
+        {
+          "sale_price": 10.99,
+          "regular_price": 12.99,
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "conditions": [
+            "Prix membre confirmé sur l’image; JSON original conservé."
+          ]
+        }
+      ]
     },
     {
       "publication": "83817",

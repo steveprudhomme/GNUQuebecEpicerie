@@ -96,7 +96,7 @@ et la publication automatique restent à réaliser.
 
 La [feuille de route](ROADMAP.md) détaille les prochaines étapes et leurs critères
 de validation. Le [contrat V1.1](docs/v1.1-contract.md) et ses tests sont disponibles;
-son intégration au normaliseur reste à réaliser.
+le normaliseur Super C produit désormais des brouillons V1.1.
 
 ## Licence
 
@@ -122,12 +122,12 @@ Ses réponses restent sous `local/`, hors Git. Il ne normalise ni ne publie enco
 ## Normalisation hors ligne
 
 La [normalisation Super C](docs/superc-normalization.md) convertit une capture vérifiée
-en brouillon V1 et signale les entrées ambiguës :
+en brouillon V1.1 et signale les entrées ambiguës :
 
 ```powershell
 python -m gnuquebecepicerie normalize-superc local/source-analysis/20260920T215125838198Z --publication 83817
 ```
 
 Adapter le dossier et la publication au diagnostic local. Les résultats restent sous
-`local/`; le code de sortie 2 indique des rejets à examiner. Aucune archive ni publication
+`local/`; le code de sortie 2 indique des rejets ou des conditions incomplètes à examiner. Aucune archive ni publication
 Git n'est créée automatiquement par cette commande.
