@@ -55,3 +55,17 @@ def test_blocked_pages_do_not_produce_success_summary(tmp_path):
     with mock_client(pages_status=403) as client, pytest.raises(httpx.HTTPStatusError):
         audit(client, date(2026, 9, 20), tmp_path / "audit", delay=0)
     assert not (tmp_path / "audit/summary.json").exists()
+
+
+
+def test_audit_reports_incomplete_visual_capture_separately(tmp_path):
+    def assets_handler(request):
+        raise AssertionError("No image URLs in this synthetic source")
+    with (mock_client() as client,
+          httpx.Client(transport=httpx.MockTransport(assets_handler)) as images):
+        result = audit(client, date(2026, 9, 20), tmp_path / "audit", delay=0,
+                       asset_client=images)
+    assert result["flyers"][0]["assets"]["complete"] is False
+    assert (tmp_path / "audit/pages-123.json").exists()
+    assert (tmp_path / "audit/assets/123/manifest.json").exists()
+    assert result["flyers"][0]["assets"]["requested"] == 0

@@ -124,3 +124,46 @@ réelles exigent des contrôles de complétude, de magasin et de période. Ce co
 le rapport, le diagnostic et les tests, pas un collecteur de promotions terminé.
 
 Étape suivante réalisée : [normaliseur hors ligne et bilan des rejets](superc-normalization.md).
+
+
+## Conservation des visuels lors des prochains diagnostics
+
+Le diagnostic conserve désormais par défaut les images de blocs (y compris
+les mentions et les carrousels) et les bandeaux référencés dans les pages JSON.
+Pour chaque groupe, il choisit la résolution maximale et déduplique les URL.
+Les images de produits isolées et un éventuel PDF non référencé ne sont pas
+inclus : la complétude du manifeste porte uniquement sur ces visuels référencés.
+
+```powershell
+python -m gnuquebecepicerie.analysis.superc --date YYYY-MM-DD
+```
+
+Les fichiers restent sous `local/source-analysis/<capture>/assets/<publication>/`.
+Le manifeste local enregistre l'URL, l'heure de consultation, le fichier, sa taille
+et son empreinte SHA-256. Il indique aussi les échecs. Le nom de fichier est dérivé
+de l'URL, sans utiliser de chemin fourni par le serveur. Le diagnostic peut prendre
+plusieurs minutes, car les requêtes sont espacées.
+
+Seules les URL HTTPS du stockage connu, dans le chemin de la publication demandée,
+sont admises. Les redirections ne sont pas suivies; les réponses 403/404 sont des
+échecs consignés, sans tentative de contournement. Aucun en-tête de clé API n'est
+transmis par le client dédié aux images. Les réponses HTML et les fichiers de plus
+de 20 Mio sont rejetés. La signature JPEG/PNG est contrôlée; cela ne remplace pas
+une vérification visuelle de lisibilité ni de complétude commerciale.
+
+Une capture vide ou comportant des fichiers manquants n'est pas déclarée complète.
+La commande termine avec le code **2** si les visuels sont incomplets, tout en
+conservant le diagnostic JSON et le manifeste des échecs. Une erreur des requêtes
+API reste bloquante. `--no-assets` permet explicitement un diagnostic JSON seul;
+le résumé porte alors `assets.status: not_requested`.
+
+Les anciens diagnostics ne sont pas complétés automatiquement. Cette évolution
+ne récupère pas les mentions historiques bloquées de 83817. La validation
+commerciale et la publication automatique restent désactivées. Le normaliseur
+continue d'utiliser ses entrées JSON vérifiées; il n'interprète pas encore ces
+images et ne considère jamais leur téléchargement comme une validation.
+
+Validation de cette évolution : tests hors ligne avec serveur simulé, incluant
+les doublons, les mentions imbriquées, les redirections, les erreurs, les URL hors
+publication, les contenus non-images et les limites de taille. Une nouvelle
+capture réseau complète et sa vérification visuelle restent à réaliser.

@@ -117,7 +117,10 @@ et l'identifiant du magasin de référence. Le diagnostic peut être relancé su
 python -m gnuquebecepicerie.analysis.superc --date 2026-09-20
 ```
 
-Ses réponses restent sous `local/`, hors Git. Il ne normalise ni ne publie encore les offres.
+Ses réponses et les visuels référencés restent sous `local/`, hors Git, avec un
+manifeste des empreintes et des échecs. Il ne normalise ni ne publie les offres.
+Le code 2 signale une conservation incomplète des images; `--no-assets` demande
+explicitement un diagnostic JSON seul.
 
 ## Normalisation hors ligne
 

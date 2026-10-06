@@ -75,8 +75,10 @@ ne remplace pas une information source manquante.
 
 - [ ] Relier téléchargement, normalisation, validation et archivage dans un flux local.
 - [ ] Gérer les erreurs réseau, changements de structure et captures incomplètes.
-- [ ] Conserver localement les visuels et mentions avec leurs empreintes pendant
-  que la publication est accessible; vérifier les redirections vers une autre semaine.
+- [x] Ajouter la conservation locale des visuels référencés et de leurs empreintes,
+  avec rejet des redirections et des chemins hors publication.
+- [ ] Vérifier cette conservation sur une nouvelle capture réseau complète et
+  contrôler la lisibilité et la couverture des mentions.
 - [ ] Produire des archives immuables avec provenance, empreintes et révisions traçables.
 - [ ] Tester plusieurs circulaires hebdomadaires successives et les changements
   apportés à une même circulaire.

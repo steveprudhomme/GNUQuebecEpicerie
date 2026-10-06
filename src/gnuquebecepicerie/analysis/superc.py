@@ -12,6 +12,8 @@ from typing import Any
 
 import httpx
 
+from gnuquebecepicerie.analysis.assets import capture_assets
+
 CONFIG_URL = "https://circulaire.superc.ca/config/app.json"
 API_URL = "https://metrodigital-apim.azure-api.net/api"
 STORE_ID = "447"
@@ -46,7 +48,10 @@ def summarize_pages(pages: list) -> dict[str, Any]:
     }
 
 
-def audit(client: httpx.Client, day: date, output: Path, delay: float = 2) -> dict[str, Any]:
+def audit(
+    client: httpx.Client, day: date, output: Path, delay: float = 2,
+    asset_client: httpx.Client | None = None,
+) -> dict[str, Any]:
     """Lit la configuration publique en mémoire; écrit uniquement sous output."""
     response = client.get(CONFIG_URL)
     response.raise_for_status()
@@ -91,7 +96,12 @@ def audit(client: httpx.Client, day: date, output: Path, delay: float = 2) -> di
         if not isinstance(pages, list):
             raise ValueError("Structure des pages inattendue.")
         (output / f"pages-{flyer_id}.json").write_bytes(response.content)
+        asset_summary = None
+        if asset_client is not None:
+            asset_summary = capture_assets(asset_client, pages, flyer_id, output, delay=delay)
         result["flyers"].append({
+            "assets": ({k: v for k, v in asset_summary.items() if k != "items"}
+                       if asset_summary is not None else {"status": "not_requested"}),
             "flyer_id": flyer_id,
             "valid_from_source": flyer.get("startDate"),
             "valid_to_source": flyer.get("endDate"),
@@ -108,12 +118,19 @@ def audit(client: httpx.Client, day: date, output: Path, delay: float = 2) -> di
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--date", required=True, type=date.fromisoformat)
+    parser.add_argument("--no-assets", action="store_true",
+                        help="Diagnostic JSON seul, sans conservation des visuels")
     args = parser.parse_args()
     output = Path("local/source-analysis") / datetime.now(UTC).strftime("%Y%m%dT%H%M%S%fZ")
-    with httpx.Client(timeout=30, headers={"User-Agent": USER_AGENT}) as client:
-        result = audit(client, args.date, output)
+    # Clients séparés : la clé publique du lecteur ne part jamais vers le CDN.
+    with (httpx.Client(timeout=30, headers={"User-Agent": USER_AGENT}) as client,
+          httpx.Client(timeout=30, headers={"User-Agent": USER_AGENT}) as asset_client):
+        result = audit(client, args.date, output,
+                       asset_client=None if args.no_assets else asset_client)
     print(json.dumps(result, ensure_ascii=True, indent=2))
     print(f"Diagnostic local : {output}")
+    if not args.no_assets and any(not f["assets"]["complete"] for f in result["flyers"]):
+        raise SystemExit(2)
 
 
 if __name__ == "__main__":
