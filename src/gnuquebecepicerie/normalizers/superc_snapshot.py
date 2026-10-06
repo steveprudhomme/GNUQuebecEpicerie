@@ -86,6 +86,7 @@ def normalize_snapshot(snapshot: Path, publication: str, schemas: Path) -> tuple
 
 
 REVIEW_REASONS = {
+    "reward_conditions_unverified": "Points annoncés confirmés; conditions encore inconnues.",
     "discount_amount_requires_review": "Rabais annoncé : prix final non établi.",
     "member_discount_without_final_price": "Rabais membre : prix final membre absent.",
     "member_discount_conflicts_with_prices": "Rabais membre incompatible avec les deux prix.",

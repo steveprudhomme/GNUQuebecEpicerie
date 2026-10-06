@@ -11,6 +11,28 @@
       "observed_at": "2026-09-21",
       "source_url": "https://circulaire.superc.ca/flyer/83817?storeId=447&language=fr",
       "evidence": "Page 1, offre de longe de porc : deux jours, jeudi et vendredi. Le JSON attribue toute la semaine. Quarantaine, sans correction automatique du schéma V1."
+    },
+    {
+      "publication": "83817",
+      "source_store_id": "447",
+      "sku": "26693901",
+      "valid_from": "2026-09-17",
+      "valid_to": "2026-09-23",
+      "source_url": "https://circulaire.superc.ca/flyer/83817?storeId=447&language=fr",
+      "reason": "reward_conditions_unverified",
+      "observed_at": "2026-10-06",
+      "evidence": "Montant de 300 points confirmé dans la vue complète antérieure; conditions détaillées non confirmées. Maintien de la quarantaine."
+    },
+    {
+      "publication": "83817",
+      "source_store_id": "447",
+      "sku": "24929202",
+      "valid_from": "2026-09-17",
+      "valid_to": "2026-09-23",
+      "source_url": "https://circulaire.superc.ca/flyer/83817?storeId=447&language=fr",
+      "reason": "reward_conditions_unverified",
+      "observed_at": "2026-10-06",
+      "evidence": "Montant de 300 points confirmé dans la vue complète antérieure; conditions détaillées non confirmées. Maintien de la quarantaine."
     }
   ],
   "reviews": [
@@ -317,7 +339,7 @@
       "source_url": "https://circulaire.superc.ca/flyer/83817?storeId=447&language=fr",
       "record_sha256": "dc0dcb01d0dea0dd7bc406d4389bfe58d317e695a689c5d52f870aabc5c82329",
       "decision": "keep_rejected",
-      "evidence": "Recherche bière : image Bud Light/Coors Light affichant 69 $ pour 48 canettes. Les 300 points JSON ne sont pas visibles dans ce résultat; récompense non confirmée, entrée entière maintenue en révision."
+      "evidence": "Recherche bière : image Bud Light/Coors Light affichant 69 $ pour 48 canettes. Les 300 points JSON ne sont pas visibles dans ce résultat; récompense non confirmée, entrée entière maintenue en révision. Complément consigné le 6 octobre : la vue complète de la circulaire 83817, observée avant interruption de la session, affiche bien 300 points près du prix de 69 $. Les conditions détaillées de la récompense ne sont pas confirmées. Le lecteur redirige désormais 83817 vers 83986; aucune condition de la nouvelle publication ne doit être transposée."
     },
     {
       "publication": "83817",
@@ -329,7 +351,7 @@
       "source_url": "https://circulaire.superc.ca/flyer/83817?storeId=447&language=fr",
       "record_sha256": "7c8b890e93221184c64700ba84bca4d2bed68d164c0371ce2f79b8aae6a1efb2",
       "decision": "keep_rejected",
-      "evidence": "Recherche bière : image Bud Light/Coors Light affichant 69 $ pour 48 canettes. Les 300 points JSON ne sont pas visibles dans ce résultat; récompense non confirmée, entrée entière maintenue en révision."
+      "evidence": "Recherche bière : image Bud Light/Coors Light affichant 69 $ pour 48 canettes. Les 300 points JSON ne sont pas visibles dans ce résultat; récompense non confirmée, entrée entière maintenue en révision. Complément consigné le 6 octobre : la vue complète de la circulaire 83817, observée avant interruption de la session, affiche bien 300 points près du prix de 69 $. Les conditions détaillées de la récompense ne sont pas confirmées. Le lecteur redirige désormais 83817 vers 83986; aucune condition de la nouvelle publication ne doit être transposée."
     },
     {
       "publication": "83817",

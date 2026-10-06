@@ -17,7 +17,7 @@ from gnuquebecepicerie.models_v11 import FlyerV11, OfferV11
 from gnuquebecepicerie.normalizers.superc_reviews import matching_review, validate_reviews
 from gnuquebecepicerie.storage.json_store import content_revision
 
-NORMALIZER_VERSION = "superc-0.5.0"
+NORMALIZER_VERSION = "superc-0.5.1"
 INTERNAL_STORE = "superc-laval-des-laurentides-1000"
 SOURCE_STORE = "447"
 SOURCE_NAME = "LAVAL DES LAURENTIDES"

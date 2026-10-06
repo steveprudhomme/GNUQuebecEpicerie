@@ -17,7 +17,7 @@ Pour une nouvelle capture, commencer par le diagnostic décrit dans
 et l'identifiant de publication retourné.
 
 Le résultat se trouve sous le dossier de capture, dans
-`normalized/superc-0.5.0/<publication>/` :
+`normalized/superc-0.5.1/<publication>/` :
 
 - `flyer.json` : offres converties, conformes au schéma V1.1;
 - `manifest.json` : période, magasin, compte des offres et empreintes;
@@ -307,3 +307,33 @@ Aucun prix final, cumul, répétition illimitée ou prix unitaire n'en est dédu
 reste toujours faux. Les autres offres exigent encore une validation commerciale.
 L'étape suivante reste la recherche des conditions et récompenses manquantes;
 aucune archive réelle ni activation automatique n'est ajoutée par cette version.
+
+
+## Reprise du 6 octobre — normaliseur 0.5.1
+
+La vue complète de 83817 observée avant l'interruption de la session affiche
+bien la pastille **300 points** près du prix de **69 $** des caisses Bud Light /
+Coors Light. Le résultat de recherche masquait cette pastille. Le montant de la
+récompense est donc confirmé; ses conditions détaillées ne le sont pas.
+Les deux entrées restent rejetées avec le motif plus précis
+`reward_conditions_unverified`. Cette observation antérieure est consignée au
+registre sans prétendre avoir relu la publication originale le 6 octobre.
+
+À la reprise, le lecteur officiel redirige l'URL 83817 vers **83986, du 1er au
+7 octobre**. La capture locale contient la référence de la page de mentions
+`Ad_Metro_p22_LEGAL`, mais le navigateur signale `net::ERR_BLOCKED_BY_CLIENT`
+lors de son ouverture directe. L'image n'a donc pas été examinée. Aucune règle
+courante n'a été utilisée comme preuve des conditions de septembre.
+
+Bilan inchangé : **346 offres en brouillon, 2 entrées rejetées et 8 entrées aux
+conditions incomplètes**. La vérification des conditions historiques reste bloquée
+par l'indisponibilité de la publication dans le lecteur et de ses mentions dans
+ce navigateur. Une copie complète de la circulaire de septembre, incluant les
+mentions, permettra de reprendre cet examen. Les captures et archives V1 restent
+intactes; aucune publication automatique n'est activée.
+
+Pour éviter ce manque lors des prochains diagnostics, prévoir la conservation
+locale des visuels et mentions au moment de la collecte, avec URL, horodatage et
+empreintes, puis vérifier l'identité de la publication réellement retournée.
+La présence de tous les champs JSON ne prouve pas que toutes les conditions
+visuelles ont été conservées.

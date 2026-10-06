@@ -1,6 +1,6 @@
 # Feuille de route
 
-Mise à jour : 22 septembre 2026.
+Mise à jour : 6 octobre 2026.
 
 Le traitement s'exécute sur le PC local. GitHub reçoit le code, la documentation
 et, une fois validées, les archives de données. Les captures brutes et les
@@ -15,7 +15,7 @@ brouillons restent sous `local/`, hors Git.
 - [x] Normaliser les captures Super C hors ligne avec rejets motivés et traçabilité.
 - [x] Documenter les décisions sur les 22 entrées examinées de la circulaire 83817.
 
-Le normaliseur 0.5.0 produit **346 offres en brouillon V1.1**; **2 entrées restent
+Le normaliseur 0.5.1 produit **346 offres en brouillon V1.1**; **2 entrées restent
 rejetées et 8 entrées converties gardent des conditions incomplètes**. La validation V1.1 complète les 96 tests de la normalisation et du contrat V1. Ces résultats
 ne constituent pas une validation commerciale exhaustive. L'archivage automatique
 reste désactivé et les collecteurs réseau complets restent à implémenter.
@@ -46,8 +46,8 @@ ambiguïté et les tests de compatibilité V1/V1.1 passent.
 - [x] Représenter le rabais de 2 $ à l'achat de 2 pains (2 entrées).
 - [ ] Obtenir les conditions signalées par les astérisques du rabais de 15 $ sur
   le panier à l'achat de 2 caisses de bière, puis le représenter (5 entrées).
-- [ ] Confirmer les 300 points des caisses Bud Light/Coors Light et leurs conditions
-  dans une source officielle (2 entrées).
+- [x] Confirmer les 300 points des caisses Bud Light/Coors Light dans la vue complète.
+- [ ] Confirmer les conditions détaillées de ces points (2 entrées maintenues en révision).
 - [x] Représenter les rabais public de 3 $ et membre de 6 $ du vinier sans les
   confondre avec des prix finaux (1 entrée).
 - [x] Traiter explicitement la contradiction public/membre de la soupe Bâton Rouge :
@@ -75,6 +75,8 @@ ne remplace pas une information source manquante.
 
 - [ ] Relier téléchargement, normalisation, validation et archivage dans un flux local.
 - [ ] Gérer les erreurs réseau, changements de structure et captures incomplètes.
+- [ ] Conserver localement les visuels et mentions avec leurs empreintes pendant
+  que la publication est accessible; vérifier les redirections vers une autre semaine.
 - [ ] Produire des archives immuables avec provenance, empreintes et révisions traçables.
 - [ ] Tester plusieurs circulaires hebdomadaires successives et les changements
   apportés à une même circulaire.
