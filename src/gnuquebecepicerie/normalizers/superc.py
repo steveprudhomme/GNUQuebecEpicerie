@@ -17,7 +17,7 @@ from gnuquebecepicerie.models_v11 import FlyerV11, OfferV11
 from gnuquebecepicerie.normalizers.superc_reviews import matching_review, validate_reviews
 from gnuquebecepicerie.storage.json_store import content_revision
 
-NORMALIZER_VERSION = "superc-0.5.1"
+NORMALIZER_VERSION = "superc-0.5.2"
 INTERNAL_STORE = "superc-laval-des-laurentides-1000"
 SOURCE_STORE = "447"
 SOURCE_NAME = "LAVAL DES LAURENTIDES"
@@ -318,6 +318,8 @@ def normalize_pages(
                         source_review = issue
                         raise ReviewRequired(issue["reason"])
             decision = source_review["decision"] if source_review else None
+            if decision == "keep_rejected":
+                raise ReviewRequired("visual_review_rejected")
             if decision == "normalize_v11":
                 normalized = reviewed_offers(record, metadata, retrieved_at, source_review)
             else:

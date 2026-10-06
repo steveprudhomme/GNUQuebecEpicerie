@@ -15,7 +15,7 @@ brouillons restent sous `local/`, hors Git.
 - [x] Normaliser les captures Super C hors ligne avec rejets motivés et traçabilité.
 - [x] Documenter les décisions sur les 22 entrées examinées de la circulaire 83817.
 
-Le normaliseur 0.5.1 produit **346 offres en brouillon V1.1**; **2 entrées restent
+Pour la circulaire historique 83817, le normaliseur 0.5.2 produit **346 offres en brouillon V1.1**; **2 entrées restent
 rejetées et 8 entrées converties gardent des conditions incomplètes**. La validation V1.1 complète les 96 tests de la normalisation et du contrat V1. Ces résultats
 ne constituent pas une validation commerciale exhaustive. L'archivage automatique
 reste désactivé et les collecteurs réseau complets restent à implémenter.
@@ -80,8 +80,10 @@ ne remplace pas une information source manquante.
 - [x] Vérifier la conservation sur une capture réelle : 277/277 visuels de 83986,
   empreintes concordantes et bloc des mentions générales lisible (6 octobre).
 - [ ] Vérifier la couverture de tous les astérisques et conditions par offre.
-- [ ] Examiner les 60 rejets de 83986 : 50 coupons, 6 prix/récompenses absents
-  et 4 rabais ambigus; 286 offres restent en brouillon local.
+- [x] Examiner les 50 indicateurs coupon de 83986 : 23 entrées converties avec
+  preuves visuelles et 27 exclusions motivées; 309 offres en brouillon local.
+- [ ] Résoudre les 37 rejets restants de 83986 : modalités de 25 entrées à points,
+  2 avantages taxes/consigne, 6 prix/récompenses absents et 4 rabais ambigus.
 - [ ] Produire des archives immuables avec provenance, empreintes et révisions traçables.
 - [ ] Tester plusieurs circulaires hebdomadaires successives et les changements
   apportés à une même circulaire.

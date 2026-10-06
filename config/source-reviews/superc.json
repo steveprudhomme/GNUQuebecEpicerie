@@ -490,6 +490,954 @@
       "record_sha256": "a31c38bf3432aa06d87d9ca98238de9c1d0ab6758aa0618c6fba245fded369c6",
       "decision": "accept_explicit_prices",
       "evidence": "Recherche Bretagne : image pâté affichant 2,99 $ membre, 3,49 $ public et 3,99 $ régulier. Les deux prix JSON sont confirmés. Le rabais de 1 $ concorde avec régulier moins membre, et non public moins membre."
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "22848501",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "95f0cbd3702607f88e5679530e844180c44a30503004dabf561ed8aefd1a029a",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix public 4,88 $; limite de 6. Prix après limite non indiqué. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P1_NAT[!STH]_8.jpeg?version=6e90b800 (SHA-256 118eedd7e5d4135b758bfb93443da170e235a49869f068cdfcc69fbe54334f9f)",
+      "promotions": [
+        {
+          "sale_price": 4.88,
+          "price_basis": "package",
+          "regular_price": 5.99,
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 454 g, choix varié",
+            "savingsFr: 1,11$",
+            "savingsSuffix: d’économie",
+            "Prix public 4,88 $; limite de 6. Prix après limite non indiqué."
+          ],
+          "limit_quantity": 6
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "13687611",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "a423a9b0c4f0e93aab7be7a082fdf6347caac96f637c6464d110a060db2cc130",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 30 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_11.jpeg?version=6e90b800 (SHA-256 e8cd61133aef223501967e2b42e055a6625ec646020f01028dcb136c6970ef5c); https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P2_NAT[!STH]_16.jpeg?version=6e90b800 (SHA-256 fc844b645a56c75d0c0ae9bc76ec7bc80bfeb1c932a72d4e3c6ba9b4e7321a5c)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "13687604",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "99599d8f874750cb4077e22621c29546953d48114837cf4adab3a61f3538516b",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 30 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_11.jpeg?version=6e90b800 (SHA-256 e8cd61133aef223501967e2b42e055a6625ec646020f01028dcb136c6970ef5c); https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P2_NAT[!STH]_16.jpeg?version=6e90b800 (SHA-256 fc844b645a56c75d0c0ae9bc76ec7bc80bfeb1c932a72d4e3c6ba9b4e7321a5c)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "32604201",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "2e637d9682b24b21bf9d41af3cc4f05bcfd6c1d3a7b3563666671857b71d4f4a",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Avantage annoncé équivalent aux deux taxes et à la consigne à l’achat d’une caisse; seul un prix régulier est affiché. Aucun prix final ni montant de remise établi. Vérifier la portée des mentions, qui nomment ailleurs une autre sélection de bières. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P2_NAT[!STH]_19.jpeg?version=6e90b800 (SHA-256 7f18b9fae10cd91c10c31dd43ff7f8245db85178688c9e36cf52089815d0a926)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "26693901",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "15a457dd7ba7f7ff12d132be67412034b50303fda5bd15cec9bdd29b9551a365",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Avantage annoncé équivalent aux deux taxes et à la consigne à l’achat d’une caisse; seul un prix régulier est affiché. Aucun prix final ni montant de remise établi. Vérifier la portée des mentions, qui nomment ailleurs une autre sélection de bières. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P2_NAT[!STH]_19.jpeg?version=6e90b800 (SHA-256 7f18b9fae10cd91c10c31dd43ff7f8245db85178688c9e36cf52089815d0a926)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "38273601",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "6fb10500c2add111bc414eb356499f034bea9ec756b8db02f7dcee4c901056b9",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Lot de 2 caisses pour 44 $, taxes et consigne en sus. Achat individuel annoncé à partir de 23,99 $; aucun prix individuel fixe déduit pour chaque variante. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P2_NAT[!STH]_20.jpeg?version=6e90b800 (SHA-256 54e372c1d36d28f73d5eb1f9872d4cc9f836aad98e04919108bcaa8c822e22a5)",
+      "promotions": [
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "multi_buy_quantity": 2,
+          "multi_buy_price": 44.0,
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: caisse, canettes 12-15/355 ml, choix varié, consigne",
+            "alternatePriceFr: ou à partir de 23,99 la caisse",
+            "tx: +TX",
+            "Lot de 2 caisses pour 44 $, taxes et consigne en sus. Achat individuel annoncé à partir de 23,99 $; aucun prix individuel fixe déduit pour chaque variante."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "29795001",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "ab6cf7437912e9ee6496f8e443484740be7790dabb47a8b7e5f2030d685cddea",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Lot de 2 caisses pour 44 $, taxes et consigne en sus. Achat individuel annoncé à partir de 23,99 $; aucun prix individuel fixe déduit pour chaque variante. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P2_NAT[!STH]_20.jpeg?version=6e90b800 (SHA-256 54e372c1d36d28f73d5eb1f9872d4cc9f836aad98e04919108bcaa8c822e22a5)",
+      "promotions": [
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "multi_buy_quantity": 2,
+          "multi_buy_price": 44.0,
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: caisse, canettes 12-15/355 ml, choix varié, consigne",
+            "alternatePriceFr: ou à partir de 23,99 la caisse",
+            "tx: +TX",
+            "Lot de 2 caisses pour 44 $, taxes et consigne en sus. Achat individuel annoncé à partir de 23,99 $; aucun prix individuel fixe déduit pour chaque variante."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "25506501",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "9f9a21ea87d17f07aa30063ca3c1c32ef06ee964795e5cb65cba3b3a9935d806",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Lot de 2 caisses pour 44 $, taxes et consigne en sus. Achat individuel annoncé à partir de 23,99 $; aucun prix individuel fixe déduit pour chaque variante. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P2_NAT[!STH]_20.jpeg?version=6e90b800 (SHA-256 54e372c1d36d28f73d5eb1f9872d4cc9f836aad98e04919108bcaa8c822e22a5)",
+      "promotions": [
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "multi_buy_quantity": 2,
+          "multi_buy_price": 44.0,
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: caisse, canettes 12-15/355 ml, choix varié, consigne",
+            "alternatePriceFr: ou à partir de 23,99 la caisse",
+            "tx: +TX",
+            "Lot de 2 caisses pour 44 $, taxes et consigne en sus. Achat individuel annoncé à partir de 23,99 $; aucun prix individuel fixe déduit pour chaque variante."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "25481301",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "1bd26dab6db9a98ae88c0675375140b022f1bf6ccbdc9c5e8f32c268098896b8",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P6_NAT_20.jpeg?version=6e90b800 (SHA-256 2c6179f9193fb19ed8a09f333f44c15246ecea6cf4117ae66e830fb5e16297ce)",
+      "promotions": [
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "multi_buy_quantity": 3,
+          "multi_buy_price": 18.0,
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 29 variétés",
+            "alternatePriceFr: 6$ par charcuterie et fromage supplémentaire",
+            "Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "27802302",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "42e6b191c4562f38ca293bcbc46a9d6b0775d4649e448b29d9b8e20a67ba9768",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P6_NAT_20.jpeg?version=6e90b800 (SHA-256 2c6179f9193fb19ed8a09f333f44c15246ecea6cf4117ae66e830fb5e16297ce)",
+      "promotions": [
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "multi_buy_quantity": 3,
+          "multi_buy_price": 18.0,
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 29 variétés",
+            "alternatePriceFr: 6$ par charcuterie et fromage supplémentaire",
+            "Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "40935301",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "152a5387d9cdffa3d67230065cd775abccb8d15ac7be6e8f49ba22104d39d8d7",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P6_NAT_20.jpeg?version=6e90b800 (SHA-256 2c6179f9193fb19ed8a09f333f44c15246ecea6cf4117ae66e830fb5e16297ce)",
+      "promotions": [
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "multi_buy_quantity": 3,
+          "multi_buy_price": 18.0,
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 29 variétés",
+            "alternatePriceFr: 6$ par charcuterie et fromage supplémentaire",
+            "Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "40935304",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "2acebbb4453873d6d091df27149927966609fe77852b2cbff956a639eff6652a",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P6_NAT_20.jpeg?version=6e90b800 (SHA-256 2c6179f9193fb19ed8a09f333f44c15246ecea6cf4117ae66e830fb5e16297ce)",
+      "promotions": [
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "multi_buy_quantity": 3,
+          "multi_buy_price": 18.0,
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 29 variétés",
+            "alternatePriceFr: 6$ par charcuterie et fromage supplémentaire",
+            "Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "30148701",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "4b2869a59951e31b58bde23df9cd8288f5655e3c89a78207be55829171a6a470",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P6_NAT_20.jpeg?version=6e90b800 (SHA-256 2c6179f9193fb19ed8a09f333f44c15246ecea6cf4117ae66e830fb5e16297ce)",
+      "promotions": [
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "multi_buy_quantity": 3,
+          "multi_buy_price": 18.0,
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 29 variétés",
+            "alternatePriceFr: 6$ par charcuterie et fromage supplémentaire",
+            "Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "24489801",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "ece87d0efd12b65214b2245de4ac36e6b3782f83923d5232e66c084a4b5c0535",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P6_NAT_20.jpeg?version=6e90b800 (SHA-256 2c6179f9193fb19ed8a09f333f44c15246ecea6cf4117ae66e830fb5e16297ce)",
+      "promotions": [
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "multi_buy_quantity": 3,
+          "multi_buy_price": 18.0,
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 29 variétés",
+            "alternatePriceFr: 6$ par charcuterie et fromage supplémentaire",
+            "Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "43610101",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "0f39a269eec389b780d5c6fdafcc6811eb9aff8d1193e310a96d304532a302bf",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P6_NAT_20.jpeg?version=6e90b800 (SHA-256 2c6179f9193fb19ed8a09f333f44c15246ecea6cf4117ae66e830fb5e16297ce)",
+      "promotions": [
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "multi_buy_quantity": 3,
+          "multi_buy_price": 18.0,
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 29 variétés",
+            "alternatePriceFr: 6$ par charcuterie et fromage supplémentaire",
+            "Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "43610001",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "648d2481d6c0d00fe4b1bb2e8a9c86591e3b0448cb8dbd8d8d1462be3df56138",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P6_NAT_20.jpeg?version=6e90b800 (SHA-256 2c6179f9193fb19ed8a09f333f44c15246ecea6cf4117ae66e830fb5e16297ce)",
+      "promotions": [
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "multi_buy_quantity": 3,
+          "multi_buy_price": 18.0,
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 29 variétés",
+            "alternatePriceFr: 6$ par charcuterie et fromage supplémentaire",
+            "Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "13315201",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "d1db67deb82bc426f6f28714fec6a0b141dd10ffdd30aabbcb5d6d40dc9966ff",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P6_NAT_20.jpeg?version=6e90b800 (SHA-256 2c6179f9193fb19ed8a09f333f44c15246ecea6cf4117ae66e830fb5e16297ce)",
+      "promotions": [
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "multi_buy_quantity": 3,
+          "multi_buy_price": 18.0,
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 29 variétés",
+            "alternatePriceFr: 6$ par charcuterie et fromage supplémentaire",
+            "Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "40723201",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "3a9fdf224e50ffcbdaaf36793b4fb22d1095c76461977eb9b49e0a1beddd6603",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P6_NAT_20.jpeg?version=6e90b800 (SHA-256 2c6179f9193fb19ed8a09f333f44c15246ecea6cf4117ae66e830fb5e16297ce)",
+      "promotions": [
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "multi_buy_quantity": 3,
+          "multi_buy_price": 18.0,
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 29 variétés",
+            "alternatePriceFr: 6$ par charcuterie et fromage supplémentaire",
+            "Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "30033001",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "2a1bec9fd417997bde2ac5fd4e24b3993e42216d019a9aec37f2d8aaa1bbcaea",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P6_NAT_20.jpeg?version=6e90b800 (SHA-256 2c6179f9193fb19ed8a09f333f44c15246ecea6cf4117ae66e830fb5e16297ce)",
+      "promotions": [
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "multi_buy_quantity": 3,
+          "multi_buy_price": 18.0,
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 29 variétés",
+            "alternatePriceFr: 6$ par charcuterie et fromage supplémentaire",
+            "Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "25057103",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "b0b6901249e0b9955fbf6f320519a8ba86bf413bcf54c0b95f25437a3cb25311",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P6_NAT_20.jpeg?version=6e90b800 (SHA-256 2c6179f9193fb19ed8a09f333f44c15246ecea6cf4117ae66e830fb5e16297ce)",
+      "promotions": [
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "multi_buy_quantity": 3,
+          "multi_buy_price": 18.0,
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 29 variétés",
+            "alternatePriceFr: 6$ par charcuterie et fromage supplémentaire",
+            "Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "13153901",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "7ca206cb56d0e484e0db5017116d8ef686a5d10b2c610606fa4e36c66bbc69ab",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P6_NAT_20.jpeg?version=6e90b800 (SHA-256 2c6179f9193fb19ed8a09f333f44c15246ecea6cf4117ae66e830fb5e16297ce)",
+      "promotions": [
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "multi_buy_quantity": 3,
+          "multi_buy_price": 18.0,
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 29 variétés",
+            "alternatePriceFr: 6$ par charcuterie et fromage supplémentaire",
+            "Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "20992701",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "9b61704a3b95a0be2c42bd993d599025c9ae545b335d616998b6809a594f5629",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P6_NAT_20.jpeg?version=6e90b800 (SHA-256 2c6179f9193fb19ed8a09f333f44c15246ecea6cf4117ae66e830fb5e16297ce)",
+      "promotions": [
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "multi_buy_quantity": 3,
+          "multi_buy_price": 18.0,
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 29 variétés",
+            "alternatePriceFr: 6$ par charcuterie et fromage supplémentaire",
+            "Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "13066701",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "32a16a483757c158bd90e6594e32ccfdd5932034b911776d285230cfd25a29f3",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P6_NAT_20.jpeg?version=6e90b800 (SHA-256 2c6179f9193fb19ed8a09f333f44c15246ecea6cf4117ae66e830fb5e16297ce)",
+      "promotions": [
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "multi_buy_quantity": 3,
+          "multi_buy_price": 18.0,
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 29 variétés",
+            "alternatePriceFr: 6$ par charcuterie et fromage supplémentaire",
+            "Lot de 3 charcuteries/fromages admissibles pour 18 $; chaque produit supplémentaire coûte 6 $. Assortiment annoncé de 29 variétés. Aucun prix pour un achat isolé de moins de 3 produits établi."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "32876801",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "c11a9718298dfbe9fc010b4ce472b485519c01714be8cad008d2869407e58f04",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 25 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P7_NAT_1.jpeg?version=6e90b800 (SHA-256 4939a722c0614c6a59b63dc8efac8f4d76580972d82025ca3644da17bc33a51d)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "39436608",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "bd0434b90b63d9caf1fd9e69c946f3b913752cd5f6d3395f7a5458bff1299df8",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix public affiché 2.49 $. Aucun coupon à présenter ni prix membre indiqué dans le bloc examiné. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P7_NAT_12.jpeg?version=6e90b800 (SHA-256 e0bdd9f24b4c24e8e22d739ce3d3289c6182996f0cc24706562fc2a34f3132a3)",
+      "promotions": [
+        {
+          "sale_price": 2.49,
+          "price_basis": "package",
+          "regular_price": 2.79,
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 33 g, choix varié",
+            "tx: +TX",
+            "Prix public affiché 2.49 $. Aucun coupon à présenter ni prix membre indiqué dans le bloc examiné."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "31521816",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "5f6c420003f7a9142a372ef43763066f276743a8c85e60047dfcb09c1c96ae15",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix public affiché 1.99 $. Aucun coupon à présenter ni prix membre indiqué dans le bloc examiné. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P7_NAT_13.jpeg?version=6e90b800 (SHA-256 d3a3d9db50e86f0c7d54f46d25a68ff18608ddd6df25cbfe19e1dfef23f4801b)",
+      "promotions": [
+        {
+          "sale_price": 1.99,
+          "price_basis": "package",
+          "regular_price": 2.49,
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 68 g, choix varié",
+            "tx: +TX",
+            "Prix public affiché 1.99 $. Aucun coupon à présenter ni prix membre indiqué dans le bloc examiné."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "11635904",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "a7f98bde60d285edb9186bedac6a23899665b78f4bf85d9de0ea7ade910fdb23",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix public affiché 1.99 $. Aucun coupon à présenter ni prix membre indiqué dans le bloc examiné. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P14_NAT_6.jpeg?version=6e90b800 (SHA-256 f2df534580936b388836198b33ec95acc60030a54608d1d35d6ac335a4e0eb50)",
+      "promotions": [
+        {
+          "sale_price": 1.99,
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 375-404 g, glaçage fouetté à gâteau 340-450 g, choix varié",
+            "Prix public affiché 1.99 $. Aucun coupon à présenter ni prix membre indiqué dans le bloc examiné."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "18804701",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "e9bf10f392b9d2f14e2470587149e8d07c64c70dee4b1c2cde415e10635652c9",
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix public affiché 10.99 $. Aucun coupon à présenter ni prix membre indiqué dans le bloc examiné. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P15_NAT_6.jpeg?version=6e90b800 (SHA-256 61e608d8edafb10d7e95bc1b75493880ae66f4ceb6566e829c9fc0dd65c12c76)",
+      "promotions": [
+        {
+          "sale_price": 10.99,
+          "price_basis": "package",
+          "regular_price": 11.99,
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 100-200 un., choix varié",
+            "tx: +TX",
+            "Prix public affiché 10.99 $. Aucun coupon à présenter ni prix membre indiqué dans le bloc examiné."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "25489501",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "abd18f3514cfb32e387b545ffad48957686b366eac100459f9c0b3c83f9a39ca",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 15 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P18_NAT_2.jpeg?version=6e90b800 (SHA-256 9ca309e65a764f2ec40d1584094aa472103793e7bc2275c035db00c334193ef5)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "45076804",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "0068f337993a42ec2f2746a1cd9e9796f3760bd40073b44bbc9983ba01467d24",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 40 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P18_NAT_9.jpeg?version=6e90b800 (SHA-256 3da14d78d78790bc4ddb1f5d7b605c44892db0f4939532853d91a0ae876e2e50)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "43631601",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "0925d16c1459d6666da3c6d3b61ec4f52406076f6ffc64cdcce43e55b55ce4b7",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 300 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P19_NAT_8.jpeg?version=6e90b800 (SHA-256 1816b3b41cfe4cbb04d8637e107cfb084afe9ff936f2b4153200b3226a2f2288)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "43317701",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "6968a1678655975d488f979460c3afb089d98974217dfd01ddeb61d29af5dcef",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 300 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P19_NAT_12.jpeg?version=6e90b800 (SHA-256 df603e275248877fb79f4bfc8201859cac1c97acef004dff2f93a5542ac17fb5)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "40202602",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "5467682cf3bafdca76c08b614b14eed64c6816a297475b0bc9373652178932bb",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 200 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P19_NAT_14.jpeg?version=6e90b800 (SHA-256 786e11555a714b0d49b1000f0efaa2e01672c7cca31500759f9bfb3ce4305530)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "36676603",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "6ef457e64d152bba10a50d5a75871e70de0b9bd5e2264db6f4e01dec66a60df1",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 200 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P19_NAT_14.jpeg?version=6e90b800 (SHA-256 786e11555a714b0d49b1000f0efaa2e01672c7cca31500759f9bfb3ce4305530)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "33885205",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "d42ae0aad9b8fa01dbcba55f0a4d4b1639074c2dd5991837db6ad7ac29e2c387",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 200 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_1.jpeg?version=6e90b800 (SHA-256 f34ecd41dcfe5ea2a1cff56601ff30facf6447f9f0bdba3071493215c2df6276)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "25740301",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "debfe73b7fb653295a1180bfeb5463d3b536d4ea9456c5ec622fd9530ed8630a",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 40 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_2.jpeg?version=6e90b800 (SHA-256 1f985cfb729d1aa0e673dde77505fbf5fedd34110d143bf0deb5bf72c418cd03)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "44218405",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "e1aa6ac3f45b9b867c758b2656ced4ec194687f48f4b61561899ced659584f71",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 40 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_2.jpeg?version=6e90b800 (SHA-256 1f985cfb729d1aa0e673dde77505fbf5fedd34110d143bf0deb5bf72c418cd03)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "11110402",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "9a3f7de4caed7fc5b87b37fdff777ff7bae5b448ed958045edb9a6873231ad71",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 80 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_3.jpeg?version=6e90b800 (SHA-256 7669ef4c01f9b422ffb71d90b9a460fa90a70dcc3658f44a01bb7cfd90eb7e3d)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "11217304",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "4f3d5f64a06e73bf180c4e2fe5637aa77f1d2c8cf19a2f14288edb11f60271fe",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 30 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_4.jpeg?version=6e90b800 (SHA-256 654fc37a524b87772c076904fe7738c56d9661d43548bf466c394353068bb5f9)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "44544901",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "903322a4b0b2c5c25890e8940ed67cf3825dc36aa823a4d348b24871f02ff253",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 600 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_5.jpeg?version=6e90b800 (SHA-256 22ab19fe7d74b528fe9f87e58602fee485eeb64ebc03749113cc9cf91ad9e643)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "41736101",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "dd69d38ae4b44c55cffd5b45295eeeebab28c5a687a8b9d4f0b497bdc126e929",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 600 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_5.jpeg?version=6e90b800 (SHA-256 22ab19fe7d74b528fe9f87e58602fee485eeb64ebc03749113cc9cf91ad9e643)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "34904902",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "985ad96c2f1994c3a6384356094835cc7f0009e8460a7a3869afa6ad202e8aec",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 60 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_6.jpeg?version=6e90b800 (SHA-256 8d1979d5babbd5cef4f9b3ac8aac94e595a9b4e14acd7b15140039188f02b527)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "44541001",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "5edb7fa60f83e17a13ac17b2988b8422f414048108e02efca8fa60dc144024bc",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 70 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_7.jpeg?version=6e90b800 (SHA-256 77c702bed7ef9b6996e2a2b3c56668b749c8299b6688403975e2184d1d028547)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "25733202",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "1c238b81a073d57d154fff189bd93921e51dfdcf51b51f2552b65ff50827a8ba",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 70 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_8.jpeg?version=6e90b800 (SHA-256 435ceffaeafd46f0fc70899ebe489fae3628e7ae0a1bad068b6ff69a9b31a7fb)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "21019101",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "3e0bd0fd9a2fdb7c72b9f06dbd985575c5f425f8a6c99471e460bac254468418",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 50 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_9.jpeg?version=6e90b800 (SHA-256 5f898d8cfedbcc4fcd617c2776505e084ee50c5284131853f331955d45b17ae5)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "21234401",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "310830298c98b9b351b1447342de0ba14a19987d7b9a938567617eb47e378ab5",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 70 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_10.jpeg?version=6e90b800 (SHA-256 2e0ac56f92c167fa440f8bdd39abe2479d973d4e5cdf3c4161c1b84a9bd182ea)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "13687611",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "ce7e238c0e2fbf25fe5c698e86050a93866a67c2824d8a651baf6c02806dbb71",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 30 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_11.jpeg?version=6e90b800 (SHA-256 e8cd61133aef223501967e2b42e055a6625ec646020f01028dcb136c6970ef5c); https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P2_NAT[!STH]_16.jpeg?version=6e90b800 (SHA-256 fc844b645a56c75d0c0ae9bc76ec7bc80bfeb1c932a72d4e3c6ba9b4e7321a5c)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "13687604",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "870bc028b916254fe02d6c5a5ae80b6f6906abb248bbeac448651b380e64dde5",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 30 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_11.jpeg?version=6e90b800 (SHA-256 e8cd61133aef223501967e2b42e055a6625ec646020f01028dcb136c6970ef5c); https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P2_NAT[!STH]_16.jpeg?version=6e90b800 (SHA-256 fc844b645a56c75d0c0ae9bc76ec7bc80bfeb1c932a72d4e3c6ba9b4e7321a5c)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "21542901",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "b7187a1c897886a12ba783a24c8cdd6e65177bc04c167a0d98ba3c635df53dd6",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 80 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_12.jpeg?version=6e90b800 (SHA-256 8e78a424e57fbbffca837edf43d7c1ce83d5540ca5491dd16624c838e45a5e2c)"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "21542944",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-06",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "8290a0e50ab7f05b4be6a4e75d539a03d3f9a5962c558e343d2a911bd9fa7b8c",
+      "decision": "keep_rejected",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 80 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_12.jpeg?version=6e90b800 (SHA-256 8e78a424e57fbbffca837edf43d7c1ce83d5540ca5491dd16624c838e45a5e2c)"
     }
   ]
 }

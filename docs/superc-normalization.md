@@ -17,7 +17,7 @@ Pour une nouvelle capture, commencer par le diagnostic décrit dans
 et l'identifiant de publication retourné.
 
 Le résultat se trouve sous le dossier de capture, dans
-`normalized/superc-0.5.1/<publication>/` :
+`normalized/superc-0.5.2/<publication>/` :
 
 - `flyer.json` : offres converties, conformes au schéma V1.1;
 - `manifest.json` : période, magasin, compte des offres et empreintes;
@@ -337,3 +337,47 @@ locale des visuels et mentions au moment de la collecte, avec URL, horodatage et
 empreintes, puis vérifier l'identité de la publication réellement retournée.
 La présence de tous les champs JSON ne prouve pas que toutes les conditions
 visuelles ont été conservées.
+
+
+## Révision des 50 indicateurs coupon de 83986 — 6 octobre 2026
+
+Les 50 entrées rejetées sous `coupon_requires_review` ont été rapprochées de
+leurs 27 visuels distincts conservés dans la capture `20261006T045222888814Z`.
+Le champ `coupon: true` ne permet pas, à lui seul, de déterminer une mécanique
+commerciale. Aucune règle générale ne l'ignore : chaque décision du registre
+est liée au magasin 447, à la période du 1er au 7 octobre, au SKU et à l'empreinte
+de l'entrée entière. La preuve donne les URL et SHA-256 des images examinées.
+
+**23 entrées converties avec corrections V1.1 :**
+
+- Beurre Selection : 4,88 $, limite de 6 conservée; prix après limite inconnu.
+- 15 entrées de charcuteries/fromages : 3 pour 18 $, puis 6 $ par produit
+  supplémentaire. Aucun prix d'achat isolé sous le minimum de trois n'est déduit.
+- 3 entrées Michelob/Rickard’s/Unibroue : 2 caisses pour 44 $, taxes et consigne
+  en sus. Le prix individuel annoncé « à partir de 23,99 $ » reste une condition
+  textuelle; il n'est pas attribué comme prix fixe à chaque variante.
+- Mid-Day Squares, Clif Bar, Betty Crocker et Bounce : prix publics explicites
+  de 2,49 $, 1,99 $, 1,99 $ et 10,99 $ respectivement.
+
+**27 entrées maintenues en révision :**
+
+- 25 entrées affichent des points (dont les répétitions Pepsi et deux Red Bull).
+  Le nombre de points est visible, mais les conditions d'attribution, une éventuelle
+  activation et la portée par unité ou par lot restent à vérifier dans les bandeaux
+  et conditions du programme. L'entrée entière reste exclue du brouillon.
+- 2 entrées Molson annoncent un avantage équivalent aux taxes et à la consigne.
+  Le visuel ne donne pas de prix final. Les mentions générales nomment une autre
+  sélection de bières : leur portée doit être rapprochée de l'offre avant conversion.
+
+Le normaliseur **0.5.2** applique effectivement `keep_rejected`, y compris à une
+entrée qui passerait les règles ordinaires. Le rejet `visual_review_rejected`
+conserve la preuve et sa motivation. Les données brutes ne sont pas réécrites.
+
+Bilan de 83986 : **309 offres**, 308 entrées acceptées, **37 rejetées** (27 décisions
+visuelles, 6 prix/récompenses absents, 4 rabais ambigus), 11 blocs non commerciaux
+ignorés. Les conditions du nouveau sous-ensemble ne constituent pas une validation
+exhaustive des 309 offres; `ready_for_archive` reste faux.
+
+Vérifications : 144 tests réussis, Ruff sans erreur. Le retraitement de 83817
+conserve 346 offres, 2 rejets et 8 entrées aux conditions incomplètes. Les anciennes
+sorties 0.5.1 sont conservées; les nouvelles sorties 0.5.2 restent locales.

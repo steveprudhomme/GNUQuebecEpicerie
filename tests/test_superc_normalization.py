@@ -502,3 +502,49 @@ def test_cli_incomplete_discount_alone_returns_nonzero(tmp_path, monkeypatch):
     assert flyer["schema_version"] == manifest["schema_version"] == "1.1"
     assert manifest["content_hash"] == "sha256:" + content_revision(flyer)
     assert "Conditions incomplètes" in (output / "review.txt").read_text(encoding="utf-8")
+
+
+@pytest.mark.parametrize("raw", [record(), record(coupon=True, pts=80)])
+def test_explicit_visual_rejection_blocks_even_otherwise_supported_record(raw):
+    review = visual_review(raw, "keep_rejected")
+    flyer, report = normalize_pages(META, [{"products": [raw]}], NOW,
+                                    source_reviews=[review])
+    assert not flyer.offers
+    assert report["rejection_reasons"] == {"visual_review_rejected": 1}
+    assert report["rejected"][0]["source_review"]["evidence"] == review["evidence"]
+    assert not report["ready_for_archive"]
+
+
+def test_visual_limit_correction_keeps_original_missing_limit():
+    raw = record(coupon=True, limitQty=None)
+    review = {**visual_review(raw, "normalize_v11"), "promotions": [
+        {"sale_price": 4.88, "limit_quantity": 6,
+         "conditions": ["Limite de 6; prix après limite non établi."]}
+    ]}
+    flyer, report = normalize_pages(META, [{"products": [raw]}], NOW,
+                                    source_reviews=[review])
+    promo = flyer.offers[0].promotion
+    assert promo.sale_price == 4.88 and promo.limit_quantity == 6
+    assert promo.price_after_limit is None
+    assert json.loads(flyer.offers[0].source.source_text)["limitQty"] is None
+    assert report["rejected_entries"] == 0
+    changed, changed_report = normalize_pages(
+        META, [{"products": [{**raw, "limitQty": 4}]}], NOW, source_reviews=[review])
+    assert not changed.offers
+    assert not changed_report["applied_source_reviews"]
+
+
+def test_october_visual_registry_preserves_unresolved_rewards_and_lot_conditions():
+    from gnuquebecepicerie.normalizers.superc_reviews import validate_reviews
+    registry = json.loads((SCHEMAS.parent / "config/source-reviews/superc.json")
+                          .read_text(encoding="utf-8"))
+    reviews = [r for r in validate_reviews(registry["reviews"]) if r.publication == "83986"]
+    assert len(reviews) == 50
+    assert sum(r.decision == "keep_rejected" for r in reviews) == 27
+    corrections = [r for r in reviews if r.decision == "normalize_v11"]
+    assert len(corrections) == 23
+    assert all("SHA-256" in r.evidence for r in reviews)
+    lots = [p for r in corrections for p in r.promotions if p.multi_buy_quantity == 3]
+    assert len(lots) == 15
+    assert all(p.multi_buy_price == 18 and p.sale_price is None for p in lots)
+    assert all(any("supplémentaire" in c for c in p.conditions) for p in lots)

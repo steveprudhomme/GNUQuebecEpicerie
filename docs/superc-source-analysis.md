@@ -191,7 +191,9 @@ Le normaliseur 0.5.1 produit **286 offres** à partir de 285 entrées acceptées
 4 `discount_amount_requires_review`. Aucune correction historique de 83817
 n'a été appliquée. `ready_for_archive` reste faux.
 
-Prochaine analyse : examiner les coupons à partir des nouveaux visuels conservés,
-puis les prix absents et rabais ambigus. La disponibilité des mentions d'octobre
+Examen des 50 indicateurs coupon réalisé : 23 entrées converties, 27 maintenues
+en révision. Voir le [bilan 0.5.2](superc-normalization.md) : 309 offres et 37 rejets.
+Prochaine analyse : modalités des points, avantages taxes/consigne, prix absents
+et rabais ambigus. La disponibilité des mentions d'octobre
 ne résout pas les conditions historiques de septembre. Les fichiers bruts, visuels
 et brouillons restent locaux; seuls le code et ce bilan sont versionnés.

@@ -91,6 +91,7 @@ REVIEW_REASONS = {
     "member_discount_without_final_price": "Rabais membre : prix final membre absent.",
     "member_discount_conflicts_with_prices": "Rabais membre incompatible avec les deux prix.",
     "member_discount_basis_requires_review": "Bases ou quantités des prix non comparables.",
+    "visual_review_rejected": "Maintien en révision après examen visuel; voir la preuve.",
     "coupon_requires_review": "Conditions du coupon à vérifier.",
     "missing_price_or_supported_reward": "Prix promotionnel ou récompense absent.",
     "visual_period_conflicts_with_json": "Dates de l'image incompatibles avec le JSON.",
