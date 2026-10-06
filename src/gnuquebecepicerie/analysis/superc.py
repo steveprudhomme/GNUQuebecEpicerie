@@ -74,6 +74,12 @@ def audit(
         raise ValueError("Aucune circulaire disponible : aucune archive créée.")
     if any(flyer.get("storeName") != STORE_NAME for flyer in flyers):
         raise ValueError("Magasin inattendu : arrêt du diagnostic.")
+    # Le lecteur renvoie aussi des aperçus : ne collecter que la période demandée.
+    flyers = [flyer for flyer in flyers
+              if date.fromisoformat(flyer["startDate"][:10]) <= day
+              <= date.fromisoformat(flyer["endDate"][:10])]
+    if not flyers:
+        raise ValueError("Aucune circulaire ne couvre la date demandée.")
     output.mkdir(parents=True, exist_ok=False)
     (output / "metadata.json").write_bytes(response.content)
     result = {
@@ -98,7 +104,9 @@ def audit(
         (output / f"pages-{flyer_id}.json").write_bytes(response.content)
         asset_summary = None
         if asset_client is not None:
-            asset_summary = capture_assets(asset_client, pages, flyer_id, output, delay=delay)
+            asset_summary = capture_assets(
+                asset_client, pages, flyer_id, output, delay=min(delay, 0.2)
+            )
         result["flyers"].append({
             "assets": ({k: v for k, v in asset_summary.items() if k != "items"}
                        if asset_summary is not None else {"status": "not_requested"}),

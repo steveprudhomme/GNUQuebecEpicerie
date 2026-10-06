@@ -77,8 +77,11 @@ ne remplace pas une information source manquante.
 - [ ] Gérer les erreurs réseau, changements de structure et captures incomplètes.
 - [x] Ajouter la conservation locale des visuels référencés et de leurs empreintes,
   avec rejet des redirections et des chemins hors publication.
-- [ ] Vérifier cette conservation sur une nouvelle capture réseau complète et
-  contrôler la lisibilité et la couverture des mentions.
+- [x] Vérifier la conservation sur une capture réelle : 277/277 visuels de 83986,
+  empreintes concordantes et bloc des mentions générales lisible (6 octobre).
+- [ ] Vérifier la couverture de tous les astérisques et conditions par offre.
+- [ ] Examiner les 60 rejets de 83986 : 50 coupons, 6 prix/récompenses absents
+  et 4 rabais ambigus; 286 offres restent en brouillon local.
 - [ ] Produire des archives immuables avec provenance, empreintes et révisions traçables.
 - [ ] Tester plusieurs circulaires hebdomadaires successives et les changements
   apportés à une même circulaire.

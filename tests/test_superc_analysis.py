@@ -7,7 +7,7 @@ import pytest
 from gnuquebecepicerie.analysis.superc import audit, summarize_pages
 
 
-def mock_client(store_name="LAVAL DES LAURENTIDES", pages_status=200):
+def mock_client(store_name="LAVAL DES LAURENTIDES", pages_status=200, extra_flyers=()):
     def handle(request):
         if request.url.path.endswith("app.json"):
             return httpx.Response(200, json={
@@ -20,7 +20,8 @@ def mock_client(store_name="LAVAL DES LAURENTIDES", pages_status=200):
             return httpx.Response(200, json={"flyers": [{
                 "title": "123", "storeName": store_name,
                 "startDate": "2026-09-17T00:00:00Z", "endDate": "2026-09-23T23:59:00Z",
-            }]})
+            }, *extra_flyers]})
+        assert request.url.path == "/api/pages/123/447/bil/"
         return httpx.Response(pages_status, json=[{"blocks": [{"products": [
             {"sku": "fictif", "salePriceFr": "4.99", "memberPriceFr": None}
         ]}]}])
@@ -69,3 +70,24 @@ def test_audit_reports_incomplete_visual_capture_separately(tmp_path):
     assert (tmp_path / "audit/pages-123.json").exists()
     assert (tmp_path / "audit/assets/123/manifest.json").exists()
     assert result["flyers"][0]["assets"]["requested"] == 0
+
+
+@pytest.mark.parametrize("day", [date(2026, 9, 17), date(2026, 9, 23)])
+def test_only_flyers_covering_requested_day_are_downloaded(tmp_path, day):
+    other_periods = [
+        {"title": "124m", "storeName": "LAVAL DES LAURENTIDES",
+         "startDate": "2026-09-24T00:00:00Z", "endDate": "2026-09-30T23:59:00Z"},
+        {"title": "122", "storeName": "LAVAL DES LAURENTIDES",
+         "startDate": "2026-09-10T00:00:00Z", "endDate": "2026-09-16T23:59:00Z"},
+    ]
+    with mock_client(extra_flyers=other_periods) as client:
+        result = audit(client, day, tmp_path / "audit", delay=0)
+    assert [f["flyer_id"] for f in result["flyers"]] == ["123"]
+    metadata = json.loads((tmp_path / "audit/metadata.json").read_text())
+    assert len(metadata["flyers"]) == 3
+
+
+def test_no_flyer_covering_date_stops_without_output(tmp_path):
+    with mock_client() as client, pytest.raises(ValueError, match="date demandée"):
+        audit(client, date(2026, 9, 24), tmp_path / "audit", delay=0)
+    assert not (tmp_path / "audit").exists()

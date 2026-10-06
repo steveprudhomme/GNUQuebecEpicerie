@@ -110,7 +110,8 @@ python -m gnuquebecepicerie.analysis.superc --date 2026-09-20
 ```
 
 Le diagnostic charge la configuration publique en mémoire, vérifie le nom du magasin,
-espace les requêtes de deux secondes et écrit les métadonnées, pages et un résumé
+sélectionne uniquement les circulaires couvrant la date demandée (bornes incluses),
+espace les requêtes API de deux secondes et écrit les métadonnées, pages et un résumé
 dans un nouveau sous-dossier local horodaté. Il n'effectue aucun commit ni push.
 Il s'arrête sur erreur HTTP, magasin inattendu ou changement de l'adresse API;
 aucune nouvelle clé n'est enregistrée. Les tests utilisent des réponses fictives.
@@ -142,7 +143,9 @@ Les fichiers restent sous `local/source-analysis/<capture>/assets/<publication>/
 Le manifeste local enregistre l'URL, l'heure de consultation, le fichier, sa taille
 et son empreinte SHA-256. Il indique aussi les échecs. Le nom de fichier est dérivé
 de l'URL, sans utiliser de chemin fourni par le serveur. Le diagnostic peut prendre
-plusieurs minutes, car les requêtes sont espacées.
+plusieurs minutes : les images sont téléchargées en série avec une pause de
+0,2 seconde entre les requêtes. Les métadonnées brutes conservent aussi les
+aperçus retournés par le lecteur, mais leurs pages et images ne sont pas téléchargées.
 
 Seules les URL HTTPS du stockage connu, dans le chemin de la publication demandée,
 sont admises. Les redirections ne sont pas suivies; les réponses 403/404 sont des
@@ -165,5 +168,30 @@ images et ne considère jamais leur téléchargement comme une validation.
 
 Validation de cette évolution : tests hors ligne avec serveur simulé, incluant
 les doublons, les mentions imbriquées, les redirections, les erreurs, les URL hors
-publication, les contenus non-images et les limites de taille. Une nouvelle
-capture réseau complète et sa vérification visuelle restent à réaliser.
+publication, les contenus non-images et les limites de taille. Les tests de période
+couvrent les bornes incluses, les aperçus futurs, les publications expirées et
+l’absence de circulaire applicable.
+
+
+## Vérification réelle du 6 octobre 2026
+
+Capture locale `20261006T045222888814Z`, publication **83986**, du **1er au 7 octobre** :
+
+- 20 pages JSON, 356 entrées source et 341 SKU distincts.
+- **277 visuels référencés sur 277 conservés**, sans échec; toutes les empreintes
+  SHA-256 ont été recalculées et correspondent au manifeste.
+- Le bloc `288_NB-9_Ad_Metro_p23_LEGAL_FR_NAT.jpg` a été ouvert : les mentions
+  générales et la période sont lisibles. Ce contrôle ne couvre pas encore chaque
+  astérisque de chaque offre ni les conditions externes du programme de fidélité.
+- Les aperçus 83987 et 83987m du 8 au 14 octobre sont exclus de la collecte du 6.
+
+Le normaliseur 0.5.1 produit **286 offres** à partir de 285 entrées acceptées;
+**60 entrées sont rejetées** et 11 blocs non commerciaux sont ignorés. Motifs :
+50 `coupon_requires_review`, 6 `missing_price_or_supported_reward` et
+4 `discount_amount_requires_review`. Aucune correction historique de 83817
+n'a été appliquée. `ready_for_archive` reste faux.
+
+Prochaine analyse : examiner les coupons à partir des nouveaux visuels conservés,
+puis les prix absents et rabais ambigus. La disponibilité des mentions d'octobre
+ne résout pas les conditions historiques de septembre. Les fichiers bruts, visuels
+et brouillons restent locaux; seuls le code et ce bilan sont versionnés.
