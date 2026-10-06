@@ -540,11 +540,40 @@ def test_october_visual_registry_preserves_unresolved_rewards_and_lot_conditions
                           .read_text(encoding="utf-8"))
     reviews = [r for r in validate_reviews(registry["reviews"]) if r.publication == "83986"]
     assert len(reviews) == 50
-    assert sum(r.decision == "keep_rejected" for r in reviews) == 27
+    assert sum(r.decision == "keep_rejected" for r in reviews) == 4
     corrections = [r for r in reviews if r.decision == "normalize_v11"]
-    assert len(corrections) == 23
+    assert len(corrections) == 46
     assert all("SHA-256" in r.evidence for r in reviews)
     lots = [p for r in corrections for p in r.promotions if p.multi_buy_quantity == 3]
     assert len(lots) == 15
     assert all(p.multi_buy_price == 18 and p.sale_price is None for p in lots)
     assert all(any("supplémentaire" in c for c in p.conditions) for p in lots)
+
+
+@pytest.mark.parametrize("sku,points,price", [
+    ("13687611", 30, 1.99), ("33885205", 200, 11.99), ("44544901", 600, 19.99),
+])
+def test_reviewed_loyalty_values_are_not_doubled_or_subtracted_from_prices(sku, points, price):
+    from gnuquebecepicerie.normalizers.superc_reviews import validate_reviews
+    registry = json.loads((SCHEMAS.parent / "config/source-reviews/superc.json")
+                          .read_text(encoding="utf-8"))
+    reviews = [r for r in validate_reviews(registry["reviews"])
+               if r.publication == "83986" and r.sku == sku]
+    assert reviews
+    for review in reviews:
+        assert review.decision == "normalize_v11"
+        public, reward = review.promotions
+        assert public.sale_price == price and public.points is None
+        assert not public.loyalty_required
+        assert reward.points == points and reward.sale_price is None
+        assert reward.loyalty_required and reward.loyalty_program == "moi"
+        assert "KB0010898" in review.evidence
+
+
+def test_ambiguous_red_bull_reward_remains_excluded():
+    registry = json.loads((SCHEMAS.parent / "config/source-reviews/superc.json")
+                          .read_text(encoding="utf-8"))
+    reviews = [r for r in registry["reviews"]
+               if r["publication"] == "83986" and r["sku"] in {"21542901", "21542944"}]
+    assert len(reviews) == 2
+    assert all(r["decision"] == "keep_rejected" and "promotions" not in r for r in reviews)

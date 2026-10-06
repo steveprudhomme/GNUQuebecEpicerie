@@ -529,8 +529,41 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "a423a9b0c4f0e93aab7be7a082fdf6347caac96f637c6464d110a060db2cc130",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 30 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_11.jpeg?version=6e90b800 (SHA-256 e8cd61133aef223501967e2b42e055a6625ec646020f01028dcb136c6970ef5c); https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P2_NAT[!STH]_16.jpeg?version=6e90b800 (SHA-256 fc844b645a56c75d0c0ae9bc76ec7bc80bfeb1c932a72d4e3c6ba9b4e7321a5c)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 30 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_11.jpeg?version=6e90b800 (SHA-256 e8cd61133aef223501967e2b42e055a6625ec646020f01028dcb136c6970ef5c); https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P2_NAT[!STH]_16.jpeg?version=6e90b800 (SHA-256 fc844b645a56c75d0c0ae9bc76ec7bc80bfeb1c932a72d4e3c6ba9b4e7321a5c) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 1.99,
+          "price_basis": "package",
+          "regular_price": 2.89,
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: bout. 2 L, choix varié, consigne",
+            "savingsFr: 31%",
+            "savingsSuffix: d’économie",
+            "tx: +TX"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 30,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: bout. 2 L, choix varié, consigne",
+            "savingsFr: 31%",
+            "savingsSuffix: d’économie",
+            "tx: +TX",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -541,8 +574,41 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "99599d8f874750cb4077e22621c29546953d48114837cf4adab3a61f3538516b",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 30 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_11.jpeg?version=6e90b800 (SHA-256 e8cd61133aef223501967e2b42e055a6625ec646020f01028dcb136c6970ef5c); https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P2_NAT[!STH]_16.jpeg?version=6e90b800 (SHA-256 fc844b645a56c75d0c0ae9bc76ec7bc80bfeb1c932a72d4e3c6ba9b4e7321a5c)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 30 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_11.jpeg?version=6e90b800 (SHA-256 e8cd61133aef223501967e2b42e055a6625ec646020f01028dcb136c6970ef5c); https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P2_NAT[!STH]_16.jpeg?version=6e90b800 (SHA-256 fc844b645a56c75d0c0ae9bc76ec7bc80bfeb1c932a72d4e3c6ba9b4e7321a5c) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 1.99,
+          "price_basis": "package",
+          "regular_price": 2.89,
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: bout. 2 L, choix varié, consigne",
+            "savingsFr: 31%",
+            "savingsSuffix: d’économie",
+            "tx: +TX"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 30,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: bout. 2 L, choix varié, consigne",
+            "savingsFr: 31%",
+            "savingsSuffix: d’économie",
+            "tx: +TX",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -1066,8 +1132,35 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "c11a9718298dfbe9fc010b4ce472b485519c01714be8cad008d2869407e58f04",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 25 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P7_NAT_1.jpeg?version=6e90b800 (SHA-256 4939a722c0614c6a59b63dc8efac8f4d76580972d82025ca3644da17bc33a51d)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 25 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P7_NAT_1.jpeg?version=6e90b800 (SHA-256 4939a722c0614c6a59b63dc8efac8f4d76580972d82025ca3644da17bc33a51d) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 3.99,
+          "price_basis": "package",
+          "regular_price": 4.79,
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 402-481 g, choix varié"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 25,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 402-481 g, choix varié",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -1184,8 +1277,35 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "abd18f3514cfb32e387b545ffad48957686b366eac100459f9c0b3c83f9a39ca",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 15 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P18_NAT_2.jpeg?version=6e90b800 (SHA-256 9ca309e65a764f2ec40d1584094aa472103793e7bc2275c035db00c334193ef5)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 15 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P18_NAT_2.jpeg?version=6e90b800 (SHA-256 9ca309e65a764f2ec40d1584094aa472103793e7bc2275c035db00c334193ef5) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 1.99,
+          "price_basis": "package",
+          "regular_price": 2.79,
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 85 g, choix varié"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 15,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 85 g, choix varié",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -1196,8 +1316,35 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "0068f337993a42ec2f2746a1cd9e9796f3760bd40073b44bbc9983ba01467d24",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 40 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P18_NAT_9.jpeg?version=6e90b800 (SHA-256 3da14d78d78790bc4ddb1f5d7b605c44892db0f4939532853d91a0ae876e2e50)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 40 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P18_NAT_9.jpeg?version=6e90b800 (SHA-256 3da14d78d78790bc4ddb1f5d7b605c44892db0f4939532853d91a0ae876e2e50) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 6.99,
+          "price_basis": "package",
+          "regular_price": 8.49,
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 354 g, choix varié"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 40,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 354 g, choix varié",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -1208,8 +1355,37 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "0925d16c1459d6666da3c6d3b61ec4f52406076f6ffc64cdcce43e55b55ce4b7",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 300 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P19_NAT_8.jpeg?version=6e90b800 (SHA-256 1816b3b41cfe4cbb04d8637e107cfb084afe9ff936f2b4153200b3226a2f2288)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 300 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P19_NAT_8.jpeg?version=6e90b800 (SHA-256 1816b3b41cfe4cbb04d8637e107cfb084afe9ff936f2b4153200b3226a2f2288) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 36.99,
+          "price_basis": "package",
+          "regular_price": 44.99,
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: caisse, canettes 24/355 ml, consigne",
+            "tx: +TX"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 300,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: caisse, canettes 24/355 ml, consigne",
+            "tx: +TX",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -1220,8 +1396,37 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "6968a1678655975d488f979460c3afb089d98974217dfd01ddeb61d29af5dcef",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 300 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P19_NAT_12.jpeg?version=6e90b800 (SHA-256 df603e275248877fb79f4bfc8201859cac1c97acef004dff2f93a5542ac17fb5)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 300 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P19_NAT_12.jpeg?version=6e90b800 (SHA-256 df603e275248877fb79f4bfc8201859cac1c97acef004dff2f93a5542ac17fb5) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 34.99,
+          "price_basis": "package",
+          "regular_price": 36.49,
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: caisse, bout. 24/355 ml, consigne",
+            "tx: +tx"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 300,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: caisse, bout. 24/355 ml, consigne",
+            "tx: +tx",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -1232,8 +1437,36 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "5467682cf3bafdca76c08b614b14eed64c6816a297475b0bc9373652178932bb",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 200 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P19_NAT_14.jpeg?version=6e90b800 (SHA-256 786e11555a714b0d49b1000f0efaa2e01672c7cca31500759f9bfb3ce4305530)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 200 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P19_NAT_14.jpeg?version=6e90b800 (SHA-256 786e11555a714b0d49b1000f0efaa2e01672c7cca31500759f9bfb3ce4305530) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 21.99,
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: caisse, canettes 12/355 ml, choix varié, consigne",
+            "tx: +tx"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 200,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: caisse, canettes 12/355 ml, choix varié, consigne",
+            "tx: +tx",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -1244,8 +1477,36 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "6ef457e64d152bba10a50d5a75871e70de0b9bd5e2264db6f4e01dec66a60df1",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 200 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P19_NAT_14.jpeg?version=6e90b800 (SHA-256 786e11555a714b0d49b1000f0efaa2e01672c7cca31500759f9bfb3ce4305530)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 200 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P19_NAT_14.jpeg?version=6e90b800 (SHA-256 786e11555a714b0d49b1000f0efaa2e01672c7cca31500759f9bfb3ce4305530) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 21.99,
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: caisse, canettes 12/355 ml, choix varié, consigne",
+            "tx: +tx"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 200,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: caisse, canettes 12/355 ml, choix varié, consigne",
+            "tx: +tx",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -1256,8 +1517,35 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "d42ae0aad9b8fa01dbcba55f0a4d4b1639074c2dd5991837db6ad7ac29e2c387",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 200 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_1.jpeg?version=6e90b800 (SHA-256 f34ecd41dcfe5ea2a1cff56601ff30facf6447f9f0bdba3071493215c2df6276)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 200 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_1.jpeg?version=6e90b800 (SHA-256 f34ecd41dcfe5ea2a1cff56601ff30facf6447f9f0bdba3071493215c2df6276) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 11.99,
+          "price_basis": "package",
+          "regular_price": 13.99,
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 300-340 g, choix varié"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 200,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 300-340 g, choix varié",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -1268,8 +1556,36 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "debfe73b7fb653295a1180bfeb5463d3b536d4ea9456c5ec622fd9530ed8630a",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 40 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_2.jpeg?version=6e90b800 (SHA-256 1f985cfb729d1aa0e673dde77505fbf5fedd34110d143bf0deb5bf72c418cd03)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 40 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_2.jpeg?version=6e90b800 (SHA-256 1f985cfb729d1aa0e673dde77505fbf5fedd34110d143bf0deb5bf72c418cd03) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 2.99,
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 148-175 g, Fibre1 125-175 g, choix varié",
+            "tx: +TX"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 40,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 148-175 g, Fibre1 125-175 g, choix varié",
+            "tx: +TX",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -1280,8 +1596,36 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "e1aa6ac3f45b9b867c758b2656ced4ec194687f48f4b61561899ced659584f71",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 40 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_2.jpeg?version=6e90b800 (SHA-256 1f985cfb729d1aa0e673dde77505fbf5fedd34110d143bf0deb5bf72c418cd03)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 40 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_2.jpeg?version=6e90b800 (SHA-256 1f985cfb729d1aa0e673dde77505fbf5fedd34110d143bf0deb5bf72c418cd03) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 2.99,
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 148-175 g, Fibre1 125-175 g, choix varié",
+            "tx: +TX"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 40,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 148-175 g, Fibre1 125-175 g, choix varié",
+            "tx: +TX",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -1292,8 +1636,35 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "9a3f7de4caed7fc5b87b37fdff777ff7bae5b448ed958045edb9a6873231ad71",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 80 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_3.jpeg?version=6e90b800 (SHA-256 7669ef4c01f9b422ffb71d90b9a460fa90a70dcc3658f44a01bb7cfd90eb7e3d)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 80 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_3.jpeg?version=6e90b800 (SHA-256 7669ef4c01f9b422ffb71d90b9a460fa90a70dcc3658f44a01bb7cfd90eb7e3d) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 6.99,
+          "price_basis": "package",
+          "regular_price": 8.79,
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 500 ml, choix varié"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 80,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 500 ml, choix varié",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -1304,8 +1675,35 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "4f3d5f64a06e73bf180c4e2fe5637aa77f1d2c8cf19a2f14288edb11f60271fe",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 30 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_4.jpeg?version=6e90b800 (SHA-256 654fc37a524b87772c076904fe7738c56d9661d43548bf466c394353068bb5f9)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 30 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_4.jpeg?version=6e90b800 (SHA-256 654fc37a524b87772c076904fe7738c56d9661d43548bf466c394353068bb5f9) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 1.99,
+          "price_basis": "package",
+          "regular_price": 2.79,
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 398 ml, choix varié"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 30,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 398 ml, choix varié",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -1316,8 +1714,37 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "903322a4b0b2c5c25890e8940ed67cf3825dc36aa823a4d348b24871f02ff253",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 600 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_5.jpeg?version=6e90b800 (SHA-256 22ab19fe7d74b528fe9f87e58602fee485eeb64ebc03749113cc9cf91ad9e643)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 600 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_5.jpeg?version=6e90b800 (SHA-256 22ab19fe7d74b528fe9f87e58602fee485eeb64ebc03749113cc9cf91ad9e643) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 19.99,
+          "price_basis": "package",
+          "regular_price": 28.99,
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: Smirnoff, caisse, canettes 12/355 ml, choix varié, consigne",
+            "tx: +TX"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 600,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: Smirnoff, caisse, canettes 12/355 ml, choix varié, consigne",
+            "tx: +TX",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -1328,8 +1755,37 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "dd69d38ae4b44c55cffd5b45295eeeebab28c5a687a8b9d4f0b497bdc126e929",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 600 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_5.jpeg?version=6e90b800 (SHA-256 22ab19fe7d74b528fe9f87e58602fee485eeb64ebc03749113cc9cf91ad9e643)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 600 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_5.jpeg?version=6e90b800 (SHA-256 22ab19fe7d74b528fe9f87e58602fee485eeb64ebc03749113cc9cf91ad9e643) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 19.99,
+          "price_basis": "package",
+          "regular_price": 28.99,
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: Smirnoff, caisse, canettes 12/355 ml, choix varié, consigne",
+            "tx: +TX"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 600,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: Smirnoff, caisse, canettes 12/355 ml, choix varié, consigne",
+            "tx: +TX",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -1340,8 +1796,34 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "985ad96c2f1994c3a6384356094835cc7f0009e8460a7a3869afa6ad202e8aec",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 60 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_6.jpeg?version=6e90b800 (SHA-256 8d1979d5babbd5cef4f9b3ac8aac94e595a9b4e14acd7b15140039188f02b527)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 60 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_6.jpeg?version=6e90b800 (SHA-256 8d1979d5babbd5cef4f9b3ac8aac94e595a9b4e14acd7b15140039188f02b527) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 4.99,
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: formats et choix variés"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 60,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: formats et choix variés",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -1352,8 +1834,37 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "5edb7fa60f83e17a13ac17b2988b8422f414048108e02efca8fa60dc144024bc",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 70 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_7.jpeg?version=6e90b800 (SHA-256 77c702bed7ef9b6996e2a2b3c56668b749c8299b6688403975e2184d1d028547)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 70 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_7.jpeg?version=6e90b800 (SHA-256 77c702bed7ef9b6996e2a2b3c56668b749c8299b6688403975e2184d1d028547) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 5.99,
+          "price_basis": "package",
+          "regular_price": 7.29,
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: caisse, canettes, 6/340 ml, choix varié, consigne",
+            "tx: +TX"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 70,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: caisse, canettes, 6/340 ml, choix varié, consigne",
+            "tx: +TX",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -1364,8 +1875,37 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "1c238b81a073d57d154fff189bd93921e51dfdcf51b51f2552b65ff50827a8ba",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 70 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_8.jpeg?version=6e90b800 (SHA-256 435ceffaeafd46f0fc70899ebe489fae3628e7ae0a1bad068b6ff69a9b31a7fb)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 70 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_8.jpeg?version=6e90b800 (SHA-256 435ceffaeafd46f0fc70899ebe489fae3628e7ae0a1bad068b6ff69a9b31a7fb) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 5.49,
+          "price_basis": "package",
+          "regular_price": 6.29,
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 172 g, 4/46-58 g, choix varié",
+            "tx: +TX"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 70,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 172 g, 4/46-58 g, choix varié",
+            "tx: +TX",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -1376,8 +1916,35 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "3e0bd0fd9a2fdb7c72b9f06dbd985575c5f425f8a6c99471e460bac254468418",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 50 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_9.jpeg?version=6e90b800 (SHA-256 5f898d8cfedbcc4fcd617c2776505e084ee50c5284131853f331955d45b17ae5)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 50 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_9.jpeg?version=6e90b800 (SHA-256 5f898d8cfedbcc4fcd617c2776505e084ee50c5284131853f331955d45b17ae5) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 3.99,
+          "price_basis": "package",
+          "regular_price": 4.99,
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 250-510 g, choix varié"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 50,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 250-510 g, choix varié",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -1388,8 +1955,35 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "310830298c98b9b351b1447342de0ba14a19987d7b9a938567617eb47e378ab5",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 70 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_10.jpeg?version=6e90b800 (SHA-256 2e0ac56f92c167fa440f8bdd39abe2479d973d4e5cdf3c4161c1b84a9bd182ea)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 70 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_10.jpeg?version=6e90b800 (SHA-256 2e0ac56f92c167fa440f8bdd39abe2479d973d4e5cdf3c4161c1b84a9bd182ea) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 5.99,
+          "price_basis": "package",
+          "regular_price": 7.49,
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 850 g, non-hydrogénée"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 70,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: 850 g, non-hydrogénée",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -1400,8 +1994,41 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "ce7e238c0e2fbf25fe5c698e86050a93866a67c2824d8a651baf6c02806dbb71",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 30 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_11.jpeg?version=6e90b800 (SHA-256 e8cd61133aef223501967e2b42e055a6625ec646020f01028dcb136c6970ef5c); https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P2_NAT[!STH]_16.jpeg?version=6e90b800 (SHA-256 fc844b645a56c75d0c0ae9bc76ec7bc80bfeb1c932a72d4e3c6ba9b4e7321a5c)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 30 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_11.jpeg?version=6e90b800 (SHA-256 e8cd61133aef223501967e2b42e055a6625ec646020f01028dcb136c6970ef5c); https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P2_NAT[!STH]_16.jpeg?version=6e90b800 (SHA-256 fc844b645a56c75d0c0ae9bc76ec7bc80bfeb1c932a72d4e3c6ba9b4e7321a5c) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 1.99,
+          "price_basis": "package",
+          "regular_price": 2.89,
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: bout. 2 L, choix varié, consigne",
+            "savingsFr: 31%",
+            "savingsSuffix: d’économie",
+            "tx: +TX"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 30,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: bout. 2 L, choix varié, consigne",
+            "savingsFr: 31%",
+            "savingsSuffix: d’économie",
+            "tx: +TX",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -1412,8 +2039,41 @@
       "observed_at": "2026-10-06",
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "870bc028b916254fe02d6c5a5ae80b6f6906abb248bbeac448651b380e64dde5",
-      "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 30 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_11.jpeg?version=6e90b800 (SHA-256 e8cd61133aef223501967e2b42e055a6625ec646020f01028dcb136c6970ef5c); https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P2_NAT[!STH]_16.jpeg?version=6e90b800 (SHA-256 fc844b645a56c75d0c0ae9bc76ec7bc80bfeb1c932a72d4e3c6ba9b4e7321a5c)"
+      "decision": "normalize_v11",
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 30 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_11.jpeg?version=6e90b800 (SHA-256 e8cd61133aef223501967e2b42e055a6625ec646020f01028dcb136c6970ef5c); https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P2_NAT[!STH]_16.jpeg?version=6e90b800 (SHA-256 fc844b645a56c75d0c0ae9bc76ec7bc80bfeb1c932a72d4e3c6ba9b4e7321a5c) Réexamen du 6 octobre : FAQ KB0010898, distinction entre bonus sur produit identifié et coupons. Prix simple et points affichés concordants; aucune quantité minimale supplémentaire annoncée dans ces blocs. Les valeurs non barrées sont conservées, sans appliquer à nouveau le multiplicateur du bandeau. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 ; bandeau P21 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_0.jpeg?version=6e90b800 (SHA-256 5c95a097b10e158e75119cd18dadb2a3c466e522669bd14164bde28eea77ed60). Cette décision ne valide pas toute la circulaire.",
+      "promotions": [
+        {
+          "sale_price": 1.99,
+          "price_basis": "package",
+          "regular_price": 2.89,
+          "currency": "CAD",
+          "loyalty_required": false,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: bout. 2 L, choix varié, consigne",
+            "savingsFr: 31%",
+            "savingsSuffix: d’économie",
+            "tx: +TX"
+          ]
+        },
+        {
+          "price_basis": "package",
+          "currency": "CAD",
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "points": 30,
+          "unit_prices": [],
+          "conditions": [
+            "bodyFr: bout. 2 L, choix varié, consigne",
+            "savingsFr: 31%",
+            "savingsSuffix: d’économie",
+            "tx: +TX",
+            "Points bonus Moi sur le produit et le format identifiés dans ce bloc de circulaire; présenter la carte Moi.",
+            "Valeur affichée non barrée conservée; aucun second doublement et aucune conversion en réduction du prix public.",
+            "Aucune activation de coupon distinct indiquée dans les preuves examinées. Les modalités générales du programme demeurent applicables."
+          ]
+        }
+      ]
     },
     {
       "publication": "83986",
@@ -1425,7 +2085,7 @@
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "b7187a1c897886a12ba783a24c8cdd6e65177bc04c167a0d98ba3c635df53dd6",
       "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 80 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_12.jpeg?version=6e90b800 (SHA-256 8e78a424e57fbbffca837edf43d7c1ce83d5540ca5491dd16624c838e45a5e2c)"
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 80 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_12.jpeg?version=6e90b800 (SHA-256 8e78a424e57fbbffca837edf43d7c1ce83d5540ca5491dd16624c838e45a5e2c) Réexamen du 6 octobre : la FAQ distingue les bonus par produit et par quantité. Les 80 points Red Bull restent ambigus entre une unité et le lot de deux; exclusion maintenue. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68"
     },
     {
       "publication": "83986",
@@ -1437,7 +2097,7 @@
       "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
       "record_sha256": "8290a0e50ab7f05b4be6a4e75d539a03d3f9a5962c558e343d2a911bd9fa7b8c",
       "decision": "keep_rejected",
-      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 80 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_12.jpeg?version=6e90b800 (SHA-256 8e78a424e57fbbffca837edf43d7c1ce83d5540ca5491dd16624c838e45a5e2c)"
+      "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 80 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_12.jpeg?version=6e90b800 (SHA-256 8e78a424e57fbbffca837edf43d7c1ce83d5540ca5491dd16624c838e45a5e2c) Réexamen du 6 octobre : la FAQ distingue les bonus par produit et par quantité. Les 80 points Red Bull restent ambigus entre une unité et le lot de deux; exclusion maintenue. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68"
     }
   ]
 }

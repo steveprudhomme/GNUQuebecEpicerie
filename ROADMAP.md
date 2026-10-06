@@ -82,7 +82,9 @@ ne remplace pas une information source manquante.
 - [ ] Vérifier la couverture de tous les astérisques et conditions par offre.
 - [x] Examiner les 50 indicateurs coupon de 83986 : 23 entrées converties avec
   preuves visuelles et 27 exclusions motivées; 309 offres en brouillon local.
-- [ ] Résoudre les 37 rejets restants de 83986 : modalités de 25 entrées à points,
+- [x] Examiner les modalités des 25 entrées à points : 23 converties après lecture
+  de la FAQ et des bandeaux; 2 Red Bull restent ambiguës. Bilan : 351 offres.
+- [ ] Résoudre les 14 rejets restants de 83986 : portée des points de 2 Red Bull,
   2 avantages taxes/consigne, 6 prix/récompenses absents et 4 rabais ambigus.
 - [ ] Produire des archives immuables avec provenance, empreintes et révisions traçables.
 - [ ] Tester plusieurs circulaires hebdomadaires successives et les changements

@@ -381,3 +381,36 @@ exhaustive des 309 offres; `ready_for_archive` reste faux.
 Vérifications : 144 tests réussis, Ruff sans erreur. Le retraitement de 83817
 conserve 346 offres, 2 rejets et 8 entrées aux conditions incomplètes. Les anciennes
 sorties 0.5.1 sont conservées; les nouvelles sorties 0.5.2 restent locales.
+
+
+### Complément : conditions des points Moi
+
+La lecture du centre d'aide a été achevée le 6 octobre après une interruption
+technique. L'article officiel [KB0010898 — points bonus](https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68)
+distingue les bonus sur produits identifiés, sur quantités précises et sur coupons.
+Les [modalités d'accumulation](https://www.programmemoi.ca/modalites-programme/accumulation)
+précisent que Super C accorde les bonus définis par l'offre; le taux de base par
+dollar des autres enseignes n'est pas appliqué.
+
+Le bandeau P21 réserve le doublement aux produits identifiés. Sur les visuels
+concernés, l'ancien nombre est barré et le nouveau est explicite. Le nombre non
+barré concorde avec `pts` : il n'est jamais doublé une seconde fois. La décision
+s'appuie sur le bloc produit et le bandeau, pas sur une interprétation générale
+du booléen `coupon`.
+
+23 entrées à prix simple passent de `keep_rejected` à `normalize_v11` : prix public
+et points membre sont deux offres distinctes, avec carte Moi et modalités générales
+mentionnées. Aucune activation de coupon distinct n'est indiquée dans les preuves
+examinées. Les deux entrées Red Bull restent exclues : 80 points sont affichés avec
+un prix de 2 pour 6 $ ou 3 $ l'unité, sans portée suffisamment explicite des points.
+Aucune règle sur les lots n'est inventée.
+
+**Bilan actualisé : 351 offres**, 331 entrées acceptées, **14 rejets** et 11 blocs
+non commerciaux ignorés. Quatre offres répétées sont dédupliquées. Les rejets sont
+2 Red Bull, 2 avantages taxes/consigne, 6 prix/récompenses absents et 4 rabais ambigus.
+`ready_for_archive` reste faux et les autres offres nécessitent encore leur validation.
+
+La capture des pages générales et la note d'observation du navigateur restent dans
+`local/source-analysis/20261006T045222888814Z/loyalty-review/`. Le registre conserve
+les observations précédentes et ajoute les références justifiant les nouvelles
+conclusions. Aucune condition d'octobre n'est appliquée aux données de septembre.

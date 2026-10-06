@@ -197,3 +197,9 @@ Prochaine analyse : modalités des points, avantages taxes/consigne, prix absent
 et rabais ambigus. La disponibilité des mentions d'octobre
 ne résout pas les conditions historiques de septembre. Les fichiers bruts, visuels
 et brouillons restent locaux; seuls le code et ce bilan sont versionnés.
+
+
+Complément fidélité : après examen de la FAQ et du bandeau de points doublés,
+le bilan est de **351 offres et 14 rejets**. Voir le complément dans le
+[bilan de normalisation](superc-normalization.md). La publication des données
+reste désactivée.
