@@ -414,3 +414,34 @@ La capture des pages générales et la note d'observation du navigateur restent 
 `local/source-analysis/20261006T045222888814Z/loyalty-review/`. Le registre conserve
 les observations précédentes et ajoute les références justifiant les nouvelles
 conclusions. Aucune condition d'octobre n'est appliquée aux données de septembre.
+
+
+### Rabais sans prix final — examen local du 10 octobre 2026
+
+Les quatre visuels concernés de la capture du 6 octobre ont été ouverts et leurs
+empreintes vérifiées. Dix décisions V1.1 supplémentaires sont limitées à leurs
+entrées source immuables de 83986. Aucune lecture de la circulaire actuelle
+n'est substituée aux preuves du 1er au 7 octobre.
+
+| Entrées | Rabais représenté | Traitement |
+| --- | --- | --- |
+| 2 pains St-Méthode | 50 % par produit annoncé | Base non précisée, `conditions_complete: false` |
+| 4 vins 750 ml-1 L | 25 % du prix régulier | Plage des prix réguliers conservée dans les conditions, sans prix individuel déduit |
+| 2 viniers de 4 L | 7 $ par vinier | 300 points Moi dans une offre membre séparée |
+| 2 vins Les Trois Pignons/Ciao Amore | 3 $ par bouteille de 750 ml | Prix régulier affiché consigné, sans calcul du prix final |
+
+Les huit rabais sur vins n'affichent pas de condition supplémentaire dans les
+blocs examinés : leurs conditions de rabais sont marquées complètes. Cela ne
+certifie pas la qualité commerciale de toute la circulaire. Les deux pains
+restent explicitement incomplets car leur base de calcul n'est pas précisée.
+
+Bilan : **363 offres**, 341 entrées acceptées, **4 rejets**, 2 entrées aux conditions
+incomplètes, 11 blocs non commerciaux ignorés et 4 offres répétées supprimées.
+Les deux Red Bull et les deux avantages taxes/consigne restent exclus.
+`normalization_complete` et `ready_for_archive` restent faux.
+
+Validation : **152 tests réussis**, contrôle Ruff réussi, documents produits
+validés par les schémas V1.1. Les nouveaux tests distinguent pourcentage et montant,
+conservent la base inconnue des pains, séparent points et rabais, et vérifient
+qu'aucun prix final n'est inventé. Les sorties restent locales sous 0.5.2;
+le rapport précédent est conservé dans `discount-review-20261010/before-report.json`.

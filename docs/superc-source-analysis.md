@@ -203,3 +203,8 @@ Complément fidélité : après examen de la FAQ et du bandeau de points doublé
 le bilan est de **351 offres et 14 rejets**. Voir le complément dans le
 [bilan de normalisation](superc-normalization.md). La publication des données
 reste désactivée.
+
+
+Examen local du 10 octobre des rabais : **363 offres, 4 rejets et 2 entrées aux
+conditions incomplètes**. Les rabais en pourcentage et en dollars sont représentés
+sans prix final calculé. Voir le [bilan détaillé](superc-normalization.md).

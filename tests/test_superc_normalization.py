@@ -539,12 +539,13 @@ def test_october_visual_registry_preserves_unresolved_rewards_and_lot_conditions
     registry = json.loads((SCHEMAS.parent / "config/source-reviews/superc.json")
                           .read_text(encoding="utf-8"))
     reviews = [r for r in validate_reviews(registry["reviews"]) if r.publication == "83986"]
-    assert len(reviews) == 50
+    assert len(reviews) == 60
     assert sum(r.decision == "keep_rejected" for r in reviews) == 4
     corrections = [r for r in reviews if r.decision == "normalize_v11"]
-    assert len(corrections) == 46
+    assert len(corrections) == 56
     assert all("SHA-256" in r.evidence for r in reviews)
-    lots = [p for r in corrections for p in r.promotions if p.multi_buy_quantity == 3]
+    lots = [p for r in corrections for p in r.promotions
+            if getattr(p, "multi_buy_quantity", None) == 3]
     assert len(lots) == 15
     assert all(p.multi_buy_price == 18 and p.sale_price is None for p in lots)
     assert all(any("supplémentaire" in c for c in p.conditions) for p in lots)
@@ -577,3 +578,36 @@ def test_ambiguous_red_bull_reward_remains_excluded():
                if r["publication"] == "83986" and r["sku"] in {"21542901", "21542944"}]
     assert len(reviews) == 2
     assert all(r["decision"] == "keep_rejected" and "promotions" not in r for r in reviews)
+
+
+@pytest.mark.parametrize("sku,field,value,incomplete,points", [
+    ("27676902", "percent", 50, True, None),
+    ("14180901", "percent", 25, False, None),
+    ("35353903", "amount", 7, False, 300),
+    ("44038401", "amount", 3, False, None),
+])
+def test_reviewed_discounts_preserve_basis_and_never_invent_sale_price(
+        sku, field, value, incomplete, points):
+    registry = json.loads((SCHEMAS.parent / "config/source-reviews/superc.json")
+                          .read_text(encoding="utf-8"))
+    reviewed = next(r for r in registry["reviews"]
+                    if r["publication"] == "83986" and r["sku"] == sku)
+    raw = record(sku=sku, salePriceFr=None, savingsPrefix="rabais de", pts=points or 0)
+    review = {**visual_review(raw, "normalize_v11"), "promotions": reviewed["promotions"]}
+    flyer, report = normalize_pages(META, [{"products": [raw]}], NOW, source_reviews=[review])
+    assert report["rejected_entries"] == 0
+    assert report["incomplete_entries"] == int(incomplete)
+    assert not report["ready_for_archive"]
+    discount = next(o.promotion for o in flyer.offers
+                    if getattr(o.promotion, "kind", None) == "conditional_discount")
+    assert getattr(discount, field) == value
+    assert not hasattr(discount, "sale_price")
+    assert discount.reference_basis == ("unspecified" if incomplete else "regular_price")
+    assert not discount.loyalty_required
+    rewards = [o.promotion for o in flyer.offers if getattr(o.promotion, "points", None)]
+    assert len(rewards) == int(points is not None)
+    if rewards:
+        assert rewards[0].points == points and rewards[0].sale_price is None
+        assert rewards[0].loyalty_required
+    for offer in flyer.offers:
+        validate_json(offer.model_dump(mode="json"), SCHEMAS / "offer.v1.1.schema.json")

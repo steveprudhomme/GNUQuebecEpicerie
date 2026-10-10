@@ -1,6 +1,6 @@
 # Feuille de route
 
-Mise à jour : 6 octobre 2026.
+Mise à jour : 10 octobre 2026.
 
 Le traitement s'exécute sur le PC local. GitHub reçoit le code, la documentation
 et, une fois validées, les archives de données. Les captures brutes et les
@@ -84,8 +84,12 @@ ne remplace pas une information source manquante.
   preuves visuelles et 27 exclusions motivées; 309 offres en brouillon local.
 - [x] Examiner les modalités des 25 entrées à points : 23 converties après lecture
   de la FAQ et des bandeaux; 2 Red Bull restent ambiguës. Bilan : 351 offres.
-- [ ] Résoudre les 14 rejets restants de 83986 : portée des points de 2 Red Bull,
-  2 avantages taxes/consigne, 6 prix/récompenses absents et 4 rabais ambigus.
+- [x] Représenter les 6 rabais en pourcentage et 4 rabais en dollars de 83986,
+  avec preuves visuelles et points séparés : 363 offres en brouillon.
+- [ ] Confirmer la base de calcul des 2 rabais de 50 % sur les pains : conditions
+  marquées incomplètes, aucun prix final calculé.
+- [ ] Résoudre les 4 rejets restants : portée des points de 2 Red Bull et
+  2 avantages taxes/consigne.
 - [ ] Produire des archives immuables avec provenance, empreintes et révisions traçables.
 - [ ] Tester plusieurs circulaires hebdomadaires successives et les changements
   apportés à une même circulaire.

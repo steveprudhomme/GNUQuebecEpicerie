@@ -2098,6 +2098,324 @@
       "record_sha256": "8290a0e50ab7f05b4be6a4e75d539a03d3f9a5962c558e343d2a911bd9fa7b8c",
       "decision": "keep_rejected",
       "evidence": "Visuels locaux examinés le 6 octobre 2026. Prix affiché et 80 points observés. Conditions d’attribution, activation éventuelle et portée des points à confirmer dans les bandeaux et conditions du programme; aucune validation des récompenses par le seul pictogramme. Preuve : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P21_NAT_12.jpeg?version=6e90b800 (SHA-256 8e78a424e57fbbffca837edf43d7c1ce83d5540ca5491dd16624c838e45a5e2c) Réexamen du 6 octobre : la FAQ distingue les bonus par produit et par quantité. Les 80 points Red Bull restent ambigus entre une unité et le lot de deux; exclusion maintenue. Référence : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68"
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "27676902",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-10",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "230243c13c2531ba9a3db875d0fbcd6ca3e06104db9d9b3d52631feeff1f5a53",
+      "decision": "normalize_v11",
+      "evidence": "Rabais de 50 % sur les pains St-Méthode annoncés, formats 550-625 g. Prix de référence et base de calcul non précisés dans le bloc; aucun prix final calculé. Visuel de la capture du 6 octobre examiné le 10 octobre 2026 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P1_NAT[!STH]_20.jpeg?version=6e90b800 (SHA-256 799292e7b2dbb0bddd24dd6876813dadbc114c806633219ae95b3dc59be8c9cd).",
+      "promotions": [
+        {
+          "kind": "conditional_discount",
+          "percent": 50,
+          "scope": "product",
+          "application": "per_item",
+          "reference_basis": "unspecified",
+          "eligibility": {
+            "qualifying_products": [
+              "pain tranché St‑Méthode — Le Noble, Royal, Grand-Père, Grand-Mère, Allongé, belge blé germé, 550-625 g, choix varié"
+            ]
+          },
+          "conditions": [
+            "Rabais de 50 % sur les pains St-Méthode annoncés, formats 550-625 g. Prix de référence et base de calcul non précisés dans le bloc; aucun prix final calculé."
+          ],
+          "conditions_complete": false
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "44099102",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-10",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "a0ebb4097cde41c12f45ff124678c64135cb9f74c521fff2b673f9190bdf231c",
+      "decision": "normalize_v11",
+      "evidence": "Rabais de 50 % sur les pains St-Méthode annoncés, formats 550-625 g. Prix de référence et base de calcul non précisés dans le bloc; aucun prix final calculé. Visuel de la capture du 6 octobre examiné le 10 octobre 2026 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P1_NAT[!STH]_20.jpeg?version=6e90b800 (SHA-256 799292e7b2dbb0bddd24dd6876813dadbc114c806633219ae95b3dc59be8c9cd).",
+      "promotions": [
+        {
+          "kind": "conditional_discount",
+          "percent": 50,
+          "scope": "product",
+          "application": "per_item",
+          "reference_basis": "unspecified",
+          "eligibility": {
+            "qualifying_products": [
+              "pain tranché St‑Méthode — Le Noble, Royal, Grand-Père, Grand-Mère, Allongé, belge blé germé, 550-625 g, choix varié"
+            ]
+          },
+          "conditions": [
+            "Rabais de 50 % sur les pains St-Méthode annoncés, formats 550-625 g. Prix de référence et base de calcul non précisés dans le bloc; aucun prix final calculé."
+          ],
+          "conditions_complete": false
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "14180901",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-10",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "2e6ff99d1ca1276e79f6ccc0d4ee6db5027e71022007932a52fb1da1fe4a70ff",
+      "decision": "normalize_v11",
+      "evidence": "Rabais de 25 % sur les vins annoncés, formats 750 ml-1 L. Prix réguliers affichés sous forme de plage de 11,19 $ à 17,19 $, sans attribution par variante; aucun prix final calculé. Visuel de la capture du 6 octobre examiné le 10 octobre 2026 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P2_NAT[!STH]_18.jpeg?version=6e90b800 (SHA-256 22a7b5447248189bde328a23cd5738bb9e7cc0a74493d010356146da6f7e8042).",
+      "promotions": [
+        {
+          "kind": "conditional_discount",
+          "percent": 25,
+          "scope": "product",
+          "application": "per_item",
+          "reference_basis": "regular_price",
+          "eligibility": {
+            "qualifying_products": [
+              "vin rouge, blanc ou rosé — 750 ml-1 L, choix varié"
+            ]
+          },
+          "conditions": [
+            "Rabais de 25 % sur les vins annoncés, formats 750 ml-1 L. Prix réguliers affichés sous forme de plage de 11,19 $ à 17,19 $, sans attribution par variante; aucun prix final calculé."
+          ],
+          "conditions_complete": true
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "18753002",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-10",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "33a8bbfa1a5622473ea2d7637f8f36a8738ca66839ef560d1114864fb249c014",
+      "decision": "normalize_v11",
+      "evidence": "Rabais de 25 % sur les vins annoncés, formats 750 ml-1 L. Prix réguliers affichés sous forme de plage de 11,19 $ à 17,19 $, sans attribution par variante; aucun prix final calculé. Visuel de la capture du 6 octobre examiné le 10 octobre 2026 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P2_NAT[!STH]_18.jpeg?version=6e90b800 (SHA-256 22a7b5447248189bde328a23cd5738bb9e7cc0a74493d010356146da6f7e8042).",
+      "promotions": [
+        {
+          "kind": "conditional_discount",
+          "percent": 25,
+          "scope": "product",
+          "application": "per_item",
+          "reference_basis": "regular_price",
+          "eligibility": {
+            "qualifying_products": [
+              "vin rouge, blanc ou rosé — 750 ml-1 L, choix varié"
+            ]
+          },
+          "conditions": [
+            "Rabais de 25 % sur les vins annoncés, formats 750 ml-1 L. Prix réguliers affichés sous forme de plage de 11,19 $ à 17,19 $, sans attribution par variante; aucun prix final calculé."
+          ],
+          "conditions_complete": true
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "29880202",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-10",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "814310ce639b526eadfac7d011b04cc205816734d6f56a64fe75b362036168a6",
+      "decision": "normalize_v11",
+      "evidence": "Rabais de 25 % sur les vins annoncés, formats 750 ml-1 L. Prix réguliers affichés sous forme de plage de 11,19 $ à 17,19 $, sans attribution par variante; aucun prix final calculé. Visuel de la capture du 6 octobre examiné le 10 octobre 2026 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P2_NAT[!STH]_18.jpeg?version=6e90b800 (SHA-256 22a7b5447248189bde328a23cd5738bb9e7cc0a74493d010356146da6f7e8042).",
+      "promotions": [
+        {
+          "kind": "conditional_discount",
+          "percent": 25,
+          "scope": "product",
+          "application": "per_item",
+          "reference_basis": "regular_price",
+          "eligibility": {
+            "qualifying_products": [
+              "vin rouge, blanc ou rosé — 750 ml-1 L, choix varié"
+            ]
+          },
+          "conditions": [
+            "Rabais de 25 % sur les vins annoncés, formats 750 ml-1 L. Prix réguliers affichés sous forme de plage de 11,19 $ à 17,19 $, sans attribution par variante; aucun prix final calculé."
+          ],
+          "conditions_complete": true
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "20867102",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-10",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "095b19597c2d591b1861298178ba70f7d8c706244823a54b3f6b285b57fb86f7",
+      "decision": "normalize_v11",
+      "evidence": "Rabais de 25 % sur les vins annoncés, formats 750 ml-1 L. Prix réguliers affichés sous forme de plage de 11,19 $ à 17,19 $, sans attribution par variante; aucun prix final calculé. Visuel de la capture du 6 octobre examiné le 10 octobre 2026 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P2_NAT[!STH]_18.jpeg?version=6e90b800 (SHA-256 22a7b5447248189bde328a23cd5738bb9e7cc0a74493d010356146da6f7e8042).",
+      "promotions": [
+        {
+          "kind": "conditional_discount",
+          "percent": 25,
+          "scope": "product",
+          "application": "per_item",
+          "reference_basis": "regular_price",
+          "eligibility": {
+            "qualifying_products": [
+              "vin rouge, blanc ou rosé — 750 ml-1 L, choix varié"
+            ]
+          },
+          "conditions": [
+            "Rabais de 25 % sur les vins annoncés, formats 750 ml-1 L. Prix réguliers affichés sous forme de plage de 11,19 $ à 17,19 $, sans attribution par variante; aucun prix final calculé."
+          ],
+          "conditions_complete": true
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "35353903",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-10",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "1284bab3b557eaba2c01a589de620b8388ad94e78da5ce159fbcaa21e11c07c1",
+      "decision": "normalize_v11",
+      "evidence": "Rabais public de 7 $ par vinier annoncé de 4 L. Prix réguliers affichés de 43,99 $ à 50,99 $, sans attribution par variante. Les 300 points Moi constituent une offre membre distincte; aucun prix final calculé. Visuel de la capture du 6 octobre examiné le 10 octobre 2026 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P19_NAT_1.jpeg?version=6e90b800 (SHA-256 c3f5b16a5b9369c3f1b7ae715f000e9b8fb66dc6e7834389f6a225eb6b749789). Distinction bonus sur produit identifié et coupons déjà établie par la FAQ KB0010898 consultée le 6 octobre : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 .",
+      "promotions": [
+        {
+          "kind": "conditional_discount",
+          "amount": 7,
+          "scope": "product",
+          "application": "per_item",
+          "reference_basis": "regular_price",
+          "eligibility": {
+            "qualifying_products": [
+              "vin rouge ou blanc — vinier 4 L, choix varié"
+            ]
+          },
+          "conditions": [
+            "Rabais public de 7 $ par vinier annoncé de 4 L. Prix réguliers affichés de 43,99 $ à 50,99 $, sans attribution par variante. Les 300 points Moi constituent une offre membre distincte; aucun prix final calculé."
+          ],
+          "conditions_complete": true
+        },
+        {
+          "points": 300,
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "conditions": [
+            "300 points bonus sur le vinier de 4 L identifié; présenter la carte Moi.",
+            "Modalités générales du programme Moi applicables; aucun doublement ni conversion en réduction du prix public."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "30798201",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-10",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "0c3dfd2335b0c189dd3f3018f019a6dfa7408f78b7852d6b900b6298078d903d",
+      "decision": "normalize_v11",
+      "evidence": "Rabais public de 7 $ par vinier annoncé de 4 L. Prix réguliers affichés de 43,99 $ à 50,99 $, sans attribution par variante. Les 300 points Moi constituent une offre membre distincte; aucun prix final calculé. Visuel de la capture du 6 octobre examiné le 10 octobre 2026 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P19_NAT_1.jpeg?version=6e90b800 (SHA-256 c3f5b16a5b9369c3f1b7ae715f000e9b8fb66dc6e7834389f6a225eb6b749789). Distinction bonus sur produit identifié et coupons déjà établie par la FAQ KB0010898 consultée le 6 octobre : https://centre-aide.programmemoi.ca/sac_moi?id=metro_kb_article&sysparm_article=KB0010898&topic_id=ab77b98a1b9d4254f909cbbe034bcb68 .",
+      "promotions": [
+        {
+          "kind": "conditional_discount",
+          "amount": 7,
+          "scope": "product",
+          "application": "per_item",
+          "reference_basis": "regular_price",
+          "eligibility": {
+            "qualifying_products": [
+              "vin rouge ou blanc — vinier 4 L, choix varié"
+            ]
+          },
+          "conditions": [
+            "Rabais public de 7 $ par vinier annoncé de 4 L. Prix réguliers affichés de 43,99 $ à 50,99 $, sans attribution par variante. Les 300 points Moi constituent une offre membre distincte; aucun prix final calculé."
+          ],
+          "conditions_complete": true
+        },
+        {
+          "points": 300,
+          "loyalty_required": true,
+          "loyalty_program": "moi",
+          "conditions": [
+            "300 points bonus sur le vinier de 4 L identifié; présenter la carte Moi.",
+            "Modalités générales du programme Moi applicables; aucun doublement ni conversion en réduction du prix public."
+          ]
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "44038401",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-10",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "8932c6d3886d3e4073d67ac359ea447ba80040be9d77f27fa03137f7cea6fe6f",
+      "decision": "normalize_v11",
+      "evidence": "Rabais public de 3 $ par bouteille annoncée de 750 ml, Les Trois Pignons ou Ciao Amore. Prix régulier affiché de 17,59 $; aucun prix final calculé. Visuel de la capture du 6 octobre examiné le 10 octobre 2026 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P19_NAT_2.jpeg?version=6e90b800 (SHA-256 faf394a7b376df33d973dc5d2878bea9750cac333e935bd48e08e2594e8e2a87).",
+      "promotions": [
+        {
+          "kind": "conditional_discount",
+          "amount": 3,
+          "scope": "product",
+          "application": "per_item",
+          "reference_basis": "regular_price",
+          "eligibility": {
+            "qualifying_products": [
+              "vin rouge ou blanc Les Trois Pignons, Ciao Amore — 750 ml, choix varié"
+            ]
+          },
+          "conditions": [
+            "Rabais public de 3 $ par bouteille annoncée de 750 ml, Les Trois Pignons ou Ciao Amore. Prix régulier affiché de 17,59 $; aucun prix final calculé."
+          ],
+          "conditions_complete": true
+        }
+      ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "40819501",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-10",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "3a2a3f2bf06499faabeae276b547a0adbbc198e0efea5dad4f125b40da153559",
+      "decision": "normalize_v11",
+      "evidence": "Rabais public de 3 $ par bouteille annoncée de 750 ml, Les Trois Pignons ou Ciao Amore. Prix régulier affiché de 17,59 $; aucun prix final calculé. Visuel de la capture du 6 octobre examiné le 10 octobre 2026 : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P19_NAT_2.jpeg?version=6e90b800 (SHA-256 faf394a7b376df33d973dc5d2878bea9750cac333e935bd48e08e2594e8e2a87).",
+      "promotions": [
+        {
+          "kind": "conditional_discount",
+          "amount": 3,
+          "scope": "product",
+          "application": "per_item",
+          "reference_basis": "regular_price",
+          "eligibility": {
+            "qualifying_products": [
+              "vin rouge ou blanc Les Trois Pignons, Ciao Amore — 750 ml, choix varié"
+            ]
+          },
+          "conditions": [
+            "Rabais public de 3 $ par bouteille annoncée de 750 ml, Les Trois Pignons ou Ciao Amore. Prix régulier affiché de 17,59 $; aucun prix final calculé."
+          ],
+          "conditions_complete": true
+        }
+      ]
     }
   ]
 }
