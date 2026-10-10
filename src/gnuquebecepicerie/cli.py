@@ -32,6 +32,8 @@ def normalize_superc(
         f"{report['skipped_entries']} blocs non commerciaux ignorés."
     )
     typer.echo(f"{report['incomplete_entries']} entrées aux conditions incomplètes.")
+    typer.echo(f"Bilan qualité : {output / 'quality.txt'}")
+    typer.echo("Archivage désactivé; validation commerciale exhaustive à réaliser.")
     if report["rejected_entries"] or report["incomplete_entries"]:
         raise typer.Exit(code=2)
 

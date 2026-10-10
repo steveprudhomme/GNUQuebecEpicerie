@@ -191,6 +191,10 @@ def test_snapshot_manifest_matches_source_and_repeat_is_deterministic(tmp_path, 
     before = {path.name: path.read_bytes() for path in output.iterdir()}
     normalize_snapshot(snapshot, "123", SCHEMAS)
     assert before == {path.name: path.read_bytes() for path in output.iterdir()}
+    quality = json.loads(before["quality.json"])
+    assert quality["review_coverage"]["accepted_without_recorded_review"] == 1
+    assert quality["ready_for_archive"] is False
+    assert "validation commerciale" in before["quality.txt"].decode("utf-8")
     flyer = json.loads(before["flyer.json"])
     manifest = json.loads(before["manifest.json"])
     expected_hash = "sha256:" + hashlib.sha256(before["source-input.bin"]).hexdigest()

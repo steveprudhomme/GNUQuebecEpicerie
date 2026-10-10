@@ -445,3 +445,38 @@ validés par les schémas V1.1. Les nouveaux tests distinguent pourcentage et mo
 conservent la base inconnue des pains, séparent points et rabais, et vérifient
 qu'aucun prix final n'est inventé. Les sorties restent locales sous 0.5.2;
 le rapport précédent est conservé dans `discount-review-20261010/before-report.json`.
+
+
+## Bilan qualité local — 10 octobre 2026
+
+Chaque exécution de `normalize-superc` écrit également `quality.json` et
+`quality.txt` dans le dossier du brouillon, sous `local/`. La commande affiche
+le chemin du bilan et rappelle que l'archivage reste désactivé. Le code de sortie
+0 indique toujours une conversion sans rejets ni conditions incomplètes, jamais
+une autorisation d'archiver.
+
+Le bilan vérifie que les compteurs d'entrées converties, rejetées et ignorées
+couvrent la source, que leurs indices sont cohérents et que les entrées aux
+conditions incomplètes font partie des entrées converties. Un comptage incohérent
+arrête la production du bilan. Les doublons d'offres retirés sont affichés
+séparément : une entrée peut produire plusieurs offres (prix public et points,
+par exemple), donc le nombre d'offres n'est pas le dénominateur de couverture.
+
+La couverture mesure les révisions effectivement appliquées au contenu source
+par le normaliseur, avec l'empreinte du registre utilisé. Elle ne mesure pas une
+validation exhaustive : une révision peut ne corriger qu'un prix ou une date.
+Même une couverture de 100 % laisse `ready_for_archive` à `false`. La validation
+commerciale exhaustive et l'activation de l'archivage restent à implémenter.
+Ce bilan est produit pendant la normalisation; il ne constitue pas un audit
+indépendant des fichiers qui auraient été modifiés ensuite ni une vérification
+des empreintes des images.
+
+| Publication | Entrées converties | Avec révision consignée | Sans révision consignée | Rejets | Conditions incomplètes |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 83817 | 317 | 20 | 297 | 2 | 8 |
+| 83986 | 341 | 56 | 285 | 4 | 2 |
+
+Les conditions incomplètes sont incluses dans les entrées converties. Les rejets
+sont exclus du dénominateur de couverture des conversions, même si une décision
+de maintien en révision est documentée. Les deux bilans réels restent locaux,
+ainsi que les captures et les brouillons. Vérification : 161 tests et Ruff réussis.

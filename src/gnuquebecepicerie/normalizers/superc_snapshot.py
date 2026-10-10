@@ -7,6 +7,7 @@ import json
 from datetime import datetime
 from pathlib import Path
 
+from gnuquebecepicerie.normalizers.quality import quality_report, quality_text
 from gnuquebecepicerie.normalizers.superc import (
     INTERNAL_STORE,
     NORMALIZER_VERSION,
@@ -76,10 +77,13 @@ def normalize_snapshot(snapshot: Path, publication: str, schemas: Path) -> tuple
     # Même sans rejet, les seuils historiques et la validation manuelle restent à réaliser.
     report["ready_for_archive"] = False
     report["status"] = "local_draft_requires_review"
+    quality = quality_report(report)
     output = snapshot / "normalized" / NORMALIZER_VERSION / publication
     write_json_atomic(output / "flyer.json", document)
     write_json_atomic(output / "manifest.json", manifest)
     write_json_atomic(output / "report.json", report)
+    write_json_atomic(output / "quality.json", quality)
+    (output / "quality.txt").write_text(quality_text(quality), encoding="utf-8")
     (output / "source-input.bin").write_bytes(framed)
     (output / "review.txt").write_text(review_text(report, publication), encoding="utf-8")
     return output, report

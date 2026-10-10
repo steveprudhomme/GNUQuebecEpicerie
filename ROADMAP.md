@@ -67,9 +67,20 @@ ne remplace pas une information source manquante.
   par rapport aux sources officielles.
 - [ ] Vérifier les dates commerciales, y compris les promotions de quelques jours.
 - [ ] Contrôler la complétude, les doublons et les écarts entre la source et les offres.
-- [ ] Enregistrer la couverture de validation et les anomalies non résolues.
+- [x] Produire un bilan local de conversion et de couverture des révisions consignées
+  (`quality.json` et `quality.txt`), avec motifs bloquant l'archivage.
+- [ ] Enregistrer une validation commerciale exhaustive par offre; les révisions
+  ponctuelles ne constituent pas cette validation.
+
 - [ ] Autoriser l'archivage seulement lorsque les critères de qualité sont satisfaits;
   ne jamais présenter une collecte partielle comme complète.
+
+Bilan du 10 octobre : pour 83986, 56 des 341 entrées converties ont une révision
+consignée (285 restent sans révision); 4 entrées sont rejetées et 2 converties
+ont des conditions incomplètes. Pour 83817, la couverture est de 20/317, avec
+2 rejets et 8 entrées incomplètes. Ces compteurs portent sur les entrées source,
+pas sur les 363 et 346 offres produites. Les tests de qualité font partie des
+161 tests réussis.
 
 ## 4. Finaliser le collecteur Super C local
 
