@@ -146,7 +146,8 @@ anomalies empêchent la publication des données concernées.
 - [x] Confirmer le magasin IGA 8270 sur la fiche officielle et sélectionner
   des-Rapides dans le lecteur Flipp; conserver les preuves localement.
 - [ ] Identifier le flux structuré du lecteur et vérifier sa portée magasin/publication.
-- [ ] Contrôler le magasin affiché et la semaine sélectionnée : l'URL seule ne
+- [x] Ajouter le diagnostic hors ligne du contexte navigateur (171 tests au total).
+- [ ] Intégrer à la capture automatique le contrôle du magasin et de la semaine : l'URL seule ne
   remplace pas la sélection; le lecteur peut afficher un autre magasin ou un aperçu.
 - [ ] Construire son diagnostic local, son normaliseur et son collecteur avec les
   mêmes exigences de provenance et de validation que Super C.

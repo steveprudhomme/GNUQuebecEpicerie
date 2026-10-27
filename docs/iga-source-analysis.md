@@ -62,3 +62,41 @@ d'URL `src` utilisable dans le DOM observé; le flux structuré reste à identif
 
 Le repérage IGA avance pendant la validation Super C. L'archivage et
 l'automatisation attendent les contrôles communs décrits dans ROADMAP.md.
+
+
+## Service public repéré et diagnostic de contexte
+
+Le DOM du site référence le script public
+`https://aq.flippenterprise.net/4592/iframe.js?ver=6.7`, téléchargé localement
+avec HTTP 200. Ce script décrit une base `https://dam.flippenterprise.net/hosted`
+et un chemin `/publications/{merchantNameIdentifier}`, avec notamment
+`store_code`, `postal_code`, `locale`, `languages[]` et `access_token`.
+Ces paramètres sont observés dans le code public générique; aucune réponse de
+publications pour Cartier n'a encore été récupérée ni validée.
+
+Le modèle d'URL de configuration exposé par ce script permet de lire
+`https://aq.flippenterprise.net/4592/config.json` (HTTP 200). Cette réponse
+contient les styles et options d'intégration, pas les paramètres complets du
+flux. Le nombre 4592 est le chemin d'intégration observé, distinct du numéro de
+magasin 8270 et de la publication 8193698. Un script Next.js référencé par IGA
+retourne HTTP 403 en accès direct. Aucun cookie de navigateur n'a été exporté
+et aucun contrôle d'accès n'a été contourné.
+
+Une commande hors ligne permet maintenant de contrôler une capture accessible
+complète du navigateur, enregistrée sous `local/` :
+
+```powershell
+gnuquebecepicerie inspect-iga-browser local/iga-discovery-20261027/cartier-current-ax.txt --publication 8193698 --valid-from 2026-10-22 --valid-to 2026-10-28
+```
+
+Elle produit `cartier-current-ax-context.json`, avec l'empreinte de la capture,
+les paramètres attendus et les anomalies. Elle vérifie la page, le magasin dans
+l'en-tête, l'unique onglet de publication sélectionné et ses jours/mois affichés.
+Un décalage renvoie le code 2. Le code 0 signifie uniquement que ces contrôles
+concordent : l'année fournie n'est pas attestée par l'onglet, la source n'est pas
+complète et `ready_for_archive` reste faux. Ce parseur est limité au format AX
+observé; une évolution de l'interface peut nécessiter son adaptation.
+
+Vérification : capture réelle 8193698 conforme aux contrôles de contexte;
+171 tests et Ruff réussis. Le téléchargement automatisé du flux structuré,
+la validation de l'année et la normalisation des offres restent à réaliser.

@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 import json
+from datetime import date
 from pathlib import Path
 from typing import Annotated
 
 import typer
 
 from gnuquebecepicerie import __version__
+from gnuquebecepicerie.analysis.iga import inspect_capture
 from gnuquebecepicerie.collectors import IGACollector, SuperCCollector
 from gnuquebecepicerie.normalizers.superc_snapshot import normalize_snapshot
 from gnuquebecepicerie.validators.schema import validate_json
@@ -73,3 +75,25 @@ def update(
     except NotImplementedError as exc:
         typer.echo(str(exc))
         raise typer.Exit(code=2) from exc
+
+
+@app.command("inspect-iga-browser")
+def inspect_iga_browser(
+    capture: Annotated[Path, typer.Argument(exists=True, dir_okay=False)],
+    publication: Annotated[str, typer.Option()],
+    valid_from: Annotated[str, typer.Option(help="Date attendue YYYY-MM-DD")],
+    valid_to: Annotated[str, typer.Option(help="Date attendue YYYY-MM-DD")],
+) -> None:
+    """Contrôle une capture navigateur IGA locale; ne valide ni n'archive les offres."""
+    try:
+        output = inspect_capture(capture, publication, date.fromisoformat(valid_from),
+                                 date.fromisoformat(valid_to))
+        report = json.loads(output.read_text(encoding="utf-8"))
+    except (ValueError, OSError) as exc:
+        typer.echo(f"Diagnostic arrêté : {exc}", err=True)
+        raise typer.Exit(code=2) from exc
+    typer.echo(f"Diagnostic local : {output}")
+    typer.echo("Année non certifiée; données commerciales non validées; archivage désactivé.")
+    if not report["context_checks_passed"]:
+        typer.echo("Contexte à revoir : " + ", ".join(report["context_issues"]))
+        raise typer.Exit(code=2)
