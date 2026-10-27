@@ -2416,6 +2416,18 @@
           "conditions_complete": true
         }
       ]
+    },
+    {
+      "publication": "83986",
+      "source_store_id": "447",
+      "sku": "14271203",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-10-07",
+      "observed_at": "2026-10-27",
+      "source_url": "https://circulaire.superc.ca/flyer/83986?storeId=447&language=fr",
+      "record_sha256": "a3e866ccabe9b70a9a7fcec3371b003fd5e7c21999822e4d2d82cc8621bb37d0",
+      "decision": "keep_rejected",
+      "evidence": "Visuel local de la capture du 6 octobre examiné le 27 octobre : poulet désossé ordinaire 4,87 $/lb (10,74 $/kg), halal 5,87 $/lb (12,94 $/kg). Le libellé JSON regroupe les deux variantes sous un seul SKU et un seul prix principal. Ne pas appliquer 4,87 $/lb au halal; conserver en quarantaine jusqu’à séparation prouvée des variantes. Image : https://metrocommonapi.blob.core.windows.net/83986/images/83986_83986_P1_NAT[!STH]_1.jpeg?version=6e90b800 ; SHA-256 : 1225616b5ccee4b8a66f2268b816af95a065d18ff194d13c7458bedd9298aed9"
     }
   ]
 }

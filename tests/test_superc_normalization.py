@@ -543,8 +543,8 @@ def test_october_visual_registry_preserves_unresolved_rewards_and_lot_conditions
     registry = json.loads((SCHEMAS.parent / "config/source-reviews/superc.json")
                           .read_text(encoding="utf-8"))
     reviews = [r for r in validate_reviews(registry["reviews"]) if r.publication == "83986"]
-    assert len(reviews) == 60
-    assert sum(r.decision == "keep_rejected" for r in reviews) == 4
+    assert len(reviews) == 61
+    assert sum(r.decision == "keep_rejected" for r in reviews) == 5
     corrections = [r for r in reviews if r.decision == "normalize_v11"]
     assert len(corrections) == 56
     assert all("SHA-256" in r.evidence for r in reviews)
@@ -615,3 +615,25 @@ def test_reviewed_discounts_preserve_basis_and_never_invent_sale_price(
         assert rewards[0].loyalty_required
     for offer in flyer.offers:
         validate_json(offer.model_dump(mode="json"), SCHEMAS / "offer.v1.1.schema.json")
+
+
+def test_reviewed_mixed_chicken_variants_are_quarantined():
+    from gnuquebecepicerie.normalizers.superc_reviews import record_digest
+
+    registry = json.loads((SCHEMAS.parent / "config/source-reviews/superc.json")
+                          .read_text(encoding="utf-8"))
+    review = next(r for r in registry["reviews"]
+                  if r["publication"] == "83986" and r["sku"] == "14271203")
+    assert review["decision"] == "keep_rejected"
+    assert "4,87" in review["evidence"] and "5,87" in review["evidence"]
+    raw = record(sku="14271203", productFr="Poulet ordinaire OU halal",
+                 salePriceFr="4.87", promoUnitFr="/lb", alternatePriceFr="5,87/lb halal")
+    scoped = {**review, "publication": "123", "valid_from": "2026-09-17",
+              "valid_to": "2026-09-23", "record_sha256": record_digest(raw),
+              "source_url": "https://circulaire.superc.ca/flyer/123?storeId=447&language=fr"}
+    flyer, report = normalize_pages(META, [{"products": [raw]}], NOW,
+                                    source_reviews=[scoped])
+    assert not flyer.offers
+    assert report["rejected_entries"] == 1
+    assert report["rejected"][0]["source_review"]["record_sha256"] == record_digest(raw)
+    assert not report["normalization_complete"]

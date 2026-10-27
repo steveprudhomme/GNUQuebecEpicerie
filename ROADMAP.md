@@ -1,6 +1,6 @@
 # Feuille de route
 
-Mise à jour : 10 octobre 2026.
+Mise à jour : 27 octobre 2026.
 
 Le traitement s'exécute sur le PC local. GitHub reçoit le code, la documentation
 et, une fois validées, les archives de données. Les captures brutes et les
@@ -19,6 +19,35 @@ Pour la circulaire historique 83817, le normaliseur 0.5.2 produit **346 offres e
 rejetées et 8 entrées converties gardent des conditions incomplètes**. La validation V1.1 complète les 96 tests de la normalisation et du contrat V1. Ces résultats
 ne constituent pas une validation commerciale exhaustive. L'archivage automatique
 reste désactivé et les collecteurs réseau complets restent à implémenter.
+
+## Passage à IGA : ce qui reste et ce qui peut commencer
+
+Le repérage de la source IGA commence maintenant; il n'exige pas de résoudre
+chaque promotion historique Super C. L'identifiant du magasin dans la plateforme
+de circulaires reste à vérifier. Voir [le diagnostic IGA](docs/iga-source-analysis.md).
+
+Avant de finaliser puis d'activer le collecteur IGA, trois grands jalons Super C
+et communs restent ouverts (ce ne sont pas trois interventions de durée fixe) :
+
+1. **Validation commerciale** : examiner les entrées restantes, corriger les
+   erreurs et isoler explicitement les cas ambigus. Une exclusion ne rend pas
+   la circulaire complète; ne pas annoncer une couverture exhaustive.
+2. **Flux local et archivage contrôlé** : relier capture, normalisation et
+   validation, conserver les preuves et empêcher la publication des brouillons.
+3. **Reproductibilité sur plusieurs semaines** : gérer les changements de source,
+   les erreurs et les réexécutions sans produire de fausses nouvelles archives.
+
+L'identification du magasin, l'inspection de la source et un diagnostic local IGA
+peuvent avancer pendant ces travaux. Le normaliseur IGA sera développé une fois
+son format source observé; l'activation attendra les contrôles communs et les
+tests propres à IGA. Les anciennes ambiguïtés Super C resteront en quarantaine
+si leurs preuves sont introuvables.
+
+Le 27 octobre, une révision de la première page de 83986 a révélé deux prix de
+poulet fusionnés dans une entrée : 4,87 $/lb ordinaire et 5,87 $/lb halal.
+Cette entrée est désormais exclue : **362 offres, 340 entrées converties,
+5 rejets et 2 entrées incomplètes**. Révision consignée pour 56/340 entrées
+converties; 284 restent sans révision consignée. **162 tests réussis**.
 
 ## 1. Préparer le schéma V1.1 — contrat et tests réalisés
 
@@ -110,6 +139,9 @@ Critère de fin : plusieurs semaines sont traitées de façon reproductible et l
 anomalies empêchent la publication des données concernées.
 
 ## 5. Ajouter IGA Cartier et la comparaison
+
+- [x] Commencer le repérage des pages officielles : localisateur et circulaire
+  sur `iga.ca`, après redirection de l'ancienne page `iga.net` (27 octobre).
 
 - [ ] Identifier et vérifier la source et l'identifiant du magasin IGA de référence.
 - [ ] Construire son diagnostic local, son normaliseur et son collecteur avec les

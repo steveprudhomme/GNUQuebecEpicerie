@@ -480,3 +480,21 @@ Les conditions incomplètes sont incluses dans les entrées converties. Les reje
 sont exclus du dénominateur de couverture des conversions, même si une décision
 de maintien en révision est documentée. Les deux bilans réels restent locaux,
 ainsi que les captures et les brouillons. Vérification : 161 tests et Ruff réussis.
+
+
+## Variantes à prix distincts — 27 octobre 2026
+
+Le visuel de première page de 83986, associé au SKU 14271203, affiche les
+poitrines ordinaires à 4,87 $/lb (10,74 $/kg) et halal à 5,87 $/lb (12,94 $/kg).
+Le JSON les regroupe sous un même libellé et un même prix principal. L'image
+locale a été ouverte et son empreinte vérifiée contre le manifeste des visuels.
+Une décision `keep_rejected`, limitée à l'empreinte de cette entrée, empêche
+désormais d'attribuer le prix ordinaire à la variante halal. La séparation des
+variantes reste à implémenter avec une provenance explicite; aucun SKU n'est inventé.
+
+Le registre compte maintenant 61 révisions pour 83986 : 56 corrections V1.1 et
+5 exclusions. Bilan régénéré : 362 offres, 340 entrées converties, 5 rejets,
+2 entrées incomplètes; 56/340 conversions ont une révision consignée, 284 non.
+Les rapports précédents sont conservés localement dans `variant-review-20261027`.
+Le test de régression vérifie que cette décision retire une entrée autrement
+convertible; les 162 tests et Ruff passent. L'archivage reste désactivé.
