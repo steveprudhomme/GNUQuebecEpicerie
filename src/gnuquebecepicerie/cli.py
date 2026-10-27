@@ -9,6 +9,7 @@ import typer
 
 from gnuquebecepicerie import __version__
 from gnuquebecepicerie.analysis.iga import inspect_capture
+from gnuquebecepicerie.analysis.iga_har import inspect_har_file
 from gnuquebecepicerie.collectors import IGACollector, SuperCCollector
 from gnuquebecepicerie.normalizers.superc_snapshot import normalize_snapshot
 from gnuquebecepicerie.validators.schema import validate_json
@@ -96,4 +97,19 @@ def inspect_iga_browser(
     typer.echo("Année non certifiée; données commerciales non validées; archivage désactivé.")
     if not report["context_checks_passed"]:
         typer.echo("Contexte à revoir : " + ", ".join(report["context_issues"]))
+        raise typer.Exit(code=2)
+
+
+@app.command("inspect-iga-har")
+def inspect_iga_har(capture: Annotated[Path, typer.Argument(exists=True, dir_okay=False)]) -> None:
+    """Repère les réponses de publications Cartier dans un export réseau local."""
+    try:
+        output, report = inspect_har_file(capture)
+    except (ValueError, OSError) as exc:
+        typer.echo(f"Diagnostic arrêté : {exc}", err=True)
+        raise typer.Exit(code=2) from exc
+    typer.echo(f"Diagnostic local sans cookies ni jetons : {output}")
+    typer.echo("Aucune requête rejouée; aucune archive commerciale produite.")
+    if not report["source_response_found"]:
+        typer.echo("Réponse JSON de publications pour le magasin 8270 non trouvée.")
         raise typer.Exit(code=2)

@@ -100,3 +100,44 @@ observé; une évolution de l'interface peut nécessiter son adaptation.
 Vérification : capture réelle 8193698 conforme aux contrôles de contexte;
 171 tests et Ruff réussis. Le téléchargement automatisé du flux structuré,
 la validation de l'année et la normalisation des offres restent à réaliser.
+
+
+## Étape nécessitant une capture réseau du navigateur
+
+Le navigateur disponible permet de lire la page et ses éléments, mais n'expose
+pas ses requêtes réseau à l'agent. Les attributs DOM du lecteur ne contiennent
+pas les paramètres d'intégration manquants. Le flux exact n'est donc toujours
+pas confirmé : ne pas inventer le nom marchand ni les paramètres d'accès.
+
+Pour fournir la preuve manquante depuis le PC :
+
+1. Ouvrir la circulaire IGA dans Chrome ou Edge, sélectionner explicitement
+   IGA Extra des-Rapides (8270), puis vérifier la semaine souhaitée.
+2. Ouvrir les outils de développement, onglet Réseau (Network), et démarrer
+   l'enregistrement avant de recharger la circulaire.
+3. Exporter le journal au format HAR avec le contenu des réponses, en utilisant
+   l'export sans données sensibles proposé par le navigateur. Ne pas activer
+   l'export des cookies ou des en-têtes d'authentification.
+4. Enregistrer sous `local/iga-network.har` dans le projet. Ne pas ajouter ce
+   fichier à Git et ne pas le téléverser dans la conversation.
+
+La commande suivante travaille entièrement hors ligne :
+
+```powershell
+gnuquebecepicerie inspect-iga-har local/iga-network.har
+```
+
+Elle recherche exclusivement les requêtes GET HTTPS du chemin de publications
+observé sur `dam.flippenterprise.net`, avec un unique `store_code=8270`.
+Elle signale les réponses manquantes, non JSON, refusées ou d'un autre magasin.
+Le rapport adjacent conserve l'empreinte du HAR, le chemin du service et les
+résultats techniques; il exclut toutes les chaînes de requête, les en-têtes,
+les cookies et les corps de réponse. Le HAR original reste intact et local.
+Aucune requête n'est rejouée. Une réponse JSON reconnue n'est pas une validation
+de son schéma, de ses publications, de l'année ou des prix : cette inspection
+reste à faire après réception d'une capture réelle. Si le service observé
+utilise un autre chemin, le diagnostic ne le devine pas et doit être adapté
+sur preuve.
+
+Validation : 183 tests réussis et Ruff réussi. Les nouveaux tests utilisent des
+exports fictifs; aucun export réseau réel IGA n'a encore été fourni.

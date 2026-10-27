@@ -145,6 +145,9 @@ anomalies empêchent la publication des données concernées.
 
 - [x] Confirmer le magasin IGA 8270 sur la fiche officielle et sélectionner
   des-Rapides dans le lecteur Flipp; conserver les preuves localement.
+- [x] Préparer l'inspection hors ligne d'un export HAR, sans recopier cookies,
+  jetons ni corps de réponse dans le rapport (183 tests au total).
+- [ ] Obtenir une capture réseau réelle du lecteur sur le PC (`local/iga-network.har`).
 - [ ] Identifier le flux structuré du lecteur et vérifier sa portée magasin/publication.
 - [x] Ajouter le diagnostic hors ligne du contexte navigateur (171 tests au total).
 - [ ] Intégrer à la capture automatique le contrôle du magasin et de la semaine : l'URL seule ne
