@@ -1,39 +1,64 @@
-# Diagnostic IGA Cartier — repérage initial
+# Diagnostic IGA Cartier
 
-Observation : 27 octobre 2026. Collecteur désactivé; aucune promotion IGA collectée.
+Observation : 27 octobre 2026. Collecteur désactivé; aucune archive IGA produite.
 
-## Magasin cible
+## Magasin et lecteur confirmés dans le navigateur
 
-IGA extra des-Rapides, 307 boulevard Cartier Ouest, Laval, H7N 2J1.
-Identifiant interne : `iga-laval-cartier-ouest-307`. L'adresse déjà consignée
-reste la cible choisie; l'identifiant de la plateforme de circulaires n'est pas
-encore confirmé et `source_store_id` reste nul dans la configuration.
+La [fiche officielle](https://www.iga.ca/fr/magasins/8270-iga-extra-des-rapides)
+associe IGA Extra des-Rapides au 307 boulevard Cartier Ouest, Laval, H7N2J1.
+Son lien « Consulter la Circulaire » utilise
+[le numéro 8270](https://www.iga.ca/flyer?set_preferred_store_number=8270).
+Ce numéro est enregistré comme `source_store_id`; l'identifiant interne reste
+`iga-laval-cartier-ouest-307`. Il s'agit du numéro de magasin IGA, pas d'un
+identifiant de publication Flipp.
 
-## Pages officielles observées
+Le lecteur de circulaires intégré porte la mention « Généré par Flipp ».
+Après sélection explicite du magasin, l'en-tête et la zone circulaire affichent
+IGA Extra des-Rapides. La semaine du 22 au 28 octobre a été sélectionnée : son
+onglet expose `filmstrip-8193698`. L'aperçu du 29 octobre au 4 novembre expose
+`filmstrip-8208962`. Ces identifiants sont observés dans l'interface; ils ne
+constituent pas encore un contrat d'API ni une preuve de portée exclusive au magasin.
 
-- L'ouverture de [l'ancienne page IGA](https://www.iga.net/validation-fr.html)
-  aboutit à [iga.ca](https://www.iga.ca/validation-fr.html).
-- Le menu mène au [localisateur](https://www.iga.ca/store-locator).
-- Le menu mène à la [circulaire](https://www.iga.ca/flyer).
+## Deux contrôles indispensables
 
-Dans la lecture web accessible, le localisateur expose une recherche et des
-filtres, mais aucune fiche permettant de vérifier Cartier. La page circulaire
-expose son cadre et un indicateur de chargement, sans les produits ni
-l'association au magasin. Cela ne prouve ni l'absence de données ni une erreur
-sur le site. Aucun identifiant n'est déduit d'un annuaire tiers ou d'un ancien
-numéro de magasin. Ce repérage web n'est pas encore une capture reproductible
-réalisée sur le PC.
+1. **Magasin réellement affiché** : ouvrir le lien contenant 8270 conservait
+   initialement IGA Atwater. Il a fallu utiliser « Sélectionnez ce magasin » sur
+   la fiche Cartier, confirmer le changement, puis rouvrir la circulaire.
+   Le paramètre de l'URL seul ne suffit donc pas à attribuer les offres à Cartier.
+2. **Période réellement sélectionnée** : le lecteur affichait d'abord l'aperçu
+   du 29 octobre au 4 novembre. La semaine courante du 22 au 28 octobre doit être
+   choisie explicitement pour une collecte au 27 octobre.
+
+L'interface montre des doublons de produits, des prix Scène+, des quantités par
+lot et des conditions distinctes. Dans la semaine courante, la fiche de fondue
+surgelée affiche une condition valable du 22 au 24 octobre 2026 et la mention
+« Expiré ». Ne pas étendre ces dates à toute la circulaire. Le lecteur précise
+également que le visuel de la circulaire prévaut en cas de désaccord avec la fiche.
+
+## Preuves locales et accès
+
+Le diagnostic est conservé sous `local/iga-discovery-20261027/` :
+
+- `cartier-current-ax.txt` : état accessible complet du navigateur après sélection;
+- `cartier-current.png` : capture montrant le magasin et la fiche produit;
+- `store-locator.html` : réponse de refus HTTP 403 à la tentative directe;
+- `manifest.json` : URL, numéro de magasin, publication observée, empreintes et limites.
+
+Ces fichiers restent hors Git. Il ne s'agit pas d'une capture complète des
+réponses sources ou des visuels. Le téléchargement HTTP direct du localisateur
+retourne 403, tandis que la navigation ordinaire fonctionne. Aucun contournement
+ni transfert de cookies n'a été effectué. Les cadres du lecteur n'exposent pas
+d'URL `src` utilisable dans le DOM observé; le flux structuré reste à identifier.
 
 ## Prochaines actions
 
-1. Sélectionner Cartier dans le site officiel et confirmer nom, adresse et
-   identifiant réellement utilisé par la circulaire.
-2. Observer la source publique chargée par cette page, sa langue, sa période,
-   la portée magasin/région et les éventuelles conditions membre.
-3. Construire le diagnostic local : réponses sources et visuels sous `local/`,
-   URL, horodatage, empreintes et rapport des données manquantes.
-4. Développer le normaliseur et ses tests à partir de captures réelles, puis
-   vérifier plusieurs semaines avant toute activation.
+- Observer le flux public utilisé par le lecteur officiel et vérifier le lien
+  entre magasin, publication, langue, période et données produits.
+- Préparer une capture locale reproductible avec arrêt sur mauvais magasin,
+  mauvaise semaine, refus réseau ou source incomplète.
+- Développer le normaliseur à partir des données réellement capturées : dates
+  par offre, prix public/membre, lots, points conditionnels et doublons.
+- Valider les visuels et plusieurs semaines avant toute activation ou publication.
 
-Le repérage IGA peut avancer pendant la validation Super C. L'archivage et
-l'automatisation IGA attendent les contrôles communs décrits dans ROADMAP.md.
+Le repérage IGA avance pendant la validation Super C. L'archivage et
+l'automatisation attendent les contrôles communs décrits dans ROADMAP.md.

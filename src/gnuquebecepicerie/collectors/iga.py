@@ -6,10 +6,10 @@ from gnuquebecepicerie.models import Flyer
 
 class IGACollector(Collector):
     retailer_id = "iga"
-    public_flyer_url = "https://www.iga.net/fr/circulaire"
+    public_flyer_url = "https://www.iga.ca/fr/circulaire"
 
     def collect(self, store_id: str) -> Flyer:
         raise NotImplementedError(
-            "Le collecteur IGA sera implémenté à la phase 1 "
+            "Le magasin IGA 8270 est identifié; le collecteur sera implémenté "
             "après validation de la source structurée."
         )

@@ -23,6 +23,6 @@ stores:
     timezone: America/Toronto
     locale: fr-CA
     enabled: false
-    source_store_id: null
-    source_url: https://emplois.iga.net/emplois/detail/133653
-    notes: "Adresse attestée par IGA. Identifiant de la plateforme de circulaires à vérifier."
+    source_store_id: "8270"
+    source_url: https://www.iga.ca/fr/magasins/8270-iga-extra-des-rapides
+    notes: "Numéro de magasin IGA 8270 confirmé le 2026-10-27 par la fiche et son lien de circulaire. Sélection explicite du magasin requise; lecteur Flipp. Flux structuré à vérifier; voir docs/iga-source-analysis.md."

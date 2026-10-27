@@ -23,8 +23,8 @@ reste désactivé et les collecteurs réseau complets restent à implémenter.
 ## Passage à IGA : ce qui reste et ce qui peut commencer
 
 Le repérage de la source IGA commence maintenant; il n'exige pas de résoudre
-chaque promotion historique Super C. L'identifiant du magasin dans la plateforme
-de circulaires reste à vérifier. Voir [le diagnostic IGA](docs/iga-source-analysis.md).
+chaque promotion historique Super C. Le numéro IGA 8270 et le lecteur Flipp sont confirmés; le flux structuré
+et son association à la publication restent à vérifier. Voir [le diagnostic IGA](docs/iga-source-analysis.md).
 
 Avant de finaliser puis d'activer le collecteur IGA, trois grands jalons Super C
 et communs restent ouverts (ce ne sont pas trois interventions de durée fixe) :
@@ -143,7 +143,11 @@ anomalies empêchent la publication des données concernées.
 - [x] Commencer le repérage des pages officielles : localisateur et circulaire
   sur `iga.ca`, après redirection de l'ancienne page `iga.net` (27 octobre).
 
-- [ ] Identifier et vérifier la source et l'identifiant du magasin IGA de référence.
+- [x] Confirmer le magasin IGA 8270 sur la fiche officielle et sélectionner
+  des-Rapides dans le lecteur Flipp; conserver les preuves localement.
+- [ ] Identifier le flux structuré du lecteur et vérifier sa portée magasin/publication.
+- [ ] Contrôler le magasin affiché et la semaine sélectionnée : l'URL seule ne
+  remplace pas la sélection; le lecteur peut afficher un autre magasin ou un aperçu.
 - [ ] Construire son diagnostic local, son normaliseur et son collecteur avec les
   mêmes exigences de provenance et de validation que Super C.
 - [ ] Tester plusieurs circulaires IGA avant activation.
